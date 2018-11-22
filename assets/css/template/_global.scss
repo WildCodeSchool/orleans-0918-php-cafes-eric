@@ -1,9 +1,9 @@
 body {
   @include body-font;
-  background: linear-gradient(rgba(47, 23, 15, 0.65)), url('../img/bg.jpg');
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
+  background-color:#FFB69E;
 }
 
 h1,
@@ -56,7 +56,8 @@ p {
   }
   .section-heading-lower {
     display: block;
-    font-size: 3rem;
+    padding-top:0.5rem;
+    font-size: 1.5rem;
     font-weight: 100;
   }
 }
