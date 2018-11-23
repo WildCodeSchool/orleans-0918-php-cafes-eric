@@ -1,3 +1,11 @@
 @import "~bootstrap/scss/bootstrap";
 @import "/template/business-casual";
+@import "category";
 
+body {
+  @include body-font;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  background-color: $pink-001;
+}
