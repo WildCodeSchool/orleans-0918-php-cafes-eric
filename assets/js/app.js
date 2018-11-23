@@ -15,7 +15,5 @@ $(document).ready(function() {
     $('[data-toggle="popover"]').popover();
 });
 
-// Need jQuery? Install it with "yarn add jquery", then uncomment to require it.
-// var $ = require('jquery');
+require('../images/teaImages/presentation_tea.jpg');
 
-console.log('Hello Webpack Encore! Edit me in assets/js/app.js');
