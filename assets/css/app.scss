@@ -1,13 +1,10 @@
 @import "~bootstrap/scss/bootstrap";
 @import "/template/business-casual";
-@import "category";
 @import "variables.scss";
+@import "global";
+@import "category";
 
-body {
-  @include body-font;
-  background-attachment: fixed;
-  background-position: center;
-  background-size: cover;
-  background-color: $secondaryColor;
-}
+
+
+
 
