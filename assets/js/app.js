@@ -16,4 +16,6 @@ $(document).ready(function() {
 });
 
 require('../images/teaImages/presentation_tea.jpg');
+require('../images/coffeeImages/coffee_beans.jpg');
+
 

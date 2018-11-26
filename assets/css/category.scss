@@ -2,13 +2,14 @@
   position: relative;
   @media (min-width: 992px) {
     .intro-img {
-      width: 70%;
+      width: 777px;
+      height:518px;
       float: left;
     }
     .intro-text {
-      left: 550px;
-      width: 80%;
-      margin-top: 1rem;
+      left: 600px;
+      width: 100%;
+      margin-top: 2%;
       position: absolute;
       .intro-button {
         width: 100%;
@@ -20,7 +21,7 @@
   }
   @media (min-width: 1200px) {
     .intro-text {
-      width: 45%;
+      width: 55%;
     }
   }
 }
@@ -42,3 +43,8 @@
     font-weight: 100;
   }
 }
+
+li{
+  list-style-type: circle;
+}
+
