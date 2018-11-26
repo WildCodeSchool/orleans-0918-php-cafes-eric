@@ -2,6 +2,7 @@
 @import "/template/business-casual";
 @import "category";
 @import "variables.scss";
+@import "footer";
 
 body {
   @include body-font;
