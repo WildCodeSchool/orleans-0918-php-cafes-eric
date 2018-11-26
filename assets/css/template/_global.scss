@@ -1,5 +1,6 @@
 body {
   @include body-font;
+  background: url('../images/homeImages/coffeBackGround.jpg');
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
