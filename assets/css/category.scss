@@ -9,7 +9,6 @@
     .intro-text {
       left: 600px;
       width: 100%;
-      margin-top: 2%;
       position: absolute;
       .intro-button {
         width: 100%;
@@ -41,10 +40,19 @@
     padding-top: 0.5rem;
     font-size: 1.5rem;
     font-weight: 100;
+    font-style: oblique;
   }
 }
 
 li{
   list-style-type: circle;
 }
+
+hr{
+  width: 250px;
+  border: 1px $touch
+  solid ;
+}
+
+
 
