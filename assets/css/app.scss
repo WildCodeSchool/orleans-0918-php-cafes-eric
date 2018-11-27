@@ -1,8 +1,9 @@
 @import "~bootstrap/scss/bootstrap";
-@import "global";
 @import "/template/business-casual";
-@import "category";
+@import "~@fortawesome/fontawesome-free/css/all.min.css";
 @import "variables.scss";
+@import "global";
+@import "category";
 
 body {
   @include body-font;
@@ -11,4 +12,3 @@ body {
   background-size: cover;
   background-color: $secondaryColor;
 }
-
