@@ -1,0 +1,10 @@
+.text-faded {
+  color: fade-out($thirdColor, 0);
+}
+
+address {
+  i {
+    color:$thirdColor;
+    font-size: 2em;
+  }
+}
