@@ -1,9 +1,9 @@
 @import "~bootstrap/scss/bootstrap";
 @import "/template/business-casual";
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
-@import "category";
 @import "variables.scss";
-@import "footer";
+@import "global";
+@import "category";
 
 body {
   @include body-font;
