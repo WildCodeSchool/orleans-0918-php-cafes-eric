@@ -2,7 +2,7 @@
   position: relative;
   @media (min-width: 992px) {
     .intro-img {
-      width: 777px;
+      width:777px;
       height:518px;
       float: left;
     }
@@ -44,8 +44,78 @@
   }
 }
 
+.intro-tea {
+  position: relative;
+  @media (min-width: 992px) {
+    .intro-img {
+      width:777px;
+      float: left;
+    }
+    .intro-text {
+      left: 600px;
+      width: 100%;
+      position: absolute;
+      .intro-button {
+        width: 100%;
+        left: 0;
+        position: absolute;
+        bottom: -2rem;
+      }
+    }
+  }
+  @media (min-width: 1200px) {
+    .intro-text {
+      width: 55%;
+    }
+  }
+}
+
+
+.section-heading-tea {
+  text-transform: uppercase;
+
+  .section-heading-upper-tea {
+    display: block;
+    font-size: 1rem;
+    font-weight: 800;
+  }
+
+  .section-heading-lower-tea {
+    display: block;
+    padding-top: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 100;
+    font-style: oblique;
+  }
+}
+
+.colorli {
+  list-style: none;
+  counter-reset: li;
+
+  li {
+    counter-increment: li;
+    list-style-type: none;
+  }
+
+  li::before {
+    content:counter(li);
+    color: $touch;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+  }
+}
+
 li{
-  list-style-type: circle;
+  list-style-type: none;
+}
+li::before {
+  content: "\A4\ ";
+  color: $touch;
+  display:inline-block;
+  width: 1em;
+  margin-left: -1em;
 }
 
 hr{
@@ -53,6 +123,7 @@ hr{
   border: 1px $touch
   solid ;
 }
-
-
-
+  
+.oblic {
+  font-style: oblique;
+}
