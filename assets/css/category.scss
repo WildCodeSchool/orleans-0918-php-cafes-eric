@@ -44,20 +44,23 @@
   }
 }
 
-ol {
+.colorli {
   list-style: none;
-  counter-reset: li }
+  counter-reset: li;
+
   li {
-    counter-increment: li
+    counter-increment: li;
   }
 
   li::before {
-    content: counter(li);
+    content:counter(li);
     color: $touch;
     display: inline-block;
     width: 1em;
     margin-left: -1em
   }
+}
+
 
 hr{
   width: 250px;
