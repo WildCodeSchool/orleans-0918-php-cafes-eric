@@ -7,31 +7,31 @@
                         <span class="section-heading-lower">Horaires du magasin</span>
                     </h2>
                     <ul class="list-unstyled list-hours mb-5 text-left mx-auto">
-                        <li class="list-unstyled-item list-hours-item d-flex">
+                        <li class="list-unstyled-item list-hours-item d-flex {{ 'now'|date('D') =='Mon' ? 'today'}}">
                             Lundi
                             <span class="ml-auto">14h-19h</span>
                         </li>
-                        <li class="list-unstyled-item list-hours-item d-flex">
+                        <li class="list-unstyled-item list-hours-item d-flex {{ 'now'|date('D') =='Tue' ? 'today'}}">
                             Mardi
                             <span class="ml-auto">09h-13h 14h-19h</span>
                         </li>
-                        <li class="list-unstyled-item list-hours-item d-flex">
+                        <li class="list-unstyled-item list-hours-item d-flex {{ 'now'|date('D') =='Wed' ? 'today'}}">
                             Mercredi
                             <span class="ml-auto">09h-13h 14h-19h</span>
                         </li>
-                        <li class="list-unstyled-item list-hours-item d-flex">
+                        <li class="list-unstyled-item list-hours-item d-flex {{ 'now'|date('D') =='Thu' ? 'today'}}">
                             Jeudi
                             <span class="ml-auto">09h-13h 14h-19h</span>
                         </li>
-                        <li class="list-unstyled-item list-hours-item d-flex">
+                        <li class="list-unstyled-item list-hours-item d-flex {{ 'now'|date('D') =='Fri' ? 'today'}}">
                             Vendredi
                             <span class="ml-auto">09h-13h 14h-19h</span>
                         </li>
-                        <li class="list-unstyled-item list-hours-item d-flex">
+                        <li class="list-unstyled-item list-hours-item d-flex {{ 'now'|date('D') =='Sat' ? 'today'}}">
                             Samedi
                             <span class="ml-auto">09h-19h</span>
                         </li>
-                        <li class="list-unstyled-item list-hours-item d-flex">
+                        <li class="list-unstyled-item list-hours-item d-flex {{ 'now'|date('D') =='Sun' ? 'today'}}">
                             Dimanche
                             <span class="ml-auto">Fermé</span>
                         </li>

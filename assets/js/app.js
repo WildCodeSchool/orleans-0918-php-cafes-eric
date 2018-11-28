@@ -18,7 +18,3 @@ $(document).ready(function() {
 require('../images/teaImages/presentation_tea.jpg');
 
 
-$('.list-hours li').eq(new Date().getDay()-1).addClass('today');
-
-
-
