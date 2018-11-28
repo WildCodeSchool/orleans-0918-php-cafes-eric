@@ -2,13 +2,13 @@
   position: relative;
   @media (min-width: 992px) {
     .intro-img {
-      width: 70%;
+      width:777px;
+      height:518px;
       float: left;
     }
     .intro-text {
-      left: 550px;
-      width: 80%;
-      margin-top: 1rem;
+      left: 600px;
+      width: 100%;
       position: absolute;
       .intro-button {
         width: 100%;
@@ -20,7 +20,7 @@
   }
   @media (min-width: 1200px) {
     .intro-text {
-      width: 45%;
+      width: 55%;
     }
   }
 }
@@ -40,5 +40,22 @@
     padding-top: 0.5rem;
     font-size: 1.5rem;
     font-weight: 100;
+    font-style: oblique;
   }
+}
+
+li {
+  list-style-type: none;
+}
+
+li::before {
+   content: "•"; color: $touch;
+    display: inline-block; width: 1em;
+    margin-left: -1em
+}
+
+hr{
+  width: 250px;
+  border: 1px $touch
+  solid ;
 }

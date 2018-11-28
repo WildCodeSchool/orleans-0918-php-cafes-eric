@@ -1,7 +1,8 @@
 @import "~bootstrap/scss/bootstrap";
 @import "/template/business-casual";
-@import "category";
 @import "variables.scss";
+@import "category";
+
 
 body {
   @include body-font;
