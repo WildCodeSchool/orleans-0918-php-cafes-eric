@@ -1,13 +1,8 @@
 @import "~bootstrap/scss/bootstrap";
 @import "/template/business-casual";
+@import "~@fortawesome/fontawesome-free/css/all.min.css";
 @import "variables.scss";
+@import "global";
 @import "category";
+@import "footer";
 
-
-body {
-  @include body-font;
-  background-attachment: fixed;
-  background-position: center;
-  background-size: cover;
-  background-color: $secondaryColor;
-}

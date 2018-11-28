@@ -5,14 +5,13 @@
         <title>{% block title %}Les cafés d'Éric!{% endblock %}</title>
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
-
         {% endblock %}
     </head>
     <body>
         <header>
             {% block header %}{% endblock %}
         </header>
-        <main>
+        <main class="container">
             {% block body %}{% endblock %}
         </main>
         <footer>
@@ -20,8 +19,6 @@
         </footer>
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
-
         {% endblock %}
     </body>
 </html>
-
