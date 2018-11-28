@@ -8,6 +8,6 @@ body {
   @include body-font;
   background-attachment: fixed;
   background-position: center;
-  background-size: contain;
+  background-size: cover;
   background-color: $secondaryColor;
 }
