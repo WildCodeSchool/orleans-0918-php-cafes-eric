@@ -44,18 +44,42 @@
   }
 }
 
-li {
-  list-style-type: none;
-}
+ol {
+  list-style: none;
+  counter-reset: li }
+  li {
+    counter-increment: li
+  }
 
-li::before {
-   content: "•"; color: $touch;
-    display: inline-block; width: 1em;
+  li::before {
+    content: counter(li);
+    color: $touch;
+    display: inline-block;
+    width: 1em;
     margin-left: -1em
-}
+  }
 
 hr{
   width: 250px;
   border: 1px $touch
   solid ;
+}
+
+
+.section-heading-tea {
+  text-transform: uppercase;
+
+  .section-heading-upper-tea {
+    display: block;
+    font-size: 1rem;
+    font-weight: 800;
+  }
+
+  .section-heading-lower-tea {
+    display: block;
+    padding-top: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 100;
+    font-style: oblique;
+  }
 }
