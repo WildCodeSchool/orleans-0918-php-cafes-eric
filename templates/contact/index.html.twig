@@ -1,0 +1,32 @@
+{% extends 'layout.html.twig' %}
+
+
+{% block title %}Nous contacter{% endblock title %}
+
+{% block body %}
+    <section class="page-section cta">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-9 mx-auto">
+                    <div class="cta-inner text-center rounded">
+                        <h2 class="section-heading mb-5">
+                            <span class="section-heading-lower">Contactez-nous</span>
+                            <hr/>
+                        </h2>
+                        <div>
+                            {{ form_start(our_form) }}
+                            {{ form_widget(our_form) }}
+                            <div class="form-group row">
+                                <div class="col-sm-9"></div>
+                                <div class="col-sm-3">
+                                    <input type="submit" value="Envoyer" class="btn btn-primary" />
+                                </div>
+                            </div>
+                            {{ form_end(our_form) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+         </div>
+    </section>
+{% endblock %}
