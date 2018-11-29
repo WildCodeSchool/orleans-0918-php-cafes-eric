@@ -38,7 +38,6 @@ class Contact
     /**
      * @var string|null
      * @Assert\NotBlank
-     * @Assert\Length(min="10")
      */
     private $message;
 
