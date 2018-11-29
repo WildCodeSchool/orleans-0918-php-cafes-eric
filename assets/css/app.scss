@@ -4,11 +4,6 @@
 @import "variables.scss";
 @import "global";
 @import "category";
+@import "schedule";
+@import "footer";
 
-body {
-  @include body-font;
-  background-attachment: fixed;
-  background-position: center;
-  background-size: cover;
-  background-color: $secondaryColor;
-}
