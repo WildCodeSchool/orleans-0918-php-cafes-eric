@@ -19,7 +19,6 @@ class ContactController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
             $contactFormData = $form->getData();
 
             $message = (new \Swift_Message('Vous avez recu un mail'))
@@ -36,8 +35,6 @@ class ContactController extends AbstractController
                 'success',
                 'Votre mail a été envoyé!'
             );
-            return $this->redirectToRoute('contact');
-
         }
         return $this->render(
             '/contact/index.html.twig', [
