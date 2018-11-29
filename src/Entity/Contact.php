@@ -3,7 +3,8 @@ namespace App\Entity;
 
 use Symfony\Component\Validator\Constraints as Assert;
 
-class Contact{
+class Contact
+{
 
     /**
      * @var string|null
@@ -130,5 +131,4 @@ class Contact{
         $this->message = $message;
         return $this;
     }
-
 }

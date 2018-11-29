@@ -3,11 +3,9 @@
 namespace App\Controller;
 
 use App\Form\ContactType;
-use App\Entity\Contact;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-
 
 class ContactController extends AbstractController
 {
@@ -20,7 +18,7 @@ class ContactController extends AbstractController
 
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()){
+        if ($form->isSubmitted() && $form->isValid()) {
 
             $contactFormData = $form->getData();
 
@@ -30,10 +28,9 @@ class ContactController extends AbstractController
                 ->setBody(
                     $contactFormData->getMessage(),
                     'text/plain'
-                )
-            ;
+                );
 
-          $mailer->send($message);
+             $mailer->send($message);
 
             $this->addFlash(
                 'success',
@@ -42,8 +39,10 @@ class ContactController extends AbstractController
             return $this->redirectToRoute('contact');
 
         }
-        return $this->render('/contact/index.html.twig',[
+        return $this->render(
+            '/contact/index.html.twig', [
             'our_form' => $form->createView()
-        ]);
+            ]
+        );
     }
 }
