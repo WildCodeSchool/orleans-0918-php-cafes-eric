@@ -6,9 +6,9 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\CategoriesRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\ShelfRepository")
  */
-class Categories
+class Shelf
 {
     /**
      * @ORM\Id()
@@ -20,14 +20,9 @@ class Categories
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank()
+     * @Assert\Length(max=255)
      */
     private $title;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Shelves")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $shelf;
 
     public function getId(): ?int
     {
@@ -42,18 +37,6 @@ class Categories
     public function setTitle(string $title): self
     {
         $this->title = $title;
-
-        return $this;
-    }
-
-    public function getShelf(): ?Shelves
-    {
-        return $this->shelf;
-    }
-
-    public function setShelf(?Shelves $shelf): self
-    {
-        $this->shelf = $shelf;
 
         return $this;
     }
