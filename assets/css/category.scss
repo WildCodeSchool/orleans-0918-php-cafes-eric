@@ -1,15 +1,16 @@
-.intro {
+.intro-coffee {
   position: relative;
   @media (min-width: 992px) {
     .intro-img {
-      width:777px;
-      height:518px;
+      width: 90%;
+      height: 90%;
       float: left;
     }
     .intro-text {
-      left: 600px;
+      left: 700px;
       width: 100%;
       position: absolute;
+
       .intro-button {
         width: 100%;
         left: 0;
@@ -26,16 +27,16 @@
 }
 
 
-.section-heading {
+.section-heading-coffee {
   text-transform: uppercase;
 
-  .section-heading-upper {
+  .section-heading-upper-coffee {
     display: block;
     font-size: 1rem;
     font-weight: 800;
   }
 
-  .section-heading-lower {
+  .section-heading-lower-coffee {
     display: block;
     padding-top: 0.5rem;
     font-size: 1.5rem;
@@ -48,13 +49,14 @@
   position: relative;
   @media (min-width: 992px) {
     .intro-img {
-      width:777px;
+      width: 88%;
       float: left;
     }
     .intro-text {
       left: 600px;
       width: 100%;
       position: absolute;
+
       .intro-button {
         width: 100%;
         left: 0;
@@ -90,40 +92,35 @@
 }
 
 .colorli {
-  list-style: none;
-  counter-reset: li;
 
   li {
-    counter-increment: li;
-    list-style-type: none;
-  }
+    &::before {
+      color: $touch;
+      display: inline-block;
+      width: 1em;
+      margin-left: -1em;
 
+    }
+  }
+}
+.starli {
+  list-style-type:"\A4\ ";
   li::before {
-    content:counter(li);
-    color: $touch;
+    color:$touch;
     display: inline-block;
     width: 1em;
     margin-left: -1em;
   }
+
 }
 
-li{
-  list-style-type: none;
-}
-li::before {
-  content: "\A4\ ";
-  color: $touch;
-  display:inline-block;
-  width: 1em;
-  margin-left: -1em;
-}
 
-hr{
+
+hr {
   width: 250px;
-  border: 1px $touch
-  solid ;
+  border: 1px $touch solid;
 }
-  
+
 .oblic {
   font-style: oblique;
 }
