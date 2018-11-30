@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Worker;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -12,6 +13,11 @@ class HomeController extends AbstractController
      */
     public function index()
     {
-        return $this->render('home/index.html.twig');
+        $workers = $this->getDoctrine()
+            ->getRepository(Worker::class)
+            ->findAll();
+        return $this->render('home/index.html.twig', [
+            'workers' => $workers,
+        ]);
     }
 }

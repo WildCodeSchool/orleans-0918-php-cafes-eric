@@ -4,6 +4,8 @@ body {
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
-  background-color: $secondaryColor;
   font-size: $fontSize;
+}
+h1 {
+  font-size: $sizeH1;
 }
