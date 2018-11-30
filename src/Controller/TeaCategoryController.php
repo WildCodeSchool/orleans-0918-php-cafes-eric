@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class TeaCategoryController extends AbstractController
 {
     /**
-     * @Route("/tea/category", name="teaCategory")
+     * @Route("/tea/category", name="tea_category")
      */
     public function index()
     {
