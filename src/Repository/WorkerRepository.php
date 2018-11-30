@@ -20,7 +20,7 @@ class WorkerRepository extends ServiceEntityRepository
     }
 
     // /**
-    //  * @return Worker[] Returns an array of Worker objects
+    //  * @return WorkerFixtures[] Returns an array of WorkerFixtures objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class WorkerRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Worker
+    public function findOneBySomeField($value): ?WorkerFixtures
     {
         return $this->createQueryBuilder('w')
             ->andWhere('w.exampleField = :val')
