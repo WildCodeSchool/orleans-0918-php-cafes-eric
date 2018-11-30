@@ -17,7 +17,7 @@ class WorkerFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
-        for ($w=0; $w<3; $w++){
+        for ($w=0; $w<3; $w++) {
             $faker = Faker\Factory::create('fr_FR');
             $worker = new Worker();
             $worker->setName($faker->firstname);
