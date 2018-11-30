@@ -8,18 +8,10 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class HomeController extends AbstractController
 {
-//    /**
-//     * @Route("/", name="home")
-//     */
-//    public function index()
-//    {
-//        return $this->render('home/index.html.twig');
-//    }
-
     /**
-     * @Route("/", name="worker")
+     * @Route("/", name="home")
      */
-    public function worker()
+    public function index()
     {
         $workers = $this->getDoctrine()
             ->getRepository(Worker::class)
