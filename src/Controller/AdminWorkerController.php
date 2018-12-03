@@ -13,14 +13,14 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * @Route("admin/worker")
  */
-class WorkerController extends AbstractController
+class AdminWorkerController extends AbstractController
 {
     /**
      * @Route("/", name="worker_index", methods="GET")
      */
     public function index(WorkerRepository $workerRepository): Response
     {
-        return $this->render('worker/index.html.twig', ['workers' => $workerRepository->findAll()]);
+        return $this->render('admin_worker/index.html.twig', ['workers' => $workerRepository->findAll()]);
     }
 
     /**
@@ -36,11 +36,13 @@ class WorkerController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->persist($worker);
             $em->flush();
+            $this->addFlash('success', 'Le membre du personnel a bien été créé');
+
 
             return $this->redirectToRoute('worker_index');
         }
 
-        return $this->render('worker/new.html.twig', [
+        return $this->render('admin_worker/new.html.twig', [
             'worker' => $worker,
             'form' => $form->createView(),
         ]);
@@ -51,7 +53,7 @@ class WorkerController extends AbstractController
      */
     public function show(Worker $worker): Response
     {
-        return $this->render('worker/show.html.twig', ['worker' => $worker]);
+        return $this->render('admin_worker/show.html.twig', ['worker' => $worker]);
     }
 
     /**
@@ -64,11 +66,13 @@ class WorkerController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('success', 'Le membre du personnel a bien été édité');
+
 
             return $this->redirectToRoute('worker_index', ['id' => $worker->getId()]);
         }
 
-        return $this->render('worker/edit.html.twig', [
+        return $this->render('admin_worker/edit.html.twig', [
             'worker' => $worker,
             'form' => $form->createView(),
         ]);
@@ -83,6 +87,7 @@ class WorkerController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->remove($worker);
             $em->flush();
+            $this->addFlash('success', 'Le membre du personnel a bien été supprimé');
         }
 
         return $this->redirectToRoute('worker_index');

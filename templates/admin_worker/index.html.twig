@@ -1,0 +1,35 @@
+{% extends 'layoutAdmin.html.twig' %}
+
+{% block title %}Personnel{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Personnel</h1>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Prénom</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for worker in workers %}
+                <tr>
+                    <td class="col-8">{{ worker.name }}</td>
+                    <td class="col-4">
+                        <a type="button" class="btn btn-outline-secondary" href="{{ path('worker_show', {'id': worker.id}) }}">Voir</a>
+                        <a type="button" class="btn btn-outline-secondary" href="{{ path('worker_edit', {'id': worker.id}) }}">Éditer</a>
+                        {{ include('admin_worker/_delete_form.html.twig') }}
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="4">Liste vide</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <a type="button" class="btn btn-outline-secondary" href="{{ path('worker_new') }}">Ajouter une nouvelle personne</a>
+{% endblock %}
