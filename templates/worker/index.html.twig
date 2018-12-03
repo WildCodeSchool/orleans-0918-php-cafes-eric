@@ -1,0 +1,37 @@
+{% extends 'layoutAdmin.html.twig' %}
+
+{% block title %}Worker index{% endblock %}
+
+{% block body %}
+    <h1>Worker index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for worker in workers %}
+            <tr>
+                <td>{{ worker.id }}</td>
+                <td>{{ worker.name }}</td>
+                <td>{{ worker.description }}</td>
+                <td>
+                    <a href="{{ path('worker_show', {'id': worker.id}) }}">show</a>
+                    <a href="{{ path('worker_edit', {'id': worker.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('worker_new') }}">Create new</a>
+{% endblock %}
