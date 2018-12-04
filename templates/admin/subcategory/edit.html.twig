@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'layoutadmin.html.twig' %}
 
 {% block title %}Modifier{% endblock %}
 
@@ -10,8 +10,8 @@
                 {{ include('admin/subcategory/_form.html.twig', {'button_label': 'Sauvegarder'}) }}
             </div>
         </div>
-            <div class="col-md-12">
-                <a href="{{ path('subcategory_index') }}"><i class="fas fa-reply"></i> Retour</a>
-            </div>
+        <div class="col-md-12">
+            <a href="{{ path('subcategory_index') }}"><i class="fas fa-reply"></i> Retour</a>
+        </div>
     </div>
 {% endblock %}
