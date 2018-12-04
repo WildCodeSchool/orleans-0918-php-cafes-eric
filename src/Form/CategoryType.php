@@ -32,3 +32,4 @@ class CategoryType extends AbstractType
         ]);
     }
 }
+
