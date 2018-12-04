@@ -1,13 +1,15 @@
-{% extends 'base.html.twig' %}
+{% extends 'layoutAdmin.html.twig' %}
 
-{% block title %}Edit Worker{% endblock %}
+{% block title %}Édition membre du personnel{% endblock %}
 
 {% block body %}
-    <h1>Edit Worker</h1>
-
-    {{ include('admin_worker/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('worker_index') }}">back to list</a>
-
-    {{ include('admin_worker/_delete_form.html.twig') }}
+    <h1>Édition</h1>
+    <div class="row">
+        <div class="col-md-12 mb-5 mt-5">
+            {{ include('admin_worker/_form.html.twig', {'button_label': 'Éditer'}) }}
+        </div>
+        <div class="col-md-12">
+            <a href="{{ path('worker_index') }}"><i class="fas fa-reply"></i> Retour</a>
+        </div>
+    </div>
 {% endblock %}
