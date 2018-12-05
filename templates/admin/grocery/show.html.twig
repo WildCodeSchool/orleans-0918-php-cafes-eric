@@ -1,0 +1,32 @@
+{% extends 'layoutAdmin.html.twig' %}
+
+{% block title %}Epicerie {% endblock %}
+
+{% block body %}
+    <h1>Epicerie</h1>
+    <div class="row">
+        <div class="col-md-12 mb-5 mt-5">
+            <table class="table">
+                <tbody>
+                <tr>
+                    <th>Nom</th>
+                    <td>{{ grocery.name }}</td>
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <td>{{ grocery.description }}</td>
+                </tr>
+                </tbody>
+            </table>
+
+            <a type="button" class="btn btn-outline-secondary" href="{{ path('grocery_edit', {'id': grocery.id}) }}"><i
+                        class="fas fa-pencil-alt"></i> Editer</a>
+            {{ include('admin/grocery/_delete_form.html.twig') }}
+        </div>
+        <div class="col-md-12 mb-5">
+            <a href="{{ path('grocery_index') }}">Retourner à la liste</a>
+        </div>
+    </div>
+
+
+{% endblock %}
