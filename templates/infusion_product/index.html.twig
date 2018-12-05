@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}InfusionProduct index{% endblock %}
+
+{% block body %}
+    <h1>InfusionProduct index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>TastingNote</th>
+                <th>Highlighted</th>
+                <th>Novelty</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for infusion_product in infusion_products %}
+            <tr>
+                <td>{{ infusion_product.id }}</td>
+                <td>{{ infusion_product.name }}</td>
+                <td>{{ infusion_product.description }}</td>
+                <td>{{ infusion_product.tastingNote }}</td>
+                <td>{{ infusion_product.highlighted ? 'Yes' : 'No' }}</td>
+                <td>{{ infusion_product.novelty ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('infusion_product_show', {'id': infusion_product.id}) }}">show</a>
+                    <a href="{{ path('infusion_product_edit', {'id': infusion_product.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('infusion_product_new') }}">Create new</a>
+{% endblock %}
