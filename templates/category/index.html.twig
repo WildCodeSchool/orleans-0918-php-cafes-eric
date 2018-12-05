@@ -8,28 +8,27 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>actions</th>
+                <th>Titre</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for category in categories %}
             <tr>
-                <td>{{ category.id }}</td>
-                <td>{{ category.title }}</td>
+                <td class="col-8"> {{ category.title }}</td>
                 <td>
-                    <a href="{{ path('category_show', {'id': category.id}) }}">show</a>
-                    <a href="{{ path('category_edit', {'id': category.id}) }}">edit</a>
+                    <a type="button" class="btn btn-outline-secondary" href="{{ path('category_show', {'id': category.id}) }}"><i class="far fa-eye"></i> Voir</a>
+                    <a type="button" class="btn btn-outline-secondary" href="{{ path('category_edit', {'id': category.id}) }}"><i class="fas fa-pencil-alt"></i> Éditer</a>
+                    {{ include('category/_delete_form.html.twig') }}
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="3">no records found</td>
+                <td colspan="3">Liste vide</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('category_new') }}">Create new</a>
+    <a type="button" class="btn btn-outline-secondary" href="{{ path('category_new') }}"><i class="fa fa-plus"></i> Ajouter une nouvelle catégorie</a>
 {% endblock %}
