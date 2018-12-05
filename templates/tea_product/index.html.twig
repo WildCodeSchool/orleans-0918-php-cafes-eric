@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TeaProduct index{% endblock %}
+
+{% block body %}
+    <h1>TeaProduct index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Hightlighted</th>
+                <th>Novelty</th>
+                <th>TastingNote</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for tea_product in tea_products %}
+            <tr>
+                <td>{{ tea_product.id }}</td>
+                <td>{{ tea_product.name }}</td>
+                <td>{{ tea_product.description }}</td>
+                <td>{{ tea_product.hightlighted ? 'Yes' : 'No' }}</td>
+                <td>{{ tea_product.novelty ? 'Yes' : 'No' }}</td>
+                <td>{{ tea_product.tastingNote }}</td>
+                <td>
+                    <a href="{{ path('tea_product_show', {'id': tea_product.id}) }}">show</a>
+                    <a href="{{ path('tea_product_edit', {'id': tea_product.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('tea_product_new') }}">Create new</a>
+{% endblock %}
