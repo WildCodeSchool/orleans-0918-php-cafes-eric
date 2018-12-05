@@ -88,6 +88,6 @@ class SubcategoryController extends AbstractController
             $em->flush();
         }
 
-        return $this->redirectToRoute('admin/subcategory_index');
+        return $this->redirectToRoute('subcategory_index');
     }
 }
