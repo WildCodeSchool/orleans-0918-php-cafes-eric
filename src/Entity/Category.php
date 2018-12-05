@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -30,6 +32,16 @@ class Category
      */
     private $shelf;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\InfusionProduct", mappedBy="category")
+     */
+    private $infusionProducts;
+
+    public function __construct()
+    {
+        $this->infusionProducts = new ArrayCollection();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -55,6 +67,37 @@ class Category
     public function setShelf(?Shelf $shelf): self
     {
         $this->shelf = $shelf;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|InfusionProduct[]
+     */
+    public function getInfusionProducts(): Collection
+    {
+        return $this->infusionProducts;
+    }
+
+    public function addInfusionProduct(InfusionProduct $infusionProduct): self
+    {
+        if (!$this->infusionProducts->contains($infusionProduct)) {
+            $this->infusionProducts[] = $infusionProduct;
+            $infusionProduct->setCategory($this);
+        }
+
+        return $this;
+    }
+
+    public function removeInfusionProduct(InfusionProduct $infusionProduct): self
+    {
+        if ($this->infusionProducts->contains($infusionProduct)) {
+            $this->infusionProducts->removeElement($infusionProduct);
+            // set the owning side to null (unless already changed)
+            if ($infusionProduct->getCategory() === $this) {
+                $infusionProduct->setCategory(null);
+            }
+        }
 
         return $this;
     }
