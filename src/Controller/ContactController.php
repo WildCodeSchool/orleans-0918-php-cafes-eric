@@ -24,7 +24,14 @@ class ContactController extends AbstractController
             $message = (new \Swift_Message('Vous avez recu un mail'))
                 ->setFrom($contactFormData->getEmail())
                 ->setTo($this->getParameter('mail_from'))
+                ->setReplyTo($contactFormData->getEmail())
                 ->setBody(
+                    'Message venant de :  ' .
+                        ucwords($contactFormData->getName()) .' ' .
+                        ucwords($contactFormData->getFirstname()) . ' : ' .
+                        'joingnable au téléphone : ' .
+                        ($contactFormData->getPhone()) .
+                        ' message :'.
                     $contactFormData->getMessage(),
                     'text/plain'
                 );
