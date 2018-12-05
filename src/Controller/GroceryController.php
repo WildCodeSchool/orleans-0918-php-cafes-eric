@@ -38,6 +38,7 @@ class GroceryController extends AbstractController
             $em->flush();
             $this->addFlash('success','L\' épice à bien été ajouter à la liste ');
 
+
             return $this->redirectToRoute('grocery_index');
         }
 
@@ -87,7 +88,6 @@ class GroceryController extends AbstractController
             $em->remove($grocery);
             $em->flush();
             $this->addFlash('success','L\' épice à bien été supprimé');
-
         }
 
         return $this->redirectToRoute('grocery_index');
