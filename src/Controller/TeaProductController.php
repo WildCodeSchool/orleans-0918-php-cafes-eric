@@ -20,7 +20,7 @@ class TeaProductController extends AbstractController
      */
     public function index(TeaProductRepository $teaProductRepository): Response
     {
-        return $this->render('tea_product/index.html.twig', ['tea_products' => $teaProductRepository->findAll()]);
+        return $this->render('admin/tea_product/index.html.twig', ['tea_products' => $teaProductRepository->findAll()]);
     }
 
     /**
@@ -40,7 +40,7 @@ class TeaProductController extends AbstractController
             return $this->redirectToRoute('tea_product_index');
         }
 
-        return $this->render('tea_product/new.html.twig', [
+        return $this->render('admin/tea_product/new.html.twig', [
             'tea_product' => $teaProduct,
             'form' => $form->createView(),
         ]);
@@ -51,7 +51,7 @@ class TeaProductController extends AbstractController
      */
     public function show(TeaProduct $teaProduct): Response
     {
-        return $this->render('tea_product/show.html.twig', ['tea_product' => $teaProduct]);
+        return $this->render('admin/tea_product/show.html.twig', ['tea_product' => $teaProduct]);
     }
 
     /**
@@ -68,7 +68,7 @@ class TeaProductController extends AbstractController
             return $this->redirectToRoute('tea_product_index', ['id' => $teaProduct->getId()]);
         }
 
-        return $this->render('tea_product/edit.html.twig', [
+        return $this->render('admin/tea_product/edit.html.twig', [
             'tea_product' => $teaProduct,
             'form' => $form->createView(),
         ]);
