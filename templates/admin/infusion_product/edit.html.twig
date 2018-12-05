@@ -5,9 +5,9 @@
 {% block body %}
     <h1>Edit InfusionProduct</h1>
 
-    {{ include('infusion_product/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('admin/infusion_product/_form.html.twig', {'button_label': 'Update'}) }}
 
     <a href="{{ path('infusion_product_index') }}">back to list</a>
 
-    {{ include('infusion_product/_delete_form.html.twig') }}
+    {{ include('admin/infusion_product/_delete_form.html.twig') }}
 {% endblock %}

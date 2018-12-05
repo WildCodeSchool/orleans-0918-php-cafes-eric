@@ -20,7 +20,7 @@ class InfusionProductController extends AbstractController
      */
     public function index(InfusionProductRepository $infusionProductRepository): Response
     {
-        return $this->render('infusion_product/index.html.twig', [
+        return $this->render('admin/infusion_product/index.html.twig', [
             'infusion_products' => $infusionProductRepository->findAll()
         ]);
     }
@@ -42,7 +42,7 @@ class InfusionProductController extends AbstractController
             return $this->redirectToRoute('infusion_product_index');
         }
 
-        return $this->render('infusion_product/new.html.twig', [
+        return $this->render('admin/infusion_product/new.html.twig', [
             'infusion_product' => $infusionProduct,
             'form' => $form->createView(),
         ]);
@@ -53,7 +53,7 @@ class InfusionProductController extends AbstractController
      */
     public function show(InfusionProduct $infusionProduct): Response
     {
-        return $this->render('infusion_product/show.html.twig', ['infusion_product' => $infusionProduct]);
+        return $this->render('admin/infusion_product/show.html.twig', ['infusion_product' => $infusionProduct]);
     }
 
     /**
@@ -70,7 +70,7 @@ class InfusionProductController extends AbstractController
             return $this->redirectToRoute('infusion_product_index', ['id' => $infusionProduct->getId()]);
         }
 
-        return $this->render('infusion_product/edit.html.twig', [
+        return $this->render('admin/infusion_product/edit.html.twig', [
             'infusion_product' => $infusionProduct,
             'form' => $form->createView(),
         ]);
