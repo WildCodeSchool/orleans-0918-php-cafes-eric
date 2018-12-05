@@ -38,6 +38,7 @@ class InfusionProductController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->persist($infusionProduct);
             $em->flush();
+            $this->addFlash('success', 'L\'infusion a bien été ajouté à la liste');
 
             return $this->redirectToRoute('infusion_product_index');
         }
