@@ -21,7 +21,7 @@ class InfusionProductType extends AbstractType
                 'choice_label' => 'title',
                 'label' => 'Catégorie'
             ])
-            ->add('name',TextType::class, ['label'=> 'Nom'])
+            ->add('name', TextType::class, ['label'=> 'Nom'])
             ->add('description', TextType::class, ['label'=> 'Description'])
             ->add('tastingNote', TextType::class, ['label'=> 'Note de dégustation', 'required' => false])
             ->add('highlighted', CheckboxType::class, ['label'=> 'Produit du mois', 'required' => false])

@@ -20,7 +20,8 @@ class InfusionProductController extends AbstractController
      */
     public function index(InfusionProductRepository $infusionProductRepository): Response
     {
-        return $this->render('infusion_product/index.html.twig', ['infusion_products' => $infusionProductRepository->findAll()]);
+        return $this->render('infusion_product/index.html.twig',
+            ['infusion_products' => $infusionProductRepository->findAll()]);
     }
 
     /**
