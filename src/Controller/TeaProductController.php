@@ -36,6 +36,7 @@ class TeaProductController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->persist($teaProduct);
             $em->flush();
+            $this->addFlash('success', 'Le thé a bien été ajouté à la liste');
 
             return $this->redirectToRoute('tea_product_index');
         }
