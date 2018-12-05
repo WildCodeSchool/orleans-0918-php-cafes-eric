@@ -36,7 +36,7 @@ class GroceryController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->persist($grocery);
             $em->flush();
-            $this->addFlash('success','L\' épice à bien été ajouter à la liste ');
+            $this->addFlash('success', 'L\' épice à bien été ajouter à la liste ');
 
 
             return $this->redirectToRoute('grocery_index');
@@ -66,7 +66,7 @@ class GroceryController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-            $this->addFlash('success','L\' épice à bien été édité');
+            $this->addFlash('success', 'L\' épice à bien été édité');
 
 
             return $this->redirectToRoute('grocery_index', ['id' => $grocery->getId()]);
@@ -87,7 +87,7 @@ class GroceryController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->remove($grocery);
             $em->flush();
-            $this->addFlash('success','L\' épice à bien été supprimé');
+            $this->addFlash('success', 'L\' épice à bien été supprimé');
         }
 
         return $this->redirectToRoute('grocery_index');
