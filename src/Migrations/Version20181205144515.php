@@ -15,7 +15,7 @@ final class Version20181205144515 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE tea_product CHANGE hightlighted hightlighted TINYINT(1) DEFAULT NULL, CHANGE novelty novelty TINYINT(1) DEFAULT NULL');
+        $this->addSql('ALTER TABLE tea CHANGE hightlighted hightlighted TINYINT(1) DEFAULT NULL, CHANGE novelty novelty TINYINT(1) DEFAULT NULL');
     }
 
     public function down(Schema $schema) : void
@@ -23,6 +23,6 @@ final class Version20181205144515 extends AbstractMigration
         // this down() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE tea_product CHANGE hightlighted hightlighted TINYINT(1) NOT NULL, CHANGE novelty novelty TINYINT(1) NOT NULL');
+        $this->addSql('ALTER TABLE tea CHANGE hightlighted hightlighted TINYINT(1) NOT NULL, CHANGE novelty novelty TINYINT(1) NOT NULL');
     }
 }

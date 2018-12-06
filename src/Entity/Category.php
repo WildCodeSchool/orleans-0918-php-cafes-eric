@@ -33,13 +33,13 @@ class Category
     private $shelf;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\TeaProduct", mappedBy="category")
+     * @ORM\OneToMany(targetEntity="Tea", mappedBy="category")
      */
-    private $teaProducts;
+    private $teas;
 
     public function __construct()
     {
-        $this->teaProducts = new ArrayCollection();
+        $this->teas = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -72,30 +72,30 @@ class Category
     }
 
     /**
-     * @return Collection|TeaProduct[]
+     * @return Collection|Tea[]
      */
-    public function getTeaProducts(): Collection
+    public function getTeas(): Collection
     {
-        return $this->teaProducts;
+        return $this->teas;
     }
 
-    public function addTeaProduct(TeaProduct $teaProduct): self
+    public function addTea(Tea $tea): self
     {
-        if (!$this->teaProducts->contains($teaProduct)) {
-            $this->teaProducts[] = $teaProduct;
-            $teaProduct->setCategory($this);
+        if (!$this->teas->contains($tea)) {
+            $this->teas[] = $tea;
+            $tea->setCategory($this);
         }
 
         return $this;
     }
 
-    public function removeTeaProduct(TeaProduct $teaProduct): self
+    public function removeTea(Tea $tea): self
     {
-        if ($this->teaProducts->contains($teaProduct)) {
-            $this->teaProducts->removeElement($teaProduct);
+        if ($this->teas->contains($tea)) {
+            $this->teas->removeElement($tea);
             // set the owning side to null (unless already changed)
-            if ($teaProduct->getCategory() === $this) {
-                $teaProduct->setCategory(null);
+            if ($tea->getCategory() === $this) {
+                $tea->setCategory(null);
             }
         }
 

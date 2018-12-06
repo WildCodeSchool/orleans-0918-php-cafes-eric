@@ -3,11 +3,12 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\TeaProductRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\TeaRepository")
  */
-class TeaProduct
+class Tea
 {
     /**
      * @ORM\Id()
@@ -18,11 +19,13 @@ class TeaProduct
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $name;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $description;
 
@@ -42,7 +45,7 @@ class TeaProduct
     private $tastingNote;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="teaProducts")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="teas")
      * @ORM\JoinColumn(nullable=false)
      */
     private $category;
