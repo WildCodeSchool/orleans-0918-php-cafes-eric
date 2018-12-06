@@ -2,9 +2,9 @@
 
 namespace App\Controller;
 
-use App\Entity\InfusionProduct;
-use App\Form\InfusionProductType;
-use App\Repository\InfusionProductRepository;
+use App\Entity\Infusion;
+use App\Form\InfusionType;
+use App\Repository\InfusionRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -13,12 +13,12 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * @Route("admin/infusion/product")
  */
-class InfusionProductController extends AbstractController
+class InfusionController extends AbstractController
 {
     /**
      * @Route("/", name="infusion_product_index", methods="GET")
      */
-    public function index(InfusionProductRepository $infusionProductRepository): Response
+    public function index(InfusionRepository $infusionProductRepository): Response
     {
         return $this->render('admin/infusion_product/index.html.twig', [
             'infusion_products' => $infusionProductRepository->findAll()
@@ -30,8 +30,8 @@ class InfusionProductController extends AbstractController
      */
     public function new(Request $request): Response
     {
-        $infusionProduct = new InfusionProduct();
-        $form = $this->createForm(InfusionProductType::class, $infusionProduct);
+        $infusionProduct = new Infusion();
+        $form = $this->createForm(InfusionType::class, $infusionProduct);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -52,7 +52,7 @@ class InfusionProductController extends AbstractController
     /**
      * @Route("/{id}", name="infusion_product_show", methods="GET")
      */
-    public function show(InfusionProduct $infusionProduct): Response
+    public function show(Infusion $infusionProduct): Response
     {
         return $this->render('admin/infusion_product/show.html.twig', ['infusion_product' => $infusionProduct]);
     }
@@ -60,9 +60,9 @@ class InfusionProductController extends AbstractController
     /**
      * @Route("/{id}/edit", name="infusion_product_edit", methods="GET|POST")
      */
-    public function edit(Request $request, InfusionProduct $infusionProduct): Response
+    public function edit(Request $request, Infusion $infusionProduct): Response
     {
-        $form = $this->createForm(InfusionProductType::class, $infusionProduct);
+        $form = $this->createForm(InfusionType::class, $infusionProduct);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -80,7 +80,7 @@ class InfusionProductController extends AbstractController
     /**
      * @Route("/{id}", name="infusion_product_delete", methods="DELETE")
      */
-    public function delete(Request $request, InfusionProduct $infusionProduct): Response
+    public function delete(Request $request, Infusion $infusionProduct): Response
     {
         if ($this->isCsrfTokenValid('delete'.$infusionProduct->getId(), $request->request->get('_token'))) {
             $em = $this->getDoctrine()->getManager();

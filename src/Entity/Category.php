@@ -33,13 +33,13 @@ class Category
     private $shelf;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\InfusionProduct", mappedBy="category")
+     * @ORM\OneToMany(targetEntity="Infusion", mappedBy="category")
      */
-    private $infusionProducts;
+    private $infusions;
 
     public function __construct()
     {
-        $this->infusionProducts = new ArrayCollection();
+        $this->infusions = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -72,30 +72,30 @@ class Category
     }
 
     /**
-     * @return Collection|InfusionProduct[]
+     * @return Collection|Infusion[]
      */
-    public function getInfusionProducts(): Collection
+    public function getInfusions(): Collection
     {
-        return $this->infusionProducts;
+        return $this->infusions;
     }
 
-    public function addInfusionProduct(InfusionProduct $infusionProduct): self
+    public function addInfusion(Infusion $infusion): self
     {
-        if (!$this->infusionProducts->contains($infusionProduct)) {
-            $this->infusionProducts[] = $infusionProduct;
-            $infusionProduct->setCategory($this);
+        if (!$this->infusions->contains($infusion)) {
+            $this->infusions[] = $infusion;
+            $infusion->setCategory($this);
         }
 
         return $this;
     }
 
-    public function removeInfusionProduct(InfusionProduct $infusionProduct): self
+    public function removeInfusionProduct(Infusion $infusion): self
     {
-        if ($this->infusionProducts->contains($infusionProduct)) {
-            $this->infusionProducts->removeElement($infusionProduct);
+        if ($this->infusions->contains($infusion)) {
+            $this->infusions->removeElement($infusion);
             // set the owning side to null (unless already changed)
-            if ($infusionProduct->getCategory() === $this) {
-                $infusionProduct->setCategory(null);
+            if ($infusion->getCategory() === $this) {
+                $infusion->setCategory(null);
             }
         }
 
