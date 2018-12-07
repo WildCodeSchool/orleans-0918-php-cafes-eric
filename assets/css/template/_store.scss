@@ -3,6 +3,7 @@
   .list-hours-item {
     border-bottom: 1px solid fade-out($primary, 0.5);
     padding-bottom: .25rem;
+    padding-top: .30rem;
     margin-bottom: 1rem;
     font-style: italic;
     &.today {

@@ -1,0 +1,13 @@
+.map{
+  border: 1px solid black;
+  width: 425px;
+  height: 350px;
+}
+small{
+  font-size: 12px;
+}
+@media screen and (max-width: 640px) {
+  .map-section {
+    display: none;
+  }
+}
