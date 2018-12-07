@@ -1,13 +1,13 @@
-.map{
-  border: 1px solid black;
-  width: 425px;
-  height: 350px;
-}
-small{
-  font-size: 12px;
-}
-@media screen and (max-width: 640px) {
-  .map-section {
-    display: none;
+ .map {
+    border: 1px solid black;
+    width: 425px;
+    height: 350px;
   }
-}
+  .link-map {
+    font-size: 12px;
+  }
+ @media (max-width: 991px) {
+   .global-map  {
+     display: none;
+   }
+ }
