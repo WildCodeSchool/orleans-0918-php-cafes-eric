@@ -23,9 +23,7 @@ class Tea
      * @ORM\Column(type="string", length=255, unique=true)
      * @Assert\NotBlank
      * @Assert\Length(
-     *     min=3,
      *     max=255,
-     *     minMessage="Nom trop petit",
      *     maxMessage="Nom trop grand"
      * )
      */
@@ -35,9 +33,7 @@ class Tea
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank
      * @Assert\Length(
-     *     min=3,
      *     max=255,
-     *     minMessage="Veuillez renseigner au moins un ingrédient",
      *     maxMessage="Liste d'ingrédients trop longue"
      * )
      */
