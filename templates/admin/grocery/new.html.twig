@@ -9,7 +9,7 @@
             {{ include('admin/grocery/_form.html.twig') }}
         </div>
         <div class="col-md-12 mb-5">
-            <a href="{{ path('grocery_index') }}">Retourner à la liste</a>
+            <a type="button" class="btn btn-outline-secondary" href="{{ path('grocery_index') }}"><i class="fas fa-reply"></i> Retourner à la liste</a>
         </div>
     </div>
 {% endblock %}
