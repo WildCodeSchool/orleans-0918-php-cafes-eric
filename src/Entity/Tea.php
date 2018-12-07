@@ -70,12 +70,6 @@ class Tea
      */
     private $category;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\FamilyTea", inversedBy="teas")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $family_tea;
-
     public function getId(): ?int
     {
         return $this->id;
@@ -149,18 +143,6 @@ class Tea
     public function setCategory(?Category $category): self
     {
         $this->category = $category;
-
-        return $this;
-    }
-
-    public function getFamilyTea(): ?FamilyTea
-    {
-        return $this->family_tea;
-    }
-
-    public function setFamilyTea(?FamilyTea $family_tea): self
-    {
-        $this->family_tea = $family_tea;
 
         return $this;
     }
