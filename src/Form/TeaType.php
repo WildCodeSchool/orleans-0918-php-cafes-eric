@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Category;
+use App\Entity\FamilyTea;
 use App\Entity\Tea;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -20,17 +21,17 @@ class TeaType extends AbstractType
                 'class' => Category::class,
                 'choice_label' => 'title',
                 'label' => "Catégorie"])
-            ->add('name', TextType::class, ['label' => 'Nom'])
-            ->add('description', TextType::class, ['label' => 'Description'])
-            ->add('tastingNote', TextType::class, [
+            ->add('family_tea', EntityType::class, [
+                'class' => FamilyTea::class,
+                'choice_label' => 'name',
+                'label' => "Famille"])
+            ->add('name', TextType::class, [
+                'label' => 'Nom',
+                'help' => 'Ce nom doit être unique'])
+            ->add('ingredients', TextType::class, ['label' => 'Ingrédients'])
+            ->add('feature', TextType::class, [
                 'required' => false,
-                'label' => 'Note de dégustation'])
-            ->add('hightlighted', CheckboxType::class, [
-                'required' => false,
-                'label' => 'Produit du mois'])
-            ->add('novelty', CheckboxType::class, [
-                'required' => false,
-                'label' => 'Nouveautée']);
+                'label' => 'Particularité']);
     }
 
     public function configureOptions(OptionsResolver $resolver)

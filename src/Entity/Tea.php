@@ -4,9 +4,11 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\TeaRepository")
+ * @UniqueEntity("name")
  */
 class Tea
 {
@@ -18,16 +20,28 @@ class Tea
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, unique=true)
      * @Assert\NotBlank
+     * @Assert\Length(
+     *     min=3,
+     *     max=255,
+     *     minMessage="Nom trop petit",
+     *     maxMessage="Nom trop grand"
+     * )
      */
     private $name;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank
+     * @Assert\Length(
+     *     min=3,
+     *     max=255,
+     *     minMessage="Veuillez renseigner au moins un ingrédient",
+     *     maxMessage="Liste d'ingrédients trop longue"
+     * )
      */
-    private $description;
+    private $ingredients;
 
     /**
      * @ORM\Column(type="boolean")
@@ -41,14 +55,26 @@ class Tea
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Length(
+     *     min=3,
+     *     max=255,
+     *     minMessage="Particularité trop petit",
+     *     maxMessage="Trop grand"
+     * )
      */
-    private $tastingNote;
+    private $feature;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="teas")
      * @ORM\JoinColumn(nullable=false)
      */
     private $category;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\FamilyTea", inversedBy="teas")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $family_tea;
 
     public function getId(): ?int
     {
@@ -67,14 +93,14 @@ class Tea
         return $this;
     }
 
-    public function getDescription(): ?string
+    public function getIngredients(): ?string
     {
-        return $this->description;
+        return $this->ingredients;
     }
 
-    public function setDescription(string $description): self
+    public function setIngredients(string $ingredients): self
     {
-        $this->description = $description;
+        $this->ingredients = $ingredients;
 
         return $this;
     }
@@ -103,14 +129,14 @@ class Tea
         return $this;
     }
 
-    public function getTastingNote(): ?string
+    public function getFeature(): ?string
     {
-        return $this->tastingNote;
+        return $this->feature;
     }
 
-    public function setTastingNote(string $tastingNote): self
+    public function setFeature(?string $feature): self
     {
-        $this->tastingNote = $tastingNote;
+        $this->feature = $feature;
 
         return $this;
     }
@@ -123,6 +149,18 @@ class Tea
     public function setCategory(?Category $category): self
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    public function getFamilyTea(): ?FamilyTea
+    {
+        return $this->family_tea;
+    }
+
+    public function setFamilyTea(?FamilyTea $family_tea): self
+    {
+        $this->family_tea = $family_tea;
 
         return $this;
     }
