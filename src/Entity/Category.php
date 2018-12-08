@@ -98,7 +98,6 @@ class Category
                 $tea->setCategory(null);
             }
         }
-
         return $this;
     }
 }
