@@ -5,9 +5,9 @@
 {% block body %}
     <h1>Edit Coffee</h1>
 
-    {{ include('coffee/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('admin/coffee/_form.html.twig', {'button_label': 'Update'}) }}
 
     <a href="{{ path('coffee_index') }}">back to list</a>
 
-    {{ include('coffee/_delete_form.html.twig') }}
+    {{ include('admin/coffee/_delete_form.html.twig') }}
 {% endblock %}

@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/coffee")
+ * @Route("admin/coffee")
  */
 class CoffeeController extends AbstractController
 {
@@ -20,7 +20,7 @@ class CoffeeController extends AbstractController
      */
     public function index(CoffeeRepository $coffeeRepository): Response
     {
-        return $this->render('coffee/index.html.twig', ['coffees' => $coffeeRepository->findAll()]);
+        return $this->render('admin/coffee/index.html.twig', ['coffees' => $coffeeRepository->findAll()]);
     }
 
     /**
@@ -40,7 +40,7 @@ class CoffeeController extends AbstractController
             return $this->redirectToRoute('coffee_index');
         }
 
-        return $this->render('coffee/new.html.twig', [
+        return $this->render('admin/coffee/new.html.twig', [
             'coffee' => $coffee,
             'form' => $form->createView(),
         ]);
@@ -51,7 +51,7 @@ class CoffeeController extends AbstractController
      */
     public function show(Coffee $coffee): Response
     {
-        return $this->render('coffee/show.html.twig', ['coffee' => $coffee]);
+        return $this->render('admin/coffee/show.html.twig', ['coffee' => $coffee]);
     }
 
     /**
@@ -65,10 +65,10 @@ class CoffeeController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('coffee_index', ['id' => $coffee->getId()]);
+            return $this->redirectToRoute('admin/coffee_index', ['id' => $coffee->getId()]);
         }
 
-        return $this->render('coffee/edit.html.twig', [
+        return $this->render('admin/coffee/edit.html.twig', [
             'coffee' => $coffee,
             'form' => $form->createView(),
         ]);

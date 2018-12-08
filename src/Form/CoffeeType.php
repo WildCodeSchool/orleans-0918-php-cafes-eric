@@ -17,18 +17,19 @@ class CoffeeType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('country', CountryType::class, ['label'=>'pays'])
-            ->add('terroir', TextType::class, ['label'=>'terroir'])
-            ->add('variety', TextType::class, ['label'=>'variété'])
-            ->add('tastingNote', TextType::class, ['label'=>'note'])
-            ->add('description', TextType::class, ['label'=>'description'])
-            ->add('highlighted', CheckboxType::class, ['label' =>'mise en avant'])
-            ->add('novelty', CheckboxType::class, ['label' => 'nouveauté'])
             ->add('category', EntityType::class, [
                 'class' => Category::class,
                 'choice_label' => 'title',
                 'label' =>'Catégorie',
             ])
+            ->add('country', CountryType::class, ['label'=>'Pays'])
+            ->add('terroir', TextType::class, ['label'=>'Terroir'])
+            ->add('variety', TextType::class, ['label'=>'Variété'])
+            ->add('tastingNote', TextType::class, ['label'=>'Note de dégustation'])
+            ->add('description', TextType::class, ['label'=>'Description'])
+            ->add('highlighted', CheckboxType::class, ['label' =>'Mise en avant'])
+            ->add('novelty', CheckboxType::class, ['label' => 'Nouveauté'])
+
         ;
     }
 
