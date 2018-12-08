@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Coffee{% endblock %}
+
+{% block body %}
+    <h1>Coffee</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ coffee.id }}</td>
+            </tr>
+            <tr>
+                <th>Country</th>
+                <td>{{ coffee.country }}</td>
+            </tr>
+            <tr>
+                <th>Terroir</th>
+                <td>{{ coffee.terroir }}</td>
+            </tr>
+            <tr>
+                <th>Variety</th>
+                <td>{{ coffee.variety }}</td>
+            </tr>
+            <tr>
+                <th>TastingNote</th>
+                <td>{{ coffee.tastingNote }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ coffee.description }}</td>
+            </tr>
+            <tr>
+                <th>Highlighted</th>
+                <td>{{ coffee.highlighted ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Novelty</th>
+                <td>{{ coffee.novelty ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('coffee_index') }}">back to list</a>
+
+    <a href="{{ path('coffee_edit', {'id': coffee.id}) }}">edit</a>
+
+    {{ include('coffee/_delete_form.html.twig') }}
+{% endblock %}
