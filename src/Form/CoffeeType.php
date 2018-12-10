@@ -7,6 +7,7 @@ use App\Entity\Category;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CountryType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -27,7 +28,7 @@ class CoffeeType extends AbstractType
             ->add('terroir', TextType::class, ['label'=>'Terroir'])
             ->add('variety', TextType::class, ['label'=>'Variété'])
             ->add('tastingNote', TextType::class, ['label'=>'Note de dégustation'])
-            ->add('description', TextType::class, ['label'=>'Description'])
+            ->add('description', TextareaType::class, ['label'=>'Description'])
         ;
     }
 

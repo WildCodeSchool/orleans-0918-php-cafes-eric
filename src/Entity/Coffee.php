@@ -3,7 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Intl\Locale;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CoffeeRepository")
@@ -19,26 +19,47 @@ class Coffee
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\NotBlank
+     * @Assert\Length(
+     *      max=255,
+     *      maxMessage="Le nom du pays est trop long"
+     * )
      */
     private $country;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\NotBlank
+     * @Assert\Length(
+     *     max=255,
+     *     maxMessage=" Le nom du terroir est trop long"
+     * )
      */
     private $terroir;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
+     * @Assert\Length(
+     *     max=255,
+     *     maxMessage="Le nom de la variété trop long"
+     * )
      */
     private $variety;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
+     * @Assert\Length(
+     *     max=255,
+     *     maxMessage="La note de dégustation est trop longue"
+     * )
      */
     private $tastingNote;
 
     /**
      * @ORM\Column(type="text", nullable=true)
+     * @Assert\NotBlank
      */
     private $description;
 

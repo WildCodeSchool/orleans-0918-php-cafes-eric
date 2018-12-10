@@ -1,11 +1,15 @@
-{% extends 'base.html.twig' %}
+{% extends 'layoutAdmin.html.twig' %}
 
-{% block title %}New Coffee{% endblock %}
+{% block title %}Nouveau café{% endblock %}
 
 {% block body %}
-    <h1>Create new Coffee</h1>
-
-    {{ include('admin/coffee/_form.html.twig') }}
-
-    <a href="{{ path('coffee_index') }}">back to list</a>
+    <h1>Ajouter un nouveau café</h1>
+    <div class="row">
+        <div class="col-md-12 mb-5 mt-5">
+            {{ include('admin/coffee/_form.html.twig') }}
+        </div>
+        <div class="col-md-12 mb-5">
+            <a href="{{ path('coffee_index') }}"><i class="fas fa-reply"></i> Retour</a>
+        </div>
+    </div>
 {% endblock %}
