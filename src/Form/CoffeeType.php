@@ -25,7 +25,7 @@ class CoffeeType extends AbstractType
             ->add('country', CountryType::class, [
                 'label'=>'Pays',
             ])
-            ->add('terroir', TextType::class, ['label'=>'Terroir'])
+            ->add('soil', TextType::class, ['label'=>'Terroir'])
             ->add('variety', TextType::class, ['label'=>'Variété'])
             ->add('tastingNote', TextType::class, ['label'=>'Note de dégustation'])
             ->add('description', TextareaType::class, ['label'=>'Description'])

@@ -35,7 +35,7 @@ class Coffee
      *     maxMessage=" Le nom du terroir est trop long"
      * )
      */
-    private $terroir;
+    private $soil;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -95,14 +95,14 @@ class Coffee
         return $this;
     }
 
-    public function getTerroir(): ?string
+    public function getSoil(): ?string
     {
-        return $this->terroir;
+        return $this->soil;
     }
 
-    public function setTerroir(?string $terroir): self
+    public function setSoil(?string $soil): self
     {
-        $this->terroir = $terroir;
+        $this->soil = $soil;
 
         return $this;
     }
