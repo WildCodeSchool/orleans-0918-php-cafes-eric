@@ -65,7 +65,7 @@ class CoffeeController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('admin/coffee_index', ['id' => $coffee->getId()]);
+            return $this->redirectToRoute('coffee_index', ['id' => $coffee->getId()]);
         }
 
         return $this->render('admin/coffee/edit.html.twig', [

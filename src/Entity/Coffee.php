@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Intl\Locale;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CoffeeRepository")
@@ -42,12 +43,12 @@ class Coffee
     private $description;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", nullable=true)
      */
     private $highlighted;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", nullable=true)
      */
     private $novelty;
 

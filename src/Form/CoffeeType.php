@@ -6,7 +6,6 @@ use App\Entity\Coffee;
 use App\Entity\Category;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\CountryType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -22,14 +21,13 @@ class CoffeeType extends AbstractType
                 'choice_label' => 'title',
                 'label' =>'Catégorie',
             ])
-            ->add('country', CountryType::class, ['label'=>'Pays'])
+            ->add('country', CountryType::class, [
+                'label'=>'Pays',
+            ])
             ->add('terroir', TextType::class, ['label'=>'Terroir'])
             ->add('variety', TextType::class, ['label'=>'Variété'])
             ->add('tastingNote', TextType::class, ['label'=>'Note de dégustation'])
             ->add('description', TextType::class, ['label'=>'Description'])
-            ->add('highlighted', CheckboxType::class, ['label' =>'Mise en avant'])
-            ->add('novelty', CheckboxType::class, ['label' => 'Nouveauté'])
-
         ;
     }
 
