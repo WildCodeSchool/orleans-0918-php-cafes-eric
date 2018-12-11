@@ -98,7 +98,8 @@ class Category
             $coffee->setCategory($this); 
         }
     }
-
+    
+     /**
      * @return Collection|Tea[]
      */
     public function getTeas(): Collection
