@@ -13,14 +13,14 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * @Route("admin/worker")
  */
-class AdminWorkerController extends AbstractController
+class WorkerController extends AbstractController
 {
     /**
      * @Route("/", name="worker_index", methods="GET")
      */
     public function index(WorkerRepository $workerRepository): Response
     {
-        return $this->render('admin_worker/index.html.twig', ['workers' => $workerRepository->findAll()]);
+        return $this->render('admin/worker/index.html.twig', ['workers' => $workerRepository->findAll()]);
     }
 
     /**
@@ -42,7 +42,7 @@ class AdminWorkerController extends AbstractController
             return $this->redirectToRoute('worker_index');
         }
 
-        return $this->render('admin_worker/new.html.twig', [
+        return $this->render('admin/worker/new.html.twig', [
             'worker' => $worker,
             'form' => $form->createView(),
         ]);
@@ -53,7 +53,7 @@ class AdminWorkerController extends AbstractController
      */
     public function show(Worker $worker): Response
     {
-        return $this->render('admin_worker/show.html.twig', ['worker' => $worker]);
+        return $this->render('admin/worker/show.html.twig', ['worker' => $worker]);
     }
 
     /**
@@ -72,7 +72,7 @@ class AdminWorkerController extends AbstractController
             return $this->redirectToRoute('worker_index', ['id' => $worker->getId()]);
         }
 
-        return $this->render('admin_worker/edit.html.twig', [
+        return $this->render('admin/worker/edit.html.twig', [
             'worker' => $worker,
             'form' => $form->createView(),
         ]);
