@@ -41,6 +41,9 @@ class Category
     public function __construct()
     {
         $this->coffees = new ArrayCollection();
+    }
+    
+    /**
      * @ORM\OneToMany(targetEntity="Tea", mappedBy="category")
      */
     private $teas;
