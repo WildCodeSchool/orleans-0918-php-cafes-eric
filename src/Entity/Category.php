@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -30,6 +32,16 @@ class Category
      */
     private $shelf;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Tea", mappedBy="category")
+     */
+    private $teas;
+
+    public function __construct()
+    {
+        $this->teas = new ArrayCollection();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -56,6 +68,36 @@ class Category
     {
         $this->shelf = $shelf;
 
+        return $this;
+    }
+
+    /**
+     * @return Collection|Tea[]
+     */
+    public function getTeas(): Collection
+    {
+        return $this->teas;
+    }
+
+    public function addTea(Tea $tea): self
+    {
+        if (!$this->teas->contains($tea)) {
+            $this->teas[] = $tea;
+            $tea->setCategory($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTea(Tea $tea): self
+    {
+        if ($this->teas->contains($tea)) {
+            $this->teas->removeElement($tea);
+            // set the owning side to null (unless already changed)
+            if ($tea->getCategory() === $this) {
+                $tea->setCategory(null);
+            }
+        }
         return $this;
     }
 }
