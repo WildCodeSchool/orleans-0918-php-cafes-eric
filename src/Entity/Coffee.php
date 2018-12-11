@@ -20,10 +20,6 @@ class Coffee
     /**
      * @ORM\Column(type="string", length=2, nullable=true)
      * @Assert\NotBlank
-     * @Assert\Length(
-     *      max=2,
-     *      maxMessage="Le nom du pays est trop long"
-     * )
      * @Assert\Country
      */
     private $country;

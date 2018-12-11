@@ -92,6 +92,7 @@ class Category
             $this->coffees[] = $coffee;
             $coffee->setCategory($this);
         }
+        return $this;
     }
     
     public function removeCoffee(Coffee $coffee): self
@@ -103,6 +104,7 @@ class Category
                 $coffee->setCategory(null);
             }
         }
+        return $this;
     }
 
     /**
