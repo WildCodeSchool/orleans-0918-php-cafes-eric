@@ -95,7 +95,9 @@ class Category
     {
         if (!$this->coffees->contains($coffee)) {
             $this->coffees[] = $coffee;
-            $coffee->setCategory($this);
+            $coffee->setCategory($this); 
+        }
+    }
 
      * @return Collection|Tea[]
      */
