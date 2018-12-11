@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tea{% endblock %}
+
+{% block body %}
+    <h1>Tea</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ tea.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ tea.name }}</td>
+            </tr>
+            <tr>
+                <th>Ingredients</th>
+                <td>{{ tea.ingredients }}</td>
+            </tr>
+            <tr>
+                <th>Hightlighted</th>
+                <td>{{ tea.hightlighted ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Novelty</th>
+                <td>{{ tea.novelty ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Feature</th>
+                <td>{{ tea.feature }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('tea_index') }}">back to list</a>
+
+    <a href="{{ path('tea_edit', {'id': tea.id}) }}">edit</a>
+
+    {{ include('admin/tea/_delete_form.html.twig') }}
+{% endblock %}

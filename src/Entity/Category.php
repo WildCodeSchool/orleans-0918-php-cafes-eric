@@ -33,6 +33,7 @@ class Category
     private $shelf;
 
     /**
+
      * @ORM\OneToMany(targetEntity="App\Entity\Coffee", mappedBy="category")
      */
     private $coffees;
@@ -40,6 +41,14 @@ class Category
     public function __construct()
     {
         $this->coffees = new ArrayCollection();
+     * @ORM\OneToMany(targetEntity="Tea", mappedBy="category")
+     */
+    private $teas;
+
+    public function __construct()
+    {
+        $this->teas = new ArrayCollection();
+
     }
 
     public function getId(): ?int
@@ -84,10 +93,24 @@ class Category
         if (!$this->coffees->contains($coffee)) {
             $this->coffees[] = $coffee;
             $coffee->setCategory($this);
+
+     * @return Collection|Tea[]
+     */
+    public function getTeas(): Collection
+    {
+        return $this->teas;
+    }
+
+    public function addTea(Tea $tea): self
+    {
+        if (!$this->teas->contains($tea)) {
+            $this->teas[] = $tea;
+            $tea->setCategory($this);
         }
 
         return $this;
     }
+
 
     public function removeCoffee(Coffee $coffee): self
     {
@@ -99,6 +122,16 @@ class Category
             }
         }
 
+
+    public function removeTea(Tea $tea): self
+    {
+        if ($this->teas->contains($tea)) {
+            $this->teas->removeElement($tea);
+            // set the owning side to null (unless already changed)
+            if ($tea->getCategory() === $this) {
+                $tea->setCategory(null);
+            }
+        }
         return $this;
     }
 }
