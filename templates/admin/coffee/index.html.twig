@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Coffee index{% endblock %}
+
+{% block body %}
+    <h1>Coffee index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Country</th>
+                <th>Terroir</th>
+                <th>Variety</th>
+                <th>TastingNote</th>
+                <th>Description</th>
+                <th>Highlighted</th>
+                <th>Novelty</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for coffee in coffees %}
+            <tr>
+                <td>{{ coffee.id }}</td>
+                <td>{{ coffee.country }}</td>
+                <td>{{ coffee.soil }}</td>
+                <td>{{ coffee.variety }}</td>
+                <td>{{ coffee.tastingNote }}</td>
+                <td>{{ coffee.description }}</td>
+                <td>{{ coffee.highlighted ? 'Yes' : 'No' }}</td>
+                <td>{{ coffee.novelty ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('coffee_show', {'id': coffee.id}) }}">show</a>
+                    <a href="{{ path('coffee_edit', {'id': coffee.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('coffee_new') }}">Create new</a>
+{% endblock %}
