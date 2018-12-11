@@ -24,24 +24,31 @@ class Category
      * @Assert\NotBlank()
      * @Assert\Length(max=255)
      */
+    
     private $title;
-
-    /**
+     /**
      * @ORM\ManyToOne(targetEntity="Shelf")
      * @ORM\JoinColumn(nullable=false)
      */
     private $shelf;
-
-    /**
+    
+      /**
      * @ORM\OneToMany(targetEntity="Tea", mappedBy="category")
      */
     private $teas;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Coffee", mappedBy="category")
+     */
+    private $coffees;
+
     public function __construct()
     {
+        $this->coffees = new ArrayCollection();
         $this->teas = new ArrayCollection();
     }
-
+    
+    
     public function getId(): ?int
     {
         return $this->id;
@@ -72,6 +79,35 @@ class Category
     }
 
     /**
+     * @return Collection|Coffee[]
+     */
+    public function getCoffees(): Collection
+    {
+        return $this->coffees;
+    }
+
+    public function addCoffee(Coffee $coffee): self
+    {
+        if (!$this->coffees->contains($coffee)) {
+            $this->coffees[] = $coffee;
+            $coffee->setCategory($this);
+        }
+        return $this;
+    }
+    
+    public function removeCoffee(Coffee $coffee): self
+    {
+        if ($this->coffees->contains($coffee)) {
+            $this->coffees->removeElement($coffee);
+            // set the owning side to null (unless already changed)
+            if ($coffee->getCategory() === $this) {
+                $coffee->setCategory(null);
+            }
+        }
+        return $this;
+    }
+
+    /**
      * @return Collection|Tea[]
      */
     public function getTeas(): Collection
@@ -88,7 +124,7 @@ class Category
 
         return $this;
     }
-
+    
     public function removeTea(Tea $tea): self
     {
         if ($this->teas->contains($tea)) {
