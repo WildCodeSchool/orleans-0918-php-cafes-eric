@@ -127,6 +127,7 @@ class Category
                 $coffee->setCategory(null);
             }
         }
+    }
 
 
     public function removeTea(Tea $tea): self
