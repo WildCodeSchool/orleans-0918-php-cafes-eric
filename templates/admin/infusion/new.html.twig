@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Infusion{% endblock %}
+
+{% block body %}
+    <h1>Create new Infusion</h1>
+
+    {{ include('admin/infusion/_form.html.twig') }}
+
+    <a href="{{ path('infusion_index') }}">back to list</a>
+{% endblock %}
