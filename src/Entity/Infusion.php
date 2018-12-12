@@ -44,6 +44,17 @@ class Infusion
      */
     private $category;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Length(
+     *     min=3,
+     *     max=255,
+     *     minMessage="Particularité trop petite",
+     *     maxMessage="Trop grand"
+     * )
+     */
+    private $feature;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -81,6 +92,18 @@ class Infusion
     public function setCategory(?Category $category): self
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    public function getFeature(): ?string
+    {
+        return $this->feature;
+    }
+
+    public function setFeature(?string $feature): self
+    {
+        $this->feature = $feature;
 
         return $this;
     }

@@ -36,6 +36,7 @@ class InfusionController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->persist($infusion);
             $em->flush();
+            $this->addFlash('success', 'L\'infusion à bien été créé');
 
             return $this->redirectToRoute('infusion_index');
         }

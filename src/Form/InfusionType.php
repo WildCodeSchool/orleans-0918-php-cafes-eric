@@ -15,14 +15,17 @@ class InfusionType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name', TextType::class, [
-                'label' => 'Nom',
-                'help' => 'Ce nom doit être unique'])
-            ->add('ingredients', TextType::class, ['label' => 'Ingrédients'])
             ->add('category', EntityType::class, [
                 'class' => Category::class,
                 'choice_label' => 'title',
                 'label' => "Catégorie"])
+            ->add('name', TextType::class, [
+                'label' => 'Nom',
+                'help' => 'Ce nom doit être unique'])
+            ->add('ingredients', TextType::class, ['label' => 'Ingrédients'])
+            ->add('feature', TextType::class, [
+                'required' => false,
+                'label' => 'Particularité'])
         ;
     }
 
