@@ -1,0 +1,15 @@
+{% extends 'layoutAdmin.html.twig' %}
+
+{% block title %}Nouvelle Infusion{% endblock %}
+
+{% block body %}
+    <h1>Ajouter une nouvelle Infusion</h1>
+    <div class="row">
+        <div class="col-md-12 mb-5 mt-5">
+            {{ include('admin/infusion/_form.html.twig') }}
+        </div>
+        <div class="col-md-12 mb-5">
+            <a href="{{ path('infusion_index') }}"><i class="fas fa-reply"></i> Retour</a>
+        </div>
+    </div>
+{% endblock %}
