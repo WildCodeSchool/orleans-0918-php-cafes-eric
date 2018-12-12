@@ -1,13 +1,15 @@
-{% extends 'base.html.twig' %}
+{% extends 'layoutAdmin.html.twig' %}
 
-{% block title %}Edit Infusion{% endblock %}
+{% block title %}Édition Infusion{% endblock %}
 
 {% block body %}
-    <h1>Edit Infusion</h1>
-
-    {{ include('admin/infusion/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('infusion_index') }}">back to list</a>
-
-    {{ include('admin/infusion/_delete_form.html.twig') }}
+    <h1>Édition</h1>
+    <div class="row">
+        <div class="col-md-12 mb-5 mt-5">
+            {{ include('admin/infusion/_form.html.twig', {'button_label': 'Éditer'}) }}
+        </div>
+        <div class="col-md-12">
+            <a href="{{ path('infusion_index') }}"><i class="fas fa-reply"></i> Retour</a>
+        </div>
+    </div>
 {% endblock %}
