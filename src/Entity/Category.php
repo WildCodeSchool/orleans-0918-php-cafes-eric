@@ -42,10 +42,16 @@ class Category
      */
     private $coffees;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Infusion", mappedBy="category")
+     */
+    private $infusions;
+
     public function __construct()
     {
         $this->coffees = new ArrayCollection();
         $this->teas = new ArrayCollection();
+        $this->infusions = new ArrayCollection();
     }
     
     
@@ -134,6 +140,37 @@ class Category
                 $tea->setCategory(null);
             }
         }
+        return $this;
+    }
+
+    /**
+     * @return Collection|Infusion[]
+     */
+    public function getInfusions(): Collection
+    {
+        return $this->infusions;
+    }
+
+    public function addInfusion(Infusion $infusion): self
+    {
+        if (!$this->infusions->contains($infusion)) {
+            $this->infusions[] = $infusion;
+            $infusion->setCategory($this);
+        }
+
+        return $this;
+    }
+
+    public function removeInfusion(Infusion $infusion): self
+    {
+        if ($this->infusions->contains($infusion)) {
+            $this->infusions->removeElement($infusion);
+            // set the owning side to null (unless already changed)
+            if ($infusion->getCategory() === $this) {
+                $infusion->setCategory(null);
+            }
+        }
+
         return $this;
     }
 }
