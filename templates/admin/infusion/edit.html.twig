@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Infusion{% endblock %}
+
+{% block body %}
+    <h1>Edit Infusion</h1>
+
+    {{ include('admin/infusion/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('infusion_index') }}">back to list</a>
+
+    {{ include('admin/infusion/_delete_form.html.twig') }}
+{% endblock %}
