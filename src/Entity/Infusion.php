@@ -17,12 +17,22 @@ class Infusion
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, unique=true)
+     * @Assert\NotBlank
+     * @Assert\Length(
+     *     max=255,
+     *     maxMessage="Nom trop grand"
+     * )
      */
     private $name;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
+     * @Assert\Length(
+     *     max=255,
+     *     maxMessage="Liste d'ingrédients trop longue"
+     * )
      */
     private $ingredients;
 
