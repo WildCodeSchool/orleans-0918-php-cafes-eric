@@ -65,6 +65,7 @@ class TeaController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('success', 'Le thé a bien été édité');
 
             return $this->redirectToRoute('tea_index', ['id' => $tea->getId()]);
         }
