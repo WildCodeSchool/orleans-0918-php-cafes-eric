@@ -33,8 +33,7 @@ class AppAdminAuthenticator extends AbstractFormLoginAuthenticator
         RouterInterface $router,
         CsrfTokenManagerInterface $csrfTokenManager,
         UserPasswordEncoderInterface $passwordEncoder
-    )
-    {
+    ){
         $this->entityManager = $entityManager;
         $this->router = $router;
         $this->csrfTokenManager = $csrfTokenManager;
