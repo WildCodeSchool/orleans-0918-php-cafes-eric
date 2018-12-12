@@ -84,6 +84,7 @@ class InfusionController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->remove($infusion);
             $em->flush();
+            $this->addFlash('success', 'L\'infusion a bien été supprimée');
         }
 
         return $this->redirectToRoute('infusion_index');
