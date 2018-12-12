@@ -65,6 +65,7 @@ class InfusionController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('success', 'L\'infusion a bien été éditée');
 
             return $this->redirectToRoute('infusion_index', ['id' => $infusion->getId()]);
         }
@@ -84,6 +85,7 @@ class InfusionController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->remove($infusion);
             $em->flush();
+            $this->addFlash('success', 'L\'infusion a bien été supprimée');
         }
 
         return $this->redirectToRoute('infusion_index');
