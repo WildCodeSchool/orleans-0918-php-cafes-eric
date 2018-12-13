@@ -1,50 +1,44 @@
-{% extends 'base.html.twig' %}
+{% extends 'layoutAdmin.html.twig' %}
 
-{% block title %}Coffee{% endblock %}
+{% block title %}Détail d'un café.{% endblock %}
 
 {% block body %}
-    <h1>Coffee</h1>
-
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ coffee.id }}</td>
-            </tr>
-            <tr>
-                <th>Country</th>
-                <td>{{ country }}</td>
-            </tr>
-            <tr>
-                <th>Terroir</th>
-                <td>{{ coffee.soil }}</td>
-            </tr>
-            <tr>
-                <th>Variety</th>
-                <td>{{ coffee.variety }}</td>
-            </tr>
-            <tr>
-                <th>TastingNote</th>
-                <td>{{ coffee.tastingNote }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ coffee.description }}</td>
-            </tr>
-            <tr>
-                <th>Highlighted</th>
-                <td>{{ coffee.highlighted ? 'Yes' : 'No' }}</td>
-            </tr>
-            <tr>
-                <th>Novelty</th>
-                <td>{{ coffee.novelty ? 'Yes' : 'No' }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <a href="{{ path('coffee_index') }}">back to list</a>
-
-    <a href="{{ path('coffee_edit', {'id': coffee.id}) }}">edit</a>
-
-    {{ include('admin/coffee/_delete_form.html.twig') }}
+    <h1>Fiche produit</h1>
+    <div class="row">
+        <div class="col-md-12 mb-5 mt-5">
+            <table class="table">
+                <tbody>
+                <tr>
+                    <th>Région du monde</th>
+                    <td>{{ coffee.category.title }}</td>
+                </tr>
+                <tr>
+                    <th>Pays</th>
+                    <td>{{ country }}</td>
+                </tr>
+                <tr>
+                    <th>Terroir</th>
+                    <td>{{ coffee.soil }}</td>
+                </tr>
+                <tr>
+                    <th>Variété</th>
+                    <td>{{ coffee.variety }}</td>
+                </tr>
+                <tr>
+                    <th>Note de dégustation</th>
+                    <td>{{ coffee.tastingNote }}</td>
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <td>{{ coffee.description }}</td>
+                </tr>
+                </tbody>
+            </table>
+        <a type="button" class="btn btn-outline-secondary" href="{{ path('coffee_edit', {'id': coffee.id}) }}"><i class="fas fa-pencil-alt"></i> Editer</a>
+        {{ include('admin/coffee/_delete_form.html.twig') }}
+        </div>
+        <div class="col-md-12 mb-5">
+            <a href="{{ path('coffee_index') }}"><i class="fas fa-reply"></i>retour</a>
+        </div>
+    </div>
 {% endblock %}
