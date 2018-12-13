@@ -9,7 +9,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Intl\Intl;
 
 /**
  * @Route("admin/coffee")
@@ -53,9 +52,8 @@ class CoffeeController extends AbstractController
      */
     public function show(Coffee $coffee): Response
     {
-        $country = Intl::getRegionBundle()->getCountryName($coffee->getCountry());
+
         return $this->render('admin/coffee/show.html.twig', [
-            'country' => $country,
             'coffee' => $coffee
         ]);
     }
