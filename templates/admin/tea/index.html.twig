@@ -1,0 +1,35 @@
+{% extends 'layoutAdmin.html.twig' %}
+
+{% block title %}Accueil Thé{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Accueil Thé</h1>
+        <div class="mb-5 mt-5">
+            <a type="button" class="btn btn-outline-secondary" href="{{ path('tea_new') }}"><i class="fa fa-plus"></i> Ajouter un nouveau thé</a>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for tea in teas %}
+                <tr>
+                    <td class="col-8"><i class="fas fa-leaf"></i> {{ tea.name }}</td>
+                    <td class="col-4">
+                        <a type="button" class="btn btn-outline-secondary"  href="{{ path('tea_show', {'id': tea.id}) }}"><i class="far fa-eye"></i> Voir</a>
+                        <a type="button" class="btn btn-outline-secondary"  href="{{ path('tea_edit', {'id': tea.id}) }}"><i class="fas fa-pencil-alt"></i> Éditer</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="7">Aucun thé trouvé</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

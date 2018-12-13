@@ -1,0 +1,15 @@
+{% extends 'layoutAdmin.html.twig' %}
+
+{% block title %}Nouveau Thé{% endblock %}
+
+{% block body %}
+    <h1>Ajouter un nouveau thé</h1>
+    <div class="row">
+        <div class="col-md-12 mb-5 mt-5">
+            {{ include('admin/tea/_form.html.twig') }}
+        </div>
+        <div class="col-md-12 mb-5">
+            <a href="{{ path('tea_index') }}"><i class="fas fa-reply"></i> Retour</a>
+        </div>
+    </div>
+{% endblock %}

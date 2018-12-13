@@ -1,0 +1,28 @@
+{% extends 'layoutAdmin.html.twig' %}
+
+{% block title %}Profile{% endblock %}
+
+{% block body %}
+    <h1>Profile de {{ worker.name }}</h1>
+    <div class="row">
+        <div class="col-md-12 mb-5 mt-5">
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th>Prénom</th>
+                        <td>{{ worker.name }}</td>
+                    </tr>
+                    <tr>
+                        <th>Description</th>
+                        <td>{{ worker.description }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <a type="button" class="btn btn-outline-secondary" href="{{ path('worker_edit', {'id': worker.id}) }}"><i class="fas fa-pencil-alt"></i> Éditer</a>
+            {{ include('admin/worker/_delete_form.html.twig') }}
+        </div>
+        <div class="col-md-12 mb-5">
+            <a href="{{ path('worker_index') }}"><i class="fas fa-reply"></i> Retour</a>
+        </div>
+    </div>
+{% endblock %}
