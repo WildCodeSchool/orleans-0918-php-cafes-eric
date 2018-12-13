@@ -1,6 +1,6 @@
 language: php
 php:
-  - '7.1'
+  - '7.2'
 before_script:
     - if [ -d "./.idea" ]; then echo "Forbidden idea folder found !"; exit 2; fi
     - if [ -d "./.env.local" ]; then echo "Forbidden configuration file found !"; exit 2; fi
