@@ -23,6 +23,7 @@ class CoffeeController extends AbstractController
         return $this->render('admin/coffee/index.html.twig', ['coffees' => $coffeeRepository->findAll()]);
     }
 
+
     /**
      * @Route("/new", name="coffee_new", methods="GET|POST")
      */
@@ -51,7 +52,10 @@ class CoffeeController extends AbstractController
      */
     public function show(Coffee $coffee): Response
     {
-        return $this->render('admin/coffee/show.html.twig', ['coffee' => $coffee]);
+
+        return $this->render('admin/coffee/show.html.twig', [
+            'coffee' => $coffee
+        ]);
     }
 
     /**
