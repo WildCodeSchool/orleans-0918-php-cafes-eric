@@ -1,30 +1,38 @@
-{% extends 'base.html.twig' %}
+{% extends 'layoutAdmin.html.twig' %}
 
 {% block title %}Infusion{% endblock %}
 
 {% block body %}
-    <h1>Infusion</h1>
+    <h1>{{ infusion.name }}</h1>
+    <div class="row">
+        <div class="col-md-12 mb-5 mt-5">
+            <table class="table">
+                <tbody>
+                <tr>
+                    <th>Name</th>
+                    <td>{{ infusion.name }}</td>
+                </tr>
+                <tr>
+                    <th>Ingredients</th>
+                    <td>{{ infusion.ingredients }}</td>
+                </tr>
+                <tr>
+                    <th>Particularité</th>
+                    <td>{{ infusion.feature }}</td>
+                </tr>
+                <tr>
+                    <th>Catégorie</th>
+                    <td>{{ infusion.category.title }}</td>
+                </tr>
+                </tbody>
+            </table>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ infusion.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ infusion.name }}</td>
-            </tr>
-            <tr>
-                <th>Ingredients</th>
-                <td>{{ infusion.ingredients }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <a href="{{ path('infusion_index') }}">back to list</a>
-
-    <a href="{{ path('infusion_edit', {'id': infusion.id}) }}">edit</a>
-
-    {{ include('admin/infusion/_delete_form.html.twig') }}
+            <a type="button" class="btn btn-outline-secondary"
+               href="{{ path('infusion_edit', {'id': infusion.id}) }}"><i class="fas fa-pencil-alt"></i> Éditer</a>
+            {{ include('admin/infusion/_delete_form.html.twig') }}
+        </div>
+        <div class="col-md-12 mb-5">
+            <a href="{{ path('infusion_index') }}"><i class="fas fa-reply"></i> Retour</a>
+        </div>
+    </div>
 {% endblock %}
