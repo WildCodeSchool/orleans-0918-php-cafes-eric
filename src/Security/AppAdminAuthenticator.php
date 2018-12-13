@@ -72,7 +72,7 @@ class AppAdminAuthenticator extends AbstractFormLoginAuthenticator
 
         if (!$user) {
             // fail authentication with a custom error
-            throw new CustomUserMessageAuthenticationException('L\'adresse email n\'à pas été trouvé');
+            throw new CustomUserMessageAuthenticationException('L\'adresse email n\'est pas correct');
         }
 
         return $user;
