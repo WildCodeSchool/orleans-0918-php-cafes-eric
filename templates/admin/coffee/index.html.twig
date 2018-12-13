@@ -8,6 +8,7 @@
     <table class="table">
         <thead>
             <tr>
+                <th>Id</th>
                 <th>Pays</th>
                 <th>Terroir</th>
                 <th>Actions</th>
@@ -16,8 +17,14 @@
         <tbody>
         {% for coffee in coffees %}
             <tr>
+                <td>{{ coffee.id }}</td>
                 <td>{{ coffee.country }}</td>
                 <td>{{ coffee.soil }}</td>
+                <td>{{ coffee.variety }}</td>
+                <td>{{ coffee.tastingNote }}</td>
+                <td>{{ coffee.description }}</td>
+                <td>{{ coffee.highlighted ? 'Yes' : 'No' }}</td>
+                <td>{{ coffee.novelty ? 'Yes' : 'No' }}</td>
                 <td>
                     <a href="{{ path('coffee_show', {'id': coffee.id}) }}">show</a>
                     <a href="{{ path('coffee_edit', {'id': coffee.id}) }}">edit</a>
