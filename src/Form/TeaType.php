@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Category;
+use App\Entity\FamilyTea;
 use App\Entity\Tea;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -19,6 +20,10 @@ class TeaType extends AbstractType
                 'class' => Category::class,
                 'choice_label' => 'title',
                 'label' => "Catégorie"])
+            ->add('family_tea', EntityType::class, [
+                'class' => FamilyTea::class,
+                'choice_label' => 'name',
+                'label' => "Famille de thé"])
             ->add('name', TextType::class, [
                 'label' => 'Nom',
                 'help' => 'Ce nom doit être unique'])
