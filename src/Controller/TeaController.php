@@ -85,6 +85,7 @@ class TeaController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->remove($tea);
             $em->flush();
+            $this->addFlash('success', 'Le thé a bien été supprimé');
         }
 
         return $this->redirectToRoute('tea_index');
