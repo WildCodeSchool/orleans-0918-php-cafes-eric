@@ -55,6 +55,11 @@ class Infusion
      */
     private $feature;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $highlighted;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -104,6 +109,18 @@ class Infusion
     public function setFeature(?string $feature): self
     {
         $this->feature = $feature;
+
+        return $this;
+    }
+
+    public function getHighlighted(): ?bool
+    {
+        return $this->highlighted;
+    }
+
+    public function setHighlighted(?bool $highlighted): self
+    {
+        $this->highlighted = $highlighted;
 
         return $this;
     }

@@ -42,7 +42,7 @@ class Tea
     /**
      * @ORM\Column(type="boolean", nullable=true)
      */
-    private $hightlighted;
+    private $highlighted;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
@@ -95,14 +95,14 @@ class Tea
         return $this;
     }
 
-    public function getHightlighted(): ?bool
+    public function getHighlighted(): ?bool
     {
-        return $this->hightlighted;
+        return $this->highlighted;
     }
 
-    public function setHightlighted(bool $hightlighted): self
+    public function setHighlighted(bool $highlighted): self
     {
-        $this->hightlighted = $hightlighted;
+        $this->highlighted = $highlighted;
 
         return $this;
     }
