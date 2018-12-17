@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'layoutAdmin.html.twig' %}
 
 {% block title %}Tea{% endblock %}
 
@@ -16,20 +16,20 @@
                 <td>{{ tea.name }}</td>
             </tr>
             <tr>
-                <th>Ingredients</th>
+                <th>Ingrédients</th>
                 <td>{{ tea.ingredients }}</td>
             </tr>
             <tr>
-                <th>Highlighted</th>
-                <td>{{ tea.highlighted ? 'Yes' : 'No' }}</td>
-            </tr>
-            <tr>
-                <th>Novelty</th>
-                <td>{{ tea.novelty ? 'Yes' : 'No' }}</td>
-            </tr>
-            <tr>
-                <th>Feature</th>
+                <th>Particularité</th>
                 <td>{{ tea.feature }}</td>
+            </tr>
+            <tr>
+                <th>Produit du mois</th>
+                <td>{{ tea.highlighted ? 'Oui' : 'Non' }}</td>
+            </tr>
+            <tr>
+                <th>Nouveauté</th>
+                <td>{{ tea.novelty ? 'Oui' : 'Non' }}</td>
             </tr>
         </tbody>
     </table>
