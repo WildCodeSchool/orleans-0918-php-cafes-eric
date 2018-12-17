@@ -29,7 +29,7 @@ class TeaType extends AbstractType
                 'label' => 'Particularité'])
             ->add('novelty', CheckboxType::class, [
                 'required' => false,
-                'label' => 'Nouveautée'])
+                'label' => 'Nouveauté'])
         ;
     }
 
