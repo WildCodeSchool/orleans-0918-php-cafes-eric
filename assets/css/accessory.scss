@@ -6,14 +6,24 @@
   @media (min-width: 992px) {
     .about-heading-img {
       position: relative;
+      background-size: cover;
+      width: 25rem;
+      height: 25rem;
       z-index: 0;
     }
     .about-heading-content {
       margin-top: -5rem;
       position: relative;
+      margin-left: 5rem;
+      margin-right: -5rem;
       z-index: 1;
     }
   }
 }
 
-
+.produit {
+  color: $touch;
+}
+.col-sm-5 {
+  margin-top: -60px;
+}
