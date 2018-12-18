@@ -3,7 +3,6 @@
 }
 //les fiches produits
 .about-heading {
-  @media (min-width: 992px) {
     .about-heading-img {
       position: relative;
       background-size: cover;
@@ -19,9 +18,8 @@
       z-index: 1;
     }
   }
-}
 
-.produit {
+.product {
   color: $touch;
 }
 .col-sm-5 {
