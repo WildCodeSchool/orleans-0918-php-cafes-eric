@@ -14,7 +14,7 @@ class CoffeeCategoryController extends AbstractController
      */
     public function index(CategoryRepository $categoryRepository, ShelfRepository $shelfRepository)
     {
-        $shelf = $shelfRepository->findOneBy(['title' => 'Cafés']);
+        $shelf = $shelfRepository->findOneBy(['shelfCode' => 'COFFEE']);
 
         return $this->render('coffee_category/index.html.twig', [
             'controller_name' => 'CoffeeCategoryController',
