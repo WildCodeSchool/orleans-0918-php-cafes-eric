@@ -18,16 +18,4 @@ class CategoryRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Category::class);
     }
-
-    public function findByShelf(): array
-    {
-        // automatically knows to select Products
-        // the "p" is an alias you'll use in the rest of the query
-        $qb = $this->createQueryBuilder('c')
-            ->Where('c.shelf = :id')
-            ->setParameter('id', 6)
-            ->getQuery();
-
-        return $qb->execute();
-    }
 }
