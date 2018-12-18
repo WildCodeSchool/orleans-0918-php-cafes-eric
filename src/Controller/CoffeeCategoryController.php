@@ -11,6 +11,9 @@ class CoffeeCategoryController extends AbstractController
 {
     /**
      * @Route("/coffee/category", name="coffee_category")
+     * @param CategoryRepository $categoryRepository
+     * @param ShelfRepository $shelfRepository
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function index(CategoryRepository $categoryRepository, ShelfRepository $shelfRepository)
     {
