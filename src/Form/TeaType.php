@@ -6,6 +6,7 @@ use App\Entity\Category;
 use App\Entity\Tea;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -25,7 +26,11 @@ class TeaType extends AbstractType
             ->add('ingredients', TextType::class, ['label' => 'Ingrédients'])
             ->add('feature', TextType::class, [
                 'required' => false,
-                'label' => 'Particularité']);
+                'label' => 'Particularité'])
+            ->add('novelty', CheckboxType::class, [
+                'required' => false,
+                'label' => 'Nouveauté'])
+        ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
