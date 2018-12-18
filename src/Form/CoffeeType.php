@@ -6,6 +6,7 @@ use App\Entity\Coffee;
 use App\Entity\Category;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\CountryType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -29,6 +30,7 @@ class CoffeeType extends AbstractType
             ->add('variety', TextType::class, ['label'=>'Variété'])
             ->add('tastingNote', TextType::class, ['label'=>'Note de dégustation'])
             ->add('description', TextareaType::class, ['label'=>'Description'])
+            ->add('novelty', CheckboxType::class, ['required' => false, 'label' => 'Nouveauté'])
         ;
     }
 

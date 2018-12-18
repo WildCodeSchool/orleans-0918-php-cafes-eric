@@ -55,6 +55,11 @@ class Infusion
      */
     private $feature;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $novelty;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -104,6 +109,18 @@ class Infusion
     public function setFeature(?string $feature): self
     {
         $this->feature = $feature;
+
+        return $this;
+    }
+
+    public function getNovelty(): ?bool
+    {
+        return $this->novelty;
+    }
+
+    public function setNovelty(?bool $novelty): self
+    {
+        $this->novelty = $novelty;
 
         return $this;
     }
