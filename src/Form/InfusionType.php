@@ -30,6 +30,9 @@ class InfusionType extends AbstractType
             ->add('highlighted', CheckboxType::class, [
                 'required' => false,
                 'label' => 'Produit du mois'])
+            ->add('novelty', CheckboxType::class, [
+                'required' => false,
+                'label' => 'Nouveauté'])
         ;
     }
 

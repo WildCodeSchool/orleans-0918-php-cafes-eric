@@ -1,20 +1,20 @@
 {% extends 'layoutAdmin.html.twig' %}
 
-{% block title %}Profile{% endblock %}
+{% block title %}Profil{% endblock %}
 
 {% block body %}
-    <h1>Profile de {{ worker.name }}</h1>
+    <h1>Profil de {{ worker.name }}</h1>
     <div class="row">
         <div class="col-md-12 mb-5 mt-5">
             <table class="table">
                 <tbody>
                     <tr>
-                        <th>Prénom</th>
-                        <td>{{ worker.name }}</td>
+                        <th class="col-md-2">Prénom</th>
+                        <td class="col-md-10">{{ worker.name }}</td>
                     </tr>
                     <tr>
-                        <th>Description</th>
-                        <td>{{ worker.description }}</td>
+                        <th class="col-md-2">Description</th>
+                        <td class="col-md-10">{{ worker.description }}</td>
                     </tr>
                 </tbody>
             </table>
