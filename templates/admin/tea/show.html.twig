@@ -20,6 +20,14 @@
                         <th class="col-md-2">Particularité</th>
                         <td class="col-md-10">{{ tea.feature }}</td>
                     </tr>
+                    <tr>
+                      <th class="col-md-2">Produit du mois</th>
+                      <td class="col-md-10">{{ tea.highlighted ? 'Oui' : 'Non' }}</td>
+                    </tr>
+                    <tr>
+                        <th class="col-md-2">Nouveauté</th>
+                        <td class="col-md-10">{{ tea.novelty ? 'Oui' : 'Non' }}</td>
+                    </tr>
                 </tbody>
             </table>
             <a type="button" class="btn btn-outline-secondary" href="{{ path('tea_edit', {'id': tea.id}) }}">
@@ -31,3 +39,4 @@
         </div>
     </div>
 {% endblock %}
+
