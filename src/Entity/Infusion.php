@@ -127,6 +127,7 @@ class Infusion
     public function setHighlighted(?bool $highlighted): self
     {
         $this->highlighted = $highlighted;
+        return $this;
     }
   
     public function getNovelty(): ?bool
