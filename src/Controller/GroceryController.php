@@ -12,8 +12,6 @@ class GroceryController extends AbstractController
      */
     public function index()
     {
-        return $this->render('grocery/index.html.twig', [
-            'controller_name' => 'GroceryController',
-        ]);
+        return $this->render('grocery/index.html.twig');
     }
 }
