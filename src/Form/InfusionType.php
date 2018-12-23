@@ -6,6 +6,7 @@ use App\Entity\Category;
 use App\Entity\Infusion;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -26,6 +27,12 @@ class InfusionType extends AbstractType
             ->add('feature', TextType::class, [
                 'required' => false,
                 'label' => 'Particularité'])
+            ->add('highlighted', CheckboxType::class, [
+                'required' => false,
+                'label' => 'Produit du mois'])
+            ->add('novelty', CheckboxType::class, [
+                'required' => false,
+                'label' => 'Nouveauté'])
         ;
     }
 

@@ -3,7 +3,6 @@
 {% block title %}Cafés{% endblock %}
 
 {% block body %}
-
     <section class="page-section clearfix">
         <div class="container">
             <div class="intro-coffee">
@@ -29,6 +28,12 @@
                     </ol>
                 </div>
             </div>
-        </div>
+            </div>
     </section>
+
+        {% for category in categories %}
+            <div class="row">
+           <h2>{{ category.title }} </h2>
+            </div>
+        {% endfor %}
 {% endblock %}

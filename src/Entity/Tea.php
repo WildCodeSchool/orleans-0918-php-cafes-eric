@@ -42,7 +42,7 @@ class Tea
     /**
      * @ORM\Column(type="boolean", nullable=true)
      */
-    private $hightlighted;
+    private $highlighted;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
@@ -65,6 +65,12 @@ class Tea
      * @ORM\JoinColumn(nullable=false)
      */
     private $category;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\FamilyTea", inversedBy="tea")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $familyTea;
 
     public function getId(): ?int
     {
@@ -95,14 +101,14 @@ class Tea
         return $this;
     }
 
-    public function getHightlighted(): ?bool
+    public function getHighlighted(): ?bool
     {
-        return $this->hightlighted;
+        return $this->highlighted;
     }
 
-    public function setHightlighted(bool $hightlighted): self
+    public function setHighlighted(bool $highlighted): self
     {
-        $this->hightlighted = $hightlighted;
+        $this->highlighted = $highlighted;
 
         return $this;
     }
@@ -139,6 +145,18 @@ class Tea
     public function setCategory(?Category $category): self
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    public function getFamilyTea(): ?FamilyTea
+    {
+        return $this->familyTea;
+    }
+
+    public function setFamilyTea(?FamilyTea $familyTea): self
+    {
+        $this->familyTea = $familyTea;
 
         return $this;
     }
