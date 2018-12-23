@@ -32,6 +32,14 @@
                     <th>Description</th>
                     <td>{{ coffee.description }}</td>
                 </tr>
+                <tr>
+                    <th>Produit du mois</th>
+                    <td>{{ coffee.highlighted ? 'Oui' : 'Non' }}</td>
+                </tr>
+                <tr>
+                    <th>Nouveauté</th>
+                    <td>{{ coffee.novelty ? 'Oui' : 'Non' }}</td>
+                </tr>
                 </tbody>
             </table>
         <a class="btn btn-outline-secondary" href="{{ path('coffee_edit', {'id': coffee.id}) }}"><i class="fas fa-pencil-alt"></i> Editer</a>
