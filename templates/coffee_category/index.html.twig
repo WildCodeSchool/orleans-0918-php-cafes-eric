@@ -6,7 +6,7 @@
     <section class="page-section clearfix">
         <div class="container">
             <div class="intro-coffee">
-                <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{{ asset('build/images/coffee_beans.jpg') }}" alt="thé">
+                <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{{ asset('build/images/coffee_beans.jpg') }}" alt="café">
                 <div class="intro-text left-0  text-center bg-faded p-11 mt-4 rounded">
                     <h2 class="section-heading-coffee mb-2">
                         <span class="section-heading-lower-coffee mt-5">Les 5 règles d'or pour préparer le café.</span>
@@ -28,12 +28,35 @@
                     </ol>
                 </div>
             </div>
+        </div>
+
+    </section>
+    <section class="page-section clearfix">
+
+
+        <div class="row d-flex justify-content-between">
+            {% for category in categories %}
+            <div class="col-sm-4">
+                <article class="page-section about-heading">
+                    <div class="intro-text left-0  text-center bg-faded p-11 mt-4 rounded">
+                        <h2 class="section-heading-coffee mb-2">
+                            <span class="section-heading-lower-coffee mt-5">{{ category.title }}</span>
+                            <hr/>
+                        </h2>
+                        {%  for coffee in category.coffees  %}
+                            <ul class="starli">
+                                <li>{{ coffee.country|country }}</li>
+                                <li>{{ coffee.soil }}</li>
+                            </ul>
+                        {% endfor %}
+                    </div>
+                </article>
             </div>
+
+            {% endfor %}
+        </div>
+
     </section>
 
-        {% for category in categories %}
-            <div class="row">
-           <h2>{{ category.title }} </h2>
-            </div>
-        {% endfor %}
+
 {% endblock %}

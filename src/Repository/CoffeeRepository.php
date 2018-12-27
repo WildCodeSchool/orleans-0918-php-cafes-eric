@@ -18,4 +18,15 @@ class CoffeeRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Coffee::class);
     }
+
+    public function listBy(): array
+    {
+        // automatically knows to select Products
+        // the "p" is an alias you'll use in the rest of the query
+        $qb = $this->createQueryBuilder('p')
+            ->orderBy('p.category', 'ASC')
+            ->getQuery();
+
+        return $qb->execute();
+    }
 }
