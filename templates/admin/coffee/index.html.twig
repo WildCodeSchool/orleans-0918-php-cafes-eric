@@ -24,8 +24,8 @@
                 <td class="col-3">{{ coffee.country|country }}</td>
                 <td class="col-3">{{ coffee.soil }}</td>
                 <td class="col-3">
-                    <a type="button" class="btn btn-outline-secondary" href="{{ path('coffee_show', {'id': coffee.id}) }}"><i class="far fa-eye"></i> Voir</a>
-                    <a type="button" class="btn btn-outline-secondary" href="{{ path('coffee_edit', {'id': coffee.id}) }}"><i class="fas fa-pencil-alt"></i> Éditer</a>
+                    <a class="btn btn-outline-secondary" href="{{ path('coffee_show', {'id': coffee.id}) }}"><i class="far fa-eye"></i> Voir</a>
+                    <a class="btn btn-outline-secondary" href="{{ path('coffee_edit', {'id': coffee.id}) }}"><i class="fas fa-pencil-alt"></i> Éditer</a>
                 </td>
             </tr>
         {% else %}
