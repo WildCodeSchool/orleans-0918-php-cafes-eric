@@ -17,8 +17,10 @@ class WorkerType extends AbstractType
         $builder
             ->add('name', TextType::class, ['label'=> 'Prénom'])
             ->add('description', TextareaType::class, ['label'=> 'Description'])
-            ->add('profileImageFile', FileType::class)
-        ;
+            ->add('profileImageFile', FileType::class, [
+                'label' => "Photo de profil",
+                'required' => false
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

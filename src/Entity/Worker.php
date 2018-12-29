@@ -4,9 +4,9 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
-use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 
 /**
@@ -41,17 +41,24 @@ class Worker
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @var string
      */
     private $profileImage;
 
     /**
      * @Vich\UploadableField(mapping="profile", fileNameProperty="profileImage")
      * @var File
+     * @Assert\Image(
+     *     maxWidth="300",
+     *     maxHeight="300",
+     *     maxWidthMessage="La largeur ne doit pas excéder 300 px",
+     *     maxHeightMessage="La longueur ne doit pas excéder 300 px")
      */
     private $profileImageFile;
 
     /**
      * @ORM\Column(type="datetime")
+     * @var \DateTime
      */
     private $updatedAt;
 
@@ -67,7 +74,7 @@ class Worker
         // VERY IMPORTANT:
         // It is required that at least one field changes if you are using Doctrine,
         // otherwise the event listeners won't be called and the file is lost
-        if ($image) {
+        if (null !== $image) {
             // if 'updatedAt' is not defined in your entity, use another property
             $this->updatedAt = new \DateTime('now');
         }
