@@ -47,14 +47,6 @@ class AdvertiseController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="advertise_show", methods="GET")
-     */
-    public function show(Advertise $advertise): Response
-    {
-        return $this->render('admin/advertise/show.html.twig', ['advertise' => $advertise]);
-    }
-
-    /**
      * @Route("/{id}/edit", name="advertise_edit", methods="GET|POST")
      */
     public function edit(Request $request, Advertise $advertise): Response
