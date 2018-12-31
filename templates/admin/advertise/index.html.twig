@@ -1,0 +1,34 @@
+{% extends 'layoutAdmin.html.twig' %}
+
+{% block title %}Advertise index{% endblock %}
+
+{% block body %}
+    <h1>Advertise index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Content</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for advertise in advertises %}
+            <tr>
+                <td>{{ advertise.id }}</td>
+                <td>{{ advertise.content }}</td>
+                <td>
+                    <a href="{{ path('advertise_edit', {'id': advertise.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('advertise_new') }}">Create new</a>
+{% endblock %}
