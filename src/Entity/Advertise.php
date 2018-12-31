@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\AdvertiseRepository")
@@ -18,6 +19,8 @@ class Advertise
 
     /**
      * @ORM\Column(type="text", nullable=true)
+     * @Assert\NotBlank
+     * @Assert\Length(max="250")
      */
     private $content;
 

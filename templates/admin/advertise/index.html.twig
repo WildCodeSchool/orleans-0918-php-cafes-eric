@@ -11,15 +11,15 @@
     <table class="table">
         <thead>
             <tr>
-                <th>{# ?? des icones devant ?? #}Contenu de l'annonce</th>
-                <th>{# ?? des icones devant ?? #}Actions</th>
+                <th class="col-9">{# ?? des icones devant ?? #}Contenu de l'annonce</th>
+                <th class="col-3">{# ?? des icones devant ?? #}Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for advertise in advertises %}
             <tr>
-                <td class="col-9">{{ advertise.content }}</td>
-                <td class="col-3">
+                <td>{{ advertise.content }}</td>
+                <td>
                     <a type="button" class="btn btn-outline-secondary" href="{{ path('advertise_edit', {'id': advertise.id}) }}"><i class="fas fa-pencil-alt"></i> Éditer</a>
                 </td>
             </tr>
