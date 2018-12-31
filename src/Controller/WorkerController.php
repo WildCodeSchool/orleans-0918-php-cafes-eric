@@ -62,6 +62,7 @@ class WorkerController extends AbstractController
     public function edit(Request $request, Worker $worker): Response
     {
         $form = $this->createForm(WorkerType::class, $worker);
+//        dump($worker);die();
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
