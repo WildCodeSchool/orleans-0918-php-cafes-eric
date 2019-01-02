@@ -3,6 +3,123 @@
 {% block body %}
     <h1 class="site-heading text-center d-none d-lg-block">Les cafés d'Éric</h1>
     <h2 class="site-heading-upper text-center text-warning mt-3 mb-3">Artisan Torréfacteur - Thé - Épicerie fine</h2>
+
+    <div class="product-item-title d-flex">
+        <div class="bg-faded p-5 d-flex ml-auto rounded">
+            <h2 class="section-heading mb-0">
+                <span class="section-heading-lower">Nouveautés</span>
+            </h2>
+        </div>
+    </div>
+    <div class="row">
+        {% for coffee in coffees %}
+            {% if coffee.novelty == true %}
+                <div class="col-md-3">
+                    <div class="card" style="width: 15rem;">
+                        <img class="card-img-top" src="{{ asset('build/logo/logo.jpg') }}" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ coffee.country|country }}</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up
+                                the bulk
+                                of the card's content.</p>
+                            <a href="#" class="btn btn-primary">Voir le produit</a>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+
+        {% for tea in teas %}
+            {% if tea.novelty == true %}
+                <div class="col-md-3">
+                    <div class="card" style="width: 15rem;">
+                        <img class="card-img-top" src="{{ asset('build/logo/logo.jpg') }}" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ tea.name }}</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of the card's content.</p>
+                            <a href="#" class="btn btn-primary">Voir le produit</a>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+
+        {% for infusion in infusions %}
+            {% if infusion.novelty   == true %}
+                <div class="col-md-3">
+                    <div class="card" style="width: 15rem;">
+                        <img class="card-img-top" src="{{ asset('build/logo/logo.jpg') }}" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ infusion.name }}</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of the card's content.</p>
+                            <a href="#" class="btn btn-primary">Voir le produit</a>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    <div class="product-item-title d-flex">
+        <div class="bg-faded p-5 d-flex mr-auto rounded">
+            <h2 class="section-heading mb-0">
+                <span class="section-heading-lower">Produits du mois</span>
+            </h2>
+        </div>
+    </div>
+    <div class="row">
+        {% for coffee in coffees %}
+            {% if coffee.highlighted == true %}
+                <div class="col">
+                    <div class="card" style="width: 20rem;">
+                        <img class="card-img-top" src="{{ asset('build/logo/logo.jpg') }}" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ coffee.country|country }}</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up
+                                the bulk
+                                of the card's content.</p>
+                            <a href="#" class="btn btn-primary">Voir le produit</a>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+
+        {% for tea in teas %}
+            {% if tea.highlighted == true %}
+                <div class="col">
+                    <div class="card" style="width: 20rem;">
+                        <img class="card-img-top" src="{{ asset('build/logo/logo.jpg') }}" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ tea.name }}</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of the card's content.</p>
+                            <a href="#" class="btn btn-primary">Voir le produit</a>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+
+        {% for infusion in infusions %}
+            {% if infusion.highlighted   == true %}
+                <div class="col">
+                    <div class="card" style="width: 20rem;">
+                        <img class="card-img-top" src="{{ asset('build/logo/logo.jpg') }}" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ infusion.name }}</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of the card's content.</p>
+                            <a href="#" class="btn btn-primary">Voir le produit</a>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+
     {% include 'story.html.twig' %}
     {% include 'worker.html.twig' %}
     {% include 'schedule.html.twig' %}
