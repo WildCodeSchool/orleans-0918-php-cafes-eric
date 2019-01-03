@@ -13,6 +13,9 @@
 <header>
     {% block header %}{% endblock %}
 </header>
+<section>
+    {% block banner %}{% endblock %}
+</section>
 <main class="container">
     <div class="mt-5">
     {% for label, messages in app.flashes %}
