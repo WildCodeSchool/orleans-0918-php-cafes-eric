@@ -5,7 +5,7 @@
 /var/
 /vendor/
 /.idea
-/assets/images/profile
+/public/build/upload/profile
 ###< symfony/framework-bundle ###
 
 ###> symfony/phpunit-bridge ###
