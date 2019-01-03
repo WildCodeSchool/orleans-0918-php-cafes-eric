@@ -5,7 +5,7 @@
 /var/
 /vendor/
 /.idea
-/orleans-0918-php-cafes-eric/public/upload/profile
+/public/upload/profile
 ###< symfony/framework-bundle ###
 
 ###> symfony/phpunit-bridge ###
