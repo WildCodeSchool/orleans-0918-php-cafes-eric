@@ -16,6 +16,10 @@
                         <th class="col-md-2">Description</th>
                         <td class="col-md-10">{{ worker.description }}</td>
                     </tr>
+                    <tr>
+                        <th class="col-md-2">Image de profil</th>
+                        <td class="col-md-10"><img src="{{ vich_uploader_asset(worker, 'profileImageFile') }}" /></td>
+                    </tr>
                 </tbody>
             </table>
             <a class="btn btn-outline-secondary" href="{{ path('worker_edit', {'id': worker.id}) }}"><i class="fas fa-pencil-alt"></i> Éditer</a>
