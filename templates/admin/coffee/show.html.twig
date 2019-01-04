@@ -40,6 +40,10 @@
                     <th>Nouveauté</th>
                     <td>{{ coffee.novelty ? 'Oui' : 'Non' }}</td>
                 </tr>
+                <tr>
+                    <th class="col-md-2">Image de profil</th>
+                    <td class="col-md-10"><img src="{{ vich_uploader_asset(coffee, 'coffeeImageFile') }}" alt="photo du produit" /></td>
+                </tr>
                 </tbody>
             </table>
         <a class="btn btn-outline-secondary" href="{{ path('coffee_edit', {'id': coffee.id}) }}"><i class="fas fa-pencil-alt"></i> Editer</a>
