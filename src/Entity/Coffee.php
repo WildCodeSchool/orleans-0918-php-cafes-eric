@@ -4,9 +4,13 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CoffeeRepository")
+ * * @Vich\Uploadable()
  */
 class Coffee
 {
@@ -75,6 +79,46 @@ class Coffee
      */
     private $category;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @var string
+     */
+    private $coffeeImage;
+
+    /**
+     * @Vich\UploadableField(mapping="coffee", fileNameProperty="coffeeImage")
+     * @var File
+     * @Assert\NotBlank
+     * @Assert\Image(
+     *     maxWidth="300",
+     *     maxHeight="300",
+     *     maxWidthMessage="La largeur ne doit pas excéder 300 px",
+     *     maxHeightMessage="La longueur ne doit pas excéder 300 px")
+     */
+    private $coffeeImageFile;
+
+    /**
+     * @ORM\Column(type="datetime")
+     * @var \DateTime
+     */
+    private $updatedAt;
+
+    public function getCoffeeImageFile() : ?UploadedFile
+    {
+        return $this->coffeeImageFile;
+    }
+    public function setCoffeeImageFile(File $image = null) : void
+    {
+        $this->coffeeImageFile = $image;
+
+        // VERY IMPORTANT:
+        // It is required that at least one field changes if you are using Doctrine,
+        // otherwise the event listeners won't be called and the file is lost
+        if (null !== $image) {
+            // if 'updatedAt' is not defined in your entity, use another property
+            $this->updatedAt = new \DateTime('now');
+        }
+    }
     public function getId(): ?int
     {
         return $this->id;
@@ -172,6 +216,29 @@ class Coffee
     public function setCategory(?Category $category): self
     {
         $this->category = $category;
+
+        return $this;
+    }
+    public function getCoffeeImage(): ?string
+    {
+        return $this->coffeeImage;
+    }
+
+    public function setCoffeeImage(string $coffeeImage): self
+    {
+        $this->coffeeImage = $coffeeImage;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(\DateTimeInterface $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }
