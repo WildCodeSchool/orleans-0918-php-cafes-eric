@@ -8,6 +8,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class WorkerType extends AbstractType
 {
@@ -16,7 +17,12 @@ class WorkerType extends AbstractType
         $builder
             ->add('name', TextType::class, ['label'=> 'Prénom'])
             ->add('description', TextareaType::class, ['label'=> 'Description'])
-        ;
+            ->add('profileImageFile', VichImageType::class, [
+                'label' => "Photo de profil",
+                'required' => false,
+                'allow_delete' => false,
+                'download_label' => false,
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
