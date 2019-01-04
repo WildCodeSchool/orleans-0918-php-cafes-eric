@@ -42,5 +42,4 @@ class AdvertiseController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
-
 }
