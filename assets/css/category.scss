@@ -135,7 +135,11 @@ hr {
 }
 
 .about-heading-content-coffee {
-  position: center;
-  margin-left: 15rem;
-  max-width: 50%;
+  @media (min-width: 992px) {
+    position: center;
+    margin-left: 15rem;
+    max-width: 50%;
+  }
 }
+
+
