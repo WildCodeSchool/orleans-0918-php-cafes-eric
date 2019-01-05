@@ -1,9 +1,10 @@
 body {
   @include body-font;
-  background: linear-gradient(rgba(47, 23, 15, 0.65));
+  background-color: $primary;
+  background-image: url("https://www.transparenttextures.com/patterns/padded.png");
   background-attachment: fixed;
-  background-position: center;
-  background-size: cover;
+  background-position: initial;
+  background-size: initial;
   font-size: $fontSize;
 }
 h1 {
