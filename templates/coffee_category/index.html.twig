@@ -49,7 +49,6 @@
                     <hr/>
                 </div>
             </div>
-
         <div class="row d-flex justify-content-between">
             {% for country, coffees in coffeeByCountry %}
                 {% for coffee in coffees %}
@@ -58,9 +57,9 @@
                         <div class="about-heading-content">
                             <div class="bg-faded rounded p-2">
                                 <h3>
-                                    <span class="soil d-flex justify-content-center">{{ coffee.soil }}</span>
-                                    <hr/>
+                                    <span class="oblic d-flex justify-content-center">{{ coffee.soil }}</span>
                                 </h3>
+                                <hr/>
                                 <p class="card-text"><small class="text-muted">{{ country|country }}</small></p>
                             </div>
                         </div>
@@ -69,6 +68,5 @@
             {% endfor %}
         </div>
         {% endfor %}
-
     </section>
 {% endblock %}
