@@ -7,13 +7,13 @@
     height: 50vh;
     position: relative;
     h1{
-        text-shadow: 2px 2px #000000;
+        text-shadow: 2px 2px $black;
         padding-top: 7rem;
-        color: #fff;
+        color: $white;
     }
     h2{
-        color: #fff !important;
-        text-shadow: 2px 2px #000000;
+        color: $white !important;
+        text-shadow: 2px 2px $black;
     }
 }
 
