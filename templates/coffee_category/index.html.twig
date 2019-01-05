@@ -5,8 +5,14 @@
 {% block body %}
     <section class="page-section clearfix">
         <div class="container">
-            <span class="text-center mb-5"><h1>Nos cafés</h1></span>
-
+            <div class="about-heading-content">
+                <div class="bg-faded rounded p-2 mb-5">
+                    <h1 class="section-heading">
+                        <span class="section-heading-lower justify-content-center d-flex ">Nos cafés</span>
+                    </h1>
+                    <hr/>
+                </div>
+            </div>
             <div class="intro-coffee mt-5">
                 <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{{ asset('build/images/coffee_beans.jpg') }}"
                      alt="café">
@@ -35,22 +41,19 @@
     </section>
     <section >
         {% for area, coffeeByCountry in coffeeByArea %}
-        <div class="row d-flex justify-content-between">
-
             <div class="about-heading-content">
-                <div class="bg-faded rounded p-2">
+                <div class="bg-faded rounded p-2 mb-5">
                     <h2 class="section-heading">
-                        <span class="mt-2 section-heading-lower d-flex justify-content-center "> {{ area }}</span>
+                        <span class="section-heading-lower d-flex justify-content-center "> {{ area }}</span>
                     </h2>
                     <hr/>
                 </div>
             </div>
-        </div>
-        <div class="row d-flex justify-content-between">
 
-            <div class="card-group mt-5 mb-5">
+        <div class="row d-flex justify-content-center">
+            <div class="card-deck mt-5 mb-5">
                 {% for country, coffees in coffeeByCountry %}
-                    <div class="card bg-transparent border-0">
+                    <div class="card bg-transparent border-0 mr-5">
                          <img class="country mt-3" src="{{ asset("build/accessoryImages/logo.jpg")}}" alt="photo de café"/>
 
                              {% for coffee in coffees %}
@@ -62,6 +65,6 @@
                 {% endfor %}
             </div>
         </div>
-             {% endfor %}
+        {% endfor %}
     </section>
 {% endblock %}
