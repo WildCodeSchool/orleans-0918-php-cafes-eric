@@ -5,7 +5,9 @@
 {% block body %}
     <section class="page-section clearfix">
         <div class="container">
-            <div class="intro-coffee">
+            <span class="text-center mb-5"><h1>Nos cafés</h1></span>
+
+            <div class="intro-coffee mt-5">
                 <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{{ asset('build/images/coffee_beans.jpg') }}"
                      alt="café">
                 <div class="intro-text left-0  text-center bg-faded p-11 mt-4 rounded">
@@ -32,27 +34,34 @@
         </div>
     </section>
     <section >
+        {% for area, coffeeByCountry in coffeeByArea %}
         <div class="row d-flex justify-content-between">
-            {% for area, coffeeByCountry in coffeeByArea %}
-                <article class="page-section about-heading">
-                    <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" src="{{asset('build/accessoryImages/logo.jpg')}}"
-                         alt="logo">
-                    <div class="about-heading-content">
-                        <div class="bg-faded rounded p-2">
-                            <h2 class="section-heading mb-4">
-                                <span class="mt-2 section-heading-lower d-flex justify-content-center "> {{ area }}</span>
-                            </h2>
-                                <hr/>
-                            <ul class="accessoryli mr-5  ml-5 text-left">
-                                {% for country, coffees in coffeeByCountry %}
-                                    <li> {{ country|country }} </li>
-                                {% endfor %}
-                            </ul>
 
-                        </div>
-                    </div>
-                </article>
-            {% endfor %}
+            <div class="about-heading-content">
+                <div class="bg-faded rounded p-2">
+                    <h2 class="section-heading">
+                        <span class="mt-2 section-heading-lower d-flex justify-content-center "> {{ area }}</span>
+                    </h2>
+                    <hr/>
+                </div>
+            </div>
         </div>
+        <div class="row d-flex justify-content-between">
+
+            <div class="card-group mt-5 mb-5">
+                {% for country, coffees in coffeeByCountry %}
+                    <div class="card bg-transparent border-0">
+                         <img class="country mt-3" src="{{ asset("build/accessoryImages/logo.jpg")}}" alt="photo de café"/>
+
+                             {% for coffee in coffees %}
+                                 <h5 class="card-title text-center mt-4">{{ coffee.soil }}</h5>
+
+                                 <p class="card-text"><small class="text-muted">{{ country|country }}</small></p>
+                             {% endfor %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+             {% endfor %}
     </section>
 {% endblock %}
