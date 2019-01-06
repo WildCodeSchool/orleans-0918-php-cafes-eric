@@ -16,7 +16,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class CoffeeType extends AbstractType
 {
-    public function buildForm(FormBuilderInterface $builder, array $option)
+    public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
             ->add('category', EntityType::class, [
@@ -29,7 +29,6 @@ class CoffeeType extends AbstractType
                         ->setParameter('shelfCode', 'COFFEE');
                 },
                 'choice_label' => 'title',
-
             ])
             ->add('country', CountryType::class, [
                 'label'=>'Pays',
