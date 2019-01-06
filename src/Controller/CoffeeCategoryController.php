@@ -16,6 +16,8 @@ class CoffeeCategoryController extends AbstractController
     public function index(CoffeeRepository $coffeeRepository)
     {
         $coffees = $coffeeRepository->findBy([], ['country'=>'ASC']);
+        $coffeeByArea = [];
+
         foreach ($coffees as $coffee) {
             $country = $coffee->getCountry();
             $category = $coffee->getCategory()->getTitle();
