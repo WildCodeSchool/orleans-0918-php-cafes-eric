@@ -13,7 +13,7 @@ class AdvertiseType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('content', TextType::class, ['label'=>'Contenu'])
+            ->add('content', TextType::class, ['label'=>'Contenu '])
         ;
     }
 

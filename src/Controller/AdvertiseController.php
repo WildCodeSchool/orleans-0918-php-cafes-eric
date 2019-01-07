@@ -24,29 +24,6 @@ class AdvertiseController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="advertise_new", methods="GET|POST")
-     */
-    public function new(Request $request): Response
-    {
-        $advertise = new Advertise();
-        $form = $this->createForm(AdvertiseType::class, $advertise);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($advertise);
-            $em->flush();
-
-            return $this->redirectToRoute('advertise_index');
-        }
-
-        return $this->render('admin/advertise/new.html.twig', [
-            'advertise' => $advertise,
-            'form' => $form->createView(),
-        ]);
-    }
-
-    /**
      * @Route("/{id}/edit", name="advertise_edit", methods="GET|POST")
      */
     public function edit(Request $request, Advertise $advertise): Response
@@ -64,19 +41,5 @@ class AdvertiseController extends AbstractController
             'advertise' => $advertise,
             'form' => $form->createView(),
         ]);
-    }
-
-    /**
-     * @Route("/{id}", name="advertise_delete", methods="DELETE")
-     */
-    public function delete(Request $request, Advertise $advertise): Response
-    {
-        if ($this->isCsrfTokenValid('delete'.$advertise->getId(), $request->request->get('_token'))) {
-            $em = $this->getDoctrine()->getManager();
-            $em->remove($advertise);
-            $em->flush();
-        }
-
-        return $this->redirectToRoute('advertise_index');
     }
 }
