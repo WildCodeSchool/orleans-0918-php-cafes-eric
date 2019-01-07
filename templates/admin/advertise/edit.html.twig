@@ -1,0 +1,15 @@
+{% extends 'layoutAdmin.html.twig' %}
+
+{% block title %}Édition d'une annonce{% endblock %}
+
+{% block body %}
+    <h1>Éditer une annonce</h1>
+    <div class="row">
+        <div class="col-md-12 mb-1">
+            {{ include('admin/advertise/_form.html.twig', {'button_label': 'Editer'}) }}
+        </div>
+        <div class="col-md-12 mt-1">
+            <a href="{{ path('advertise_index') }}">Retour</a>
+        </div>
+    </div>
+{% endblock %}
