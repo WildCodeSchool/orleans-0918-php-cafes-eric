@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Coffee;
 use App\Entity\Category;
+use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
@@ -21,8 +22,15 @@ class CoffeeType extends AbstractType
         $builder
             ->add('category', EntityType::class, [
                 'class' => Category::class,
-                'choice_label' => 'title',
                 'label' =>'Catégorie',
+                'query_builder'=> function (EntityRepository $shelfcode) {
+                    return $shelfcode->createQueryBuilder('c')
+                        ->join('c.shelf', 's')
+                        ->where('s.shelfCode = :shelfCode')
+                        ->setParameter('shelfCode', 'COFFEE')
+                        ->orderBy('c.title', 'ASC');
+                },
+                'choice_label' => 'title',
             ])
             ->add('country', CountryType::class, [
                 'label'=>'Pays',

@@ -47,6 +47,7 @@ class Worker
     /**
      * @Vich\UploadableField(mapping="profile", fileNameProperty="profileImage")
      * @var File
+     * @Assert\NotBlank
      * @Assert\Image(
      *     maxWidth="300",
      *     maxHeight="300",
