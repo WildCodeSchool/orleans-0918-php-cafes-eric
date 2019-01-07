@@ -9,3 +9,12 @@ vich_uploader:
             inject_on_load: false
             delete_on_remove: false
             delete_on_update: false
+
+        coffee:
+            uri_prefix: /upload/coffee
+            upload_destination: '%kernel.project_dir%/public/upload/coffee'
+            namer: Vich\UploaderBundle\Naming\UniqidNamer
+            inject_on_load: false
+            delete_on_remove: false
+            delete_on_update: false
+

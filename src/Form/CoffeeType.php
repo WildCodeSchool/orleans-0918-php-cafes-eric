@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Coffee;
 use App\Entity\Category;
+use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
@@ -12,6 +13,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class CoffeeType extends AbstractType
 {
@@ -20,8 +22,15 @@ class CoffeeType extends AbstractType
         $builder
             ->add('category', EntityType::class, [
                 'class' => Category::class,
-                'choice_label' => 'title',
                 'label' =>'Catégorie',
+                'query_builder'=> function (EntityRepository $shelfcode) {
+                    return $shelfcode->createQueryBuilder('c')
+                        ->join('c.shelf', 's')
+                        ->where('s.shelfCode = :shelfCode')
+                        ->setParameter('shelfCode', 'COFFEE')
+                        ->orderBy('c.title', 'ASC');
+                },
+                'choice_label' => 'title',
             ])
             ->add('country', CountryType::class, [
                 'label'=>'Pays',
@@ -32,6 +41,12 @@ class CoffeeType extends AbstractType
             ->add('description', TextareaType::class, ['label'=>'Description'])
             ->add('highlighted', CheckboxType::class, ['required' => false, 'label' => 'Produit du mois'])
             ->add('novelty', CheckboxType::class, ['required' => false, 'label' => 'Nouveauté'])
+            ->add('coffeeImageFile', VichImageType::class, [
+                'label' => "Photo",
+                'required' => false,
+                'allow_delete' => false,
+                'download_label' => false,
+            ]);
         ;
     }
 
