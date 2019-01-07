@@ -41,6 +41,22 @@ class CoffeeController extends AbstractController
     }
 
     /**
+     * @Route("/{id}/highlighted", name="coffee_highlighted", methods="GET|POST"))
+     */
+    public function updateHighlighted(Coffee $coffee, MaxProductChecker $maxProductChecker): Response
+    {
+        if ($maxProductChecker->checkHighlightedNumber() || $coffee->getHighlighted()) {
+            $coffee->setHighlighted(!$coffee->getHighlighted());
+            $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('success', 'Modification enregistrée');
+        } else {
+            $this->addFlash('danger', 'Impossible d\'ajouter plus de ' . MaxProductChecker::MAX . ' produits du mois');
+        }
+
+        return $this->redirectToRoute('coffee_index');
+    }
+
+    /**
      * @Route("/new", name="coffee_new", methods="GET|POST")
      */
     public function new(Request $request): Response

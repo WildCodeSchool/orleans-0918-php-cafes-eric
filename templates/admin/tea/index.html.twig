@@ -13,6 +13,7 @@
             <tr>
                 <th>Nom</th>
                 <th>Nouveauté</th>
+                <th>Produit du mois</th>
                 <th>Actions</th>
             </tr>
             </thead>
@@ -22,11 +23,19 @@
                     <td><i class="fas fa-leaf"></i> {{ tea.name }}</td>
                     {% if tea.novelty == true %}
                         <td><a type="button" class="btn btn-outline-secondary"
-                               href="{{ path('tea_novelty', {'id': tea.id}) }}"><i class="fas fa-star"></i> Ne plus
+                               href="{{ path('tea_novelty', {'id': tea.id}) }}"><i class="far fa-star"></i> Ne plus
                                 mettre en nouveauté</a></td>
                     {% else %}
                         <td><a type="button" class="btn btn-outline-secondary"
                                href="{{ path('tea_novelty', {'id': tea.id}) }}"><i class="fas fa-star"></i> Mettre en nouveauté</a></td>
+                    {% endif %}
+                    {% if tea.highlighted == true %}
+                        <td><a type="button" class="btn btn-outline-secondary"
+                               href="{{ path('tea_highlighted', {'id': tea.id}) }}"><i class="far fa-star"></i> Ne plus
+                                mettre en produit du mois</a></td>
+                    {% else %}
+                        <td><a type="button" class="btn btn-outline-secondary"
+                               href="{{ path('tea_highlighted', {'id': tea.id}) }}"><i class="fas fa-star"></i> Mettre en produit du mois</a></td>
                     {% endif %}
                     <td>
                         <a type="button" class="btn btn-outline-secondary"
