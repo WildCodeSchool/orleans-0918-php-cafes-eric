@@ -21,10 +21,10 @@ class TeaCategoryController extends AbstractController
      * @param TeaRepository $teaRepository
      * @param FamilyTeaRepository $familyTeaRepository
      */
-    public function index(CategoryRepository $categoryRepository) : Response
+    public function index(CategoryRepository $categoryRepository): Response
     {
         return $this->render('teaCategory/index.html.twig', [
-            'categories' =>$categoryRepository->findAll()
+            'categories' => $categoryRepository->findAll()
         ]);
     }
 
@@ -33,21 +33,23 @@ class TeaCategoryController extends AbstractController
      * @param TeaRepository $teaRepository
      * @param FamilyTeaRepository $familyTeaRepository
      */
-    public function show(Category $category, TeaRepository $teaRepository, FamilyTeaRepository $familyTeaRepository) :Response
+    public function show(Category $category,
+                         TeaRepository $teaRepository,
+                         FamilyTeaRepository $familyTeaRepository): Response
     {
-        $teas = $teaRepository->findBy(['category' => $category], ['familyTea'=>'ASC']);
+        $teas = $teaRepository->findBy(['category' => $category], ['familyTea' => 'ASC']);
 
         $teaByFamilyTea = [];
 
         foreach ($teas as $tea) {
-            $familyTea= $tea->getFamilyTea()->getName();
+            $familyTea = $tea->getFamilyTea()->getName();
 
-            $teaByFamilyTea[$familyTea][]=$tea;
+            $teaByFamilyTea[$familyTea][] = $tea;
         }
 
         return $this->render('teaCategory/show.html.twig', [
-            'teaByFamilyTea' =>$teaByFamilyTea,
-            'category'=>$category,
+            'teaByFamilyTea' => $teaByFamilyTea,
+            'category' => $category,
         ]);
     }
 }
