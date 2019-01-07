@@ -25,8 +25,9 @@ class CoffeeType extends AbstractType
                 'query_builder'=> function (EntityRepository $shelfcode) {
                     return $shelfcode->createQueryBuilder('c')
                         ->join('c.shelf', 's')
-                        ->where('s.shelfCode LIKE :shelfCode')
-                        ->setParameter('shelfCode', 'COFFEE');
+                        ->where('s.shelfCode = :shelfCode')
+                        ->setParameter('shelfCode', 'COFFEE')
+                        ->orderBy('c.title', 'ASC');
                 },
                 'choice_label' => 'title',
             ])
