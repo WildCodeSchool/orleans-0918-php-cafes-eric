@@ -41,12 +41,6 @@ class TeaType extends AbstractType
             ->add('feature', TextType::class, [
                 'required' => false,
                 'label' => 'Particularité'])
-            ->add('highlighted', CheckboxType::class, [
-                'required' => false,
-                'label' => 'Produit du mois'])
-            ->add('novelty', CheckboxType::class, [
-                'required' => false,
-                'label' => 'Nouveauté'])
         ;
     }
 

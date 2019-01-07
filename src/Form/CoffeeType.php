@@ -39,8 +39,6 @@ class CoffeeType extends AbstractType
             ->add('variety', TextType::class, ['label'=>'Variété'])
             ->add('tastingNote', TextType::class, ['label'=>'Note de dégustation'])
             ->add('description', TextareaType::class, ['label'=>'Description'])
-            ->add('highlighted', CheckboxType::class, ['required' => false, 'label' => 'Produit du mois'])
-            ->add('novelty', CheckboxType::class, ['required' => false, 'label' => 'Nouveauté'])
             ->add('coffeeImageFile', VichImageType::class, [
                 'label' => "Photo",
                 'required' => false,

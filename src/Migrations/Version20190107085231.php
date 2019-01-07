@@ -8,14 +8,15 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20181217142720 extends AbstractMigration
+final class Version20190107085231 extends AbstractMigration
 {
     public function up(Schema $schema) : void
     {
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE tea CHANGE hightlighted highlighted TINYINT(1) DEFAULT NULL');
+        $this->addSql('ALTER TABLE worker ADD profile_image VARCHAR(255) NOT NULL, ADD updated_at DATETIME NOT NULL');
+        $this->addSql('ALTER TABLE coffee ADD coffee_image VARCHAR(255) NOT NULL, ADD updated_at DATETIME NOT NULL');
     }
 
     public function down(Schema $schema) : void
@@ -23,6 +24,7 @@ final class Version20181217142720 extends AbstractMigration
         // this down() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE tea CHANGE highlighted hightlighted TINYINT(1) DEFAULT NULL');
+        $this->addSql('ALTER TABLE coffee DROP coffee_image, DROP updated_at');
+        $this->addSql('ALTER TABLE worker DROP profile_image, DROP updated_at');
     }
 }
