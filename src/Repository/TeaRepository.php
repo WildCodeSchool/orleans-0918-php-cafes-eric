@@ -20,4 +20,3 @@ class TeaRepository extends ServiceEntityRepository
         parent::__construct($registry, Tea::class);
     }
 }
-
