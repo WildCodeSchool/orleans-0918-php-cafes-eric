@@ -6,16 +6,11 @@
   table-layout: fixed;
   width: auto;
 }
-
 .defile {
   display:block;
   color: $touch;
   min-width: -100%;
-  -webkit-animation:linear infinite marqueelike 22s;
-  -moz-animation:linear infinite marqueelike 22s;
-  -o-animation:linear infinite marqueelike 22s;
-  -ms-animation:linear infinite marqueelike 22s;
-  animation:linear infinite marqueelike 22s;
+  //animation:linear infinite marqueelike 22s;
   text-align:left;
   height:25px;
 }
@@ -27,22 +22,6 @@
   padding-left:10px;
 }
 
-@-webkit-keyframes marqueelike {
-  0%{margin-left:100%;}
-  99.99% {margin-left:-5%;}
-}
-@-moz-keyframes marqueelike {
-  0%{margin-left:100%;}
-  99.99% {margin-left:-5%;}
-}
-@-o-keyframes marqueelike {
-  0%{margin-left:100%;}
-  99.99% {margin-left:-5%;}
-}
-@-ms-keyframes marqueelike {
-  0%{margin-left:100%;}
-  99.99% {margin-left:-5%;}
-}
 @keyframes marqueelike {
   0%{margin-left:100%;}
   99.99% {margin-left:-5%;}
