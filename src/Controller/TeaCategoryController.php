@@ -2,13 +2,16 @@
 
 namespace App\Controller;
 
+use App\Entity\Category;
 use App\Repository\CategoryRepository;
 use App\Repository\FamilyTeaRepository;
 use App\Repository\TeaRepository;
 use App\Entity\Tea;
 use App\Entity\FamilyTea;
+use Doctrine\ORM\Mapping\Id;
 use function PhpParser\filesInDir;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class TeaCategoryController extends AbstractController
@@ -18,18 +21,35 @@ class TeaCategoryController extends AbstractController
      * @param TeaRepository $teaRepository
      * @param FamilyTeaRepository $familyTeaRepository
      */
-    public function index(TeaRepository $teaRepository, FamilyTeaRepository $familyTeaRepository)
+    public function index(CategoryRepository $categoryRepository) : Response
     {
-        $teas = $teaRepository->findBy([],['familyTea'=>'ASC']);
+
+        return $this->render('teaCategory/index.html.twig',[
+            'categories' =>$categoryRepository->findAll()
+        ]);
+
+    }
+
+    /**
+     * @Route("/tea/category/{id}", name="tea_category_show")
+     * @param TeaRepository $teaRepository
+     * @param FamilyTeaRepository $familyTeaRepository
+     */
+    public function show(Category $category, TeaRepository $teaRepository, FamilyTeaRepository $familyTeaRepository) :Response
+    {
+        $teas = $teaRepository->findBy(['category' => $category],['familyTea'=>'ASC']);
+
+        $teaByFamilyTea = [];
+
         foreach ($teas as $tea) {
-            $category =$tea->getCategory()->getTitle();
             $familyTea= $tea->getFamilyTea()->getName();
 
-            $teabyFamilyTea[$category][$familyTea][]=$tea;
+            $teaByFamilyTea[$familyTea][]=$tea;
         }
-        return $this->render('teaCategory/index.html.twig',[
-            'teabyFamilyTea' =>$teabyFamilyTea,
 
+        return $this->render('teaCategory/show.html.twig', [
+            'teaByFamilyTea' =>$teaByFamilyTea,
+            'category'=>$category,
         ]);
     }
 }
