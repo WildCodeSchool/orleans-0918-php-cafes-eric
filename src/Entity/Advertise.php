@@ -19,7 +19,6 @@ class Advertise
 
     /**
      * @ORM\Column(type="text", nullable=true)
-     * @Assert\NotBlank
      * @Assert\Length(max="250")
      */
     private $content;

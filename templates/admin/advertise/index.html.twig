@@ -1,18 +1,15 @@
 {% extends 'layoutAdmin.html.twig' %}
 
-{% block title %}Liste des annonces{% endblock %}
+{% block title %}Contenu de l'annonce{% endblock %}
 
 {% block body %}
     <div class="container">
-    <h1>Liste des annonces</h1>
-        <div class="mb-5 mt-5">
-            <a type="button" class="btn btn-outline-secondary" href="{{ path('advertise_new') }}"><i class="fa fa-plus"></i> Ajouter une nouvelle annonce</a>
-        </div>
+    <h1>Contenu de l'annonce</h1>
     <table class="table">
         <thead>
             <tr>
                 <th class="col-9"><i class="fas fa-scroll"></i> Contenu de l'annonce</th>
-                <th class="col-3">Actions</th>
+                <th class="col-3">Action</th>
             </tr>
         </thead>
         <tbody>
