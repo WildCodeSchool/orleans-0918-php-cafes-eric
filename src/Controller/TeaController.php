@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Tea;
 use App\Form\TeaType;
 use App\Repository\TeaRepository;
+use App\Service\MaxProductChecker;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -21,6 +22,23 @@ class TeaController extends AbstractController
     public function index(TeaRepository $teaRepository): Response
     {
         return $this->render('admin/tea/index.html.twig', ['teas' => $teaRepository->findAll()]);
+    }
+
+    /**
+     * @Route("/{id}/novelty", name="tea_novelty", methods="GET|POST"))
+     */
+    public function updateNovelty(Tea $tea, MaxProductChecker $maxProductChecker): Response
+    {
+        if ($maxProductChecker->checkNoveltyNumber() || $tea->getNovelty()){
+            $tea->setNovelty(!$tea->getNovelty());
+            $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('success', 'Modification enregistrée');
+        } else {
+            $this->addFlash('danger', 'Impossible d\'ajouter plus de ' . MaxProductChecker::MAX. ' nouveautés');
+        }
+
+
+        return $this->redirectToRoute('tea_index');
     }
 
     /**
