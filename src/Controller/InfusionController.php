@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Infusion;
 use App\Form\InfusionType;
 use App\Repository\InfusionRepository;
+use App\Service\MaxProductChecker;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -21,6 +22,22 @@ class InfusionController extends AbstractController
     public function index(InfusionRepository $infusionRepository): Response
     {
         return $this->render('admin/infusion/index.html.twig', ['infusions' => $infusionRepository->findAll()]);
+    }
+
+    /**
+     * @Route("/{id}/novelty", name="infusion_novelty", methods="GET|POST"))
+     */
+    public function updateNovelty(Infusion $infusion, MaxProductChecker $maxProductChecker): Response
+    {
+        if ($maxProductChecker->checkNoveltyNumber() || $infusion->getNovelty()) {
+            $infusion->setNovelty(!$infusion->getNovelty());
+            $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('success', 'Modification enregistrée');
+        } else {
+            $this->addFlash('danger', 'Impossible d\'ajouter plus de ' . MaxProductChecker::MAX . ' nouveautés');
+        }
+
+        return $this->redirectToRoute('infusion_index');
     }
 
     /**

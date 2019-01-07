@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Category;
 use App\Entity\FamilyTea;
 use App\Entity\Tea;
+use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
@@ -19,8 +20,16 @@ class TeaType extends AbstractType
         $builder
             ->add('category', EntityType::class, [
                 'class' => Category::class,
+                'label' =>'Catégorie',
+                'query_builder'=> function (EntityRepository $shelfcode) {
+                    return $shelfcode->createQueryBuilder('c')
+                        ->join('c.shelf', 's')
+                        ->where('s.shelfCode = :shelfCode')
+                        ->setParameter('shelfCode', 'TEA')
+                        ->orderBy('c.title', 'ASC');
+                },
                 'choice_label' => 'title',
-                'label' => "Catégorie"])
+            ])
             ->add('family_tea', EntityType::class, [
                 'class' => FamilyTea::class,
                 'choice_label' => 'name',
@@ -32,12 +41,6 @@ class TeaType extends AbstractType
             ->add('feature', TextType::class, [
                 'required' => false,
                 'label' => 'Particularité'])
-            ->add('highlighted', CheckboxType::class, [
-                'required' => false,
-                'label' => 'Produit du mois'])
-            ->add('novelty', CheckboxType::class, [
-                'required' => false,
-                'label' => 'Nouveauté'])
         ;
     }
 

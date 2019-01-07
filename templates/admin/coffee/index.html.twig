@@ -14,16 +14,25 @@
                 <th><i class="fas fa-globe-americas"></i> Région du monde</th>
                 <th><i class="fas fa-flag"></i> Pays</th>
                 <th><i class="fas fa-spa"></i> Terroir</th>
+                <th>Nouveauté</th>
                 <th>Action</th>
             </tr>
         </thead>
         <tbody>
         {% for coffee in coffees %}
             <tr>
-                <td class="col-3">{{ coffee.category.title }}</td>
-                <td class="col-3">{{ coffee.country|country }}</td>
-                <td class="col-3">{{ coffee.soil }}</td>
-                <td class="col-3">
+                <td>{{ coffee.category.title }}</td>
+                <td>{{ coffee.country|country }}</td>
+                <td>{{ coffee.soil }}</td>
+                {% if coffee.novelty == true %}
+                    <td><a type="button" class="btn btn-outline-secondary"
+                           href="{{ path('coffee_novelty', {'id': coffee.id}) }}"><i class="fas fa-star"></i> Ne plus
+                            mettre en nouveauté</a></td>
+                {% else %}
+                    <td><a type="button" class="btn btn-outline-secondary"
+                           href="{{ path('coffee_novelty', {'id': coffee.id}) }}"><i class="fas fa-star"></i> Mettre en nouveauté</a></td>
+                {% endif %}
+                <td>
                     <a class="btn btn-outline-secondary" href="{{ path('coffee_show', {'id': coffee.id}) }}"><i class="far fa-eye"></i> Voir</a>
                     <a class="btn btn-outline-secondary" href="{{ path('coffee_edit', {'id': coffee.id}) }}"><i class="fas fa-pencil-alt"></i> Éditer</a>
                 </td>

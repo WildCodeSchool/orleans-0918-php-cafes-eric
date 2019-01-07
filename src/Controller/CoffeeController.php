@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Coffee;
 use App\Form\CoffeeType;
 use App\Repository\CoffeeRepository;
+use App\Service\MaxProductChecker;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -23,6 +24,21 @@ class CoffeeController extends AbstractController
         return $this->render('admin/coffee/index.html.twig', ['coffees' => $coffeeRepository->findAll()]);
     }
 
+    /**
+     * @Route("/{id}/novelty", name="coffee_novelty", methods="GET|POST"))
+     */
+    public function updateNovelty(Coffee $coffee, MaxProductChecker $maxProductChecker): Response
+    {
+        if ($maxProductChecker->checkNoveltyNumber() || $coffee->getNovelty()) {
+            $coffee->setNovelty(!$coffee->getNovelty());
+            $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('success', 'Modification enregistrée');
+        } else {
+            $this->addFlash('danger', 'Impossible d\'ajouter plus de ' . MaxProductChecker::MAX . ' nouveautés');
+        }
+
+        return $this->redirectToRoute('coffee_index');
+    }
 
     /**
      * @Route("/new", name="coffee_new", methods="GET|POST")
