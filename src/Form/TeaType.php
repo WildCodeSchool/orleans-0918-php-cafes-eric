@@ -24,8 +24,9 @@ class TeaType extends AbstractType
                 'query_builder'=> function (EntityRepository $shelfcode) {
                     return $shelfcode->createQueryBuilder('c')
                         ->join('c.shelf', 's')
-                        ->where('s.shelfCode LIKE :shelfCode')
-                        ->setParameter('shelfCode', 'TEA');
+                        ->where('s.shelfCode = :shelfCode')
+                        ->setParameter('shelfCode', 'TEA')
+                        ->orderBy('c.title', 'ASC');
                 },
                 'choice_label' => 'title',
             ])
