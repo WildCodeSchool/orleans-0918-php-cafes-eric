@@ -36,7 +36,8 @@ class TeaCategoryController extends AbstractController
     public function show(
         Category $category,
         TeaRepository $teaRepository,
-        FamilyTeaRepository $familyTeaRepository): Response
+        FamilyTeaRepository $familyTeaRepository
+        ): Response
     {
         $teas = $teaRepository->findBy(['category' => $category], ['familyTea' => 'ASC']);
 
