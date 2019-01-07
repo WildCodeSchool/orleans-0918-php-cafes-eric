@@ -8,13 +8,27 @@
                     </h2>
                 </div>
             </div>
-            <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0" src="{{ asset('build/homeImages/worker2.jpeg') }}" alt="employés">
+            <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0"
+                 src="{{ asset('build/homeImages/worker2.jpeg') }}" alt="employés">
             <div class="product-item-description d-flex mr-auto">
                 <div class="bg-faded p-5 rounded">
                     {% for worker in workers %}
-                    <h3>{{ worker.name }}</h3>
-                    <p class="mb-1">{{ worker.description }}</p>
-                        <hr/>
+                        <div class="row">
+                            <div class="col-md-3 mt-2 mb-2">
+                                {% if worker.profileImage is empty %}
+                                    <img class="profile_img" src="{{ asset('build/logo/logo.png') }}"
+                                         alt="image_default">
+                                {% else %}
+                                    <img class="profile_img" src="{{ vich_uploader_asset(worker, 'profileImageFile') }}"
+                                         alt="image_profil">
+                                {% endif %}
+                            </div>
+                            <div class="col-md-9">
+                                <h3>{{ worker.name }}</h3>
+                                <p class="mb-1">{{ worker.description }}</p>
+                            </div>
+                            <hr/>
+                        </div>
                     {% endfor %}
                 </div>
             </div>
