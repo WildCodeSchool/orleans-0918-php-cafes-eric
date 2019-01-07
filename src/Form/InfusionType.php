@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Category;
 use App\Entity\Infusion;
+use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
@@ -18,8 +19,16 @@ class InfusionType extends AbstractType
         $builder
             ->add('category', EntityType::class, [
                 'class' => Category::class,
+                'label' =>'Catégorie',
+                'query_builder'=> function (EntityRepository $shelfcode) {
+                    return $shelfcode->createQueryBuilder('c')
+                        ->join('c.shelf', 's')
+                        ->where('s.shelfCode = :shelfCode')
+                        ->setParameter('shelfCode', 'INFUSION')
+                        ->orderBy('c.title', 'ASC');
+                },
                 'choice_label' => 'title',
-                'label' => "Catégorie"])
+            ])
             ->add('name', TextType::class, [
                 'label' => 'Nom',
                 'help' => 'Ce nom doit être unique'])
