@@ -23,8 +23,9 @@ class InfusionType extends AbstractType
                 'query_builder'=> function (EntityRepository $shelfcode) {
                     return $shelfcode->createQueryBuilder('c')
                         ->join('c.shelf', 's')
-                        ->where('s.shelfCode LIKE :shelfCode')
-                        ->setParameter('shelfCode', 'INFUSION');
+                        ->where('s.shelfCode = :shelfCode')
+                        ->setParameter('shelfCode', 'INFUSION')
+                        ->orderBy('c.title', 'ASC');
                 },
                 'choice_label' => 'title',
             ])
