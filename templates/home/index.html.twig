@@ -1,8 +1,10 @@
 {% extends 'layout.html.twig' %}
 
+{% block banner %}
+    {% include 'banner.html.twig' %}
+{% endblock %}
+
 {% block body %}
-    <h1 class="site-heading text-center d-none d-lg-block">Les cafés d'Éric</h1>
-    <h2 class="site-heading-upper text-center text-warning mt-3 mb-3">Artisan Torréfacteur - Thé - Épicerie fine</h2>
     {% include 'story.html.twig' %}
     {% include 'worker.html.twig' %}
     {% include 'schedule.html.twig' %}
