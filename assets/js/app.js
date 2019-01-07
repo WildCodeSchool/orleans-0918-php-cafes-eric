@@ -11,12 +11,8 @@ require('bootstrap');
 // any CSS you require will output into a single css file (app.scss in this case)
 require('../css/app.scss');
 
-$(document).ready(function() {
+$(document).ready(function () {
     $('[data-toggle="popover"]').popover();
 });
-
-require('../images/teaImages/presentation_tea.jpg');
-require('../images/coffeeImages/coffee_beans.jpg');
-
 
 
