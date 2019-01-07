@@ -29,12 +29,12 @@ class InfusionController extends AbstractController
      */
     public function updateNovelty(Infusion $infusion, MaxProductChecker $maxProductChecker): Response
     {
-        if ($maxProductChecker->checkNoveltyNumber() || $infusion->getNovelty()){
+        if ($maxProductChecker->checkNoveltyNumber() || $infusion->getNovelty()) {
             $infusion->setNovelty(!$infusion->getNovelty());
             $this->getDoctrine()->getManager()->flush();
             $this->addFlash('success', 'Modification enregistrée');
         } else {
-            $this->addFlash('danger', 'Impossible d\'ajouter plus de ' . MaxProductChecker::MAX. ' nouveautés');
+            $this->addFlash('danger', 'Impossible d\'ajouter plus de ' . MaxProductChecker::MAX . ' nouveautés');
         }
 
         return $this->redirectToRoute('infusion_index');

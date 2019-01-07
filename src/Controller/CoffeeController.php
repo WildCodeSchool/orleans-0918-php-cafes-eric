@@ -29,15 +29,15 @@ class CoffeeController extends AbstractController
      */
     public function updateNovelty(Coffee $coffee, MaxProductChecker $maxProductChecker): Response
     {
-        if ($maxProductChecker->checkNoveltyNumber() || $coffee->getNovelty()){
+        if ($maxProductChecker->checkNoveltyNumber() || $coffee->getNovelty()) {
             $coffee->setNovelty(!$coffee->getNovelty());
             $this->getDoctrine()->getManager()->flush();
             $this->addFlash('success', 'Modification enregistrée');
         } else {
-            $this->addFlash('danger', 'Impossible d\'ajouter plus de ' . MaxProductChecker::MAX. ' nouveautés');
+            $this->addFlash('danger', 'Impossible d\'ajouter plus de ' . MaxProductChecker::MAX . ' nouveautés');
         }
 
-        return $this->redirectToRoute('coffee_index');
+    return $this->redirectToRoute('coffee_index');
     }
 
     /**

@@ -8,7 +8,6 @@
 
 namespace App\Service;
 
-
 use App\Repository\CoffeeRepository;
 use App\Repository\InfusionRepository;
 use App\Repository\TeaRepository;
@@ -21,8 +20,11 @@ class MaxProductChecker
 
     const MAX = 3;
 
-    public function __construct(CoffeeRepository $coffeeRepository, TeaRepository $teaRepository, InfusionRepository $infusionRepository)
-    {
+    public function __construct(
+        CoffeeRepository $coffeeRepository,
+        TeaRepository $teaRepository,
+        InfusionRepository $infusionRepository
+    ) {
         $this->coffeeRepository = $coffeeRepository;
         $this->teaRepository = $teaRepository;
         $this->infusionRepository = $infusionRepository;

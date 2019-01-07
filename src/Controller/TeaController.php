@@ -29,12 +29,12 @@ class TeaController extends AbstractController
      */
     public function updateNovelty(Tea $tea, MaxProductChecker $maxProductChecker): Response
     {
-        if ($maxProductChecker->checkNoveltyNumber() || $tea->getNovelty()){
+        if ($maxProductChecker->checkNoveltyNumber() || $tea->getNovelty()) {
             $tea->setNovelty(!$tea->getNovelty());
             $this->getDoctrine()->getManager()->flush();
             $this->addFlash('success', 'Modification enregistrée');
         } else {
-            $this->addFlash('danger', 'Impossible d\'ajouter plus de ' . MaxProductChecker::MAX. ' nouveautés');
+            $this->addFlash('danger', 'Impossible d\'ajouter plus de ' . MaxProductChecker::MAX . ' nouveautés');
         }
 
 
