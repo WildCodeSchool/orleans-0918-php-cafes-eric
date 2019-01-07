@@ -23,7 +23,6 @@ class TeaCategoryController extends AbstractController
      */
     public function index(CategoryRepository $categoryRepository) : Response
     {
-
         return $this->render('teaCategory/index.html.twig',[
             'categories' =>$categoryRepository->findAll()
         ]);
@@ -35,8 +34,11 @@ class TeaCategoryController extends AbstractController
      * @param TeaRepository $teaRepository
      * @param FamilyTeaRepository $familyTeaRepository
      */
-    public function show(Category $category, TeaRepository $teaRepository, FamilyTeaRepository $familyTeaRepository) :Response
+    public function show(Category $category,
+                         TeaRepository $teaRepository,
+                         FamilyTeaRepository $familyTeaRepository) :Response
     {
+
         $teas = $teaRepository->findBy(['category' => $category],['familyTea'=>'ASC']);
 
         $teaByFamilyTea = [];
