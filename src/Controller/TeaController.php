@@ -42,6 +42,23 @@ class TeaController extends AbstractController
     }
 
     /**
+     * @Route("/{id}/highlighted", name="tea_highlighted", methods="GET|POST"))
+     */
+    public function updateHighlighted(Tea $tea, MaxProductChecker $maxProductChecker): Response
+    {
+        if ($maxProductChecker->checkHighlightedNumber() || $tea->getHighlighted()) {
+            $tea->setHighlighted(!$tea->getHighlighted());
+            $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('success', 'Modification enregistrée');
+        } else {
+            $this->addFlash('danger', 'Impossible d\'ajouter plus de ' . MaxProductChecker::MAX . ' produits du mois');
+        }
+
+
+        return $this->redirectToRoute('tea_index');
+    }
+
+    /**
      * @Route("/new", name="tea_new", methods="GET|POST")
      */
     public function new(Request $request): Response

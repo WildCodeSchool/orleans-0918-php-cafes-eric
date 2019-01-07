@@ -15,6 +15,7 @@
                 <th><i class="fas fa-flag"></i> Pays</th>
                 <th><i class="fas fa-spa"></i> Terroir</th>
                 <th>Nouveauté</th>
+                <th>Produit du mois</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -26,11 +27,19 @@
                 <td>{{ coffee.soil }}</td>
                 {% if coffee.novelty == true %}
                     <td><a type="button" class="btn btn-outline-secondary"
-                           href="{{ path('coffee_novelty', {'id': coffee.id}) }}"><i class="fas fa-star"></i> Ne plus
+                           href="{{ path('coffee_novelty', {'id': coffee.id}) }}"><i class="far fa-star"></i> Ne plus
                             mettre en nouveauté</a></td>
                 {% else %}
                     <td><a type="button" class="btn btn-outline-secondary"
                            href="{{ path('coffee_novelty', {'id': coffee.id}) }}"><i class="fas fa-star"></i> Mettre en nouveauté</a></td>
+                {% endif %}
+                {% if coffee.highlighted == true %}
+                    <td><a type="button" class="btn btn-outline-secondary"
+                           href="{{ path('coffee_highlighted', {'id': coffee.id}) }}"><i class="far fa-star"></i> Ne plus
+                            mettre en produit du mois</a></td>
+                {% else %}
+                    <td><a type="button" class="btn btn-outline-secondary"
+                           href="{{ path('coffee_highlighted', {'id': coffee.id}) }}"><i class="fas fa-star"></i> Mettre en produit du mois</a></td>
                 {% endif %}
                 <td>
                     <a class="btn btn-outline-secondary" href="{{ path('coffee_show', {'id': coffee.id}) }}"><i class="far fa-eye"></i> Voir</a>
