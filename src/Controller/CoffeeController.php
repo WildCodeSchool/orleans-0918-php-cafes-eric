@@ -37,7 +37,7 @@ class CoffeeController extends AbstractController
             $this->addFlash('danger', 'Impossible d\'ajouter plus de ' . MaxProductChecker::MAX . ' nouveautés');
         }
 
-    return $this->redirectToRoute('coffee_index');
+        return $this->redirectToRoute('coffee_index');
     }
 
     /**
