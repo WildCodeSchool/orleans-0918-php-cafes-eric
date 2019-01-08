@@ -19,7 +19,7 @@ class Advertise
 
     /**
      * @ORM\Column(type="text", nullable=true)
-     * @Assert\Length(max="50")
+     * @Assert\Length(max="255")
      */
     private $content;
 
@@ -33,7 +33,7 @@ class Advertise
         return $this->content;
     }
 
-    public function setContent(string $content): self
+    public function setContent(?string $content): self
     {
         $this->content = $content;
 

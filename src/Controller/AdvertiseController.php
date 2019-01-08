@@ -15,26 +15,26 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class AdvertiseController extends AbstractController
 {
-    /**
-     * @Route("/", name="advertise_index", methods="GET")
-     */
-    public function index(AdvertiseRepository $advertiseRepository): Response
-    {
-        return $this->render('admin/advertise/index.html.twig', ['advertises' => $advertiseRepository->findAll()]);
-    }
 
     /**
-     * @Route("/{id}/edit", name="advertise_edit", methods="GET|POST")
+     * @Route("/edit", name="advertise_edit", methods="GET|POST")
+     * @param Request $request
+     * @param AdvertiseRepository $advertiseRepository
+     * @return Response
      */
-    public function edit(Request $request, Advertise $advertise): Response
+    public function edit(Request $request, AdvertiseRepository $advertiseRepository): Response
     {
+        $advertise = $advertiseRepository->findOneBy([]) ?? (new Advertise())->setContent('');
         $form = $this->createForm(AdvertiseType::class, $advertise);
+
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($advertise);
+            $em->flush();
 
-            return $this->redirectToRoute('advertise_index', ['id' => $advertise->getId()]);
+            return $this->redirectToRoute('advertise_edit');
         }
 
         return $this->render('admin/advertise/edit.html.twig', [
