@@ -9,7 +9,6 @@ use App\Repository\TeaRepository;
 use App\Entity\Tea;
 use App\Entity\FamilyTea;
 use Doctrine\ORM\Mapping\Id;
-use function PhpParser\filesInDir;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
