@@ -22,21 +22,19 @@
                     <h2 class="section-heading-coffee text-center mb-2">
                         <span class="section-heading-lower justify-content-center mt-3">{{ coffee.country|country }}</span>
                     </h2>
-                    <div class=col-6">
-                        <div class="row mt-3">
-                                <div class="col-6">
-                                    Terroir: {{ coffee.soil }}</div>
-                                Variété: {{ coffee.variety }}
-                            </div>
-                            <hr/>
-                            Note de dégustation :
-                            {{ coffee.tastingNote }}
-                            Description :
-                            {{ coffee.description }}
-                    </div>
+
+                    <div class="row mt-4 text-center">
+                        Terroir: {{ coffee.soil }}
+                        Variété: {{ coffee.variety }}
+                        <hr/>
+
+                    <p class="tastingNote">{{ coffee.tastingNote }}</p>
+
+                    <p> {{ coffee.description }}</p>
                 </div>
             </div>
         </div>
+
 
     </section>
 
