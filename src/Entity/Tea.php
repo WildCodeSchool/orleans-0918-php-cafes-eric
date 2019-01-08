@@ -67,7 +67,7 @@ class Tea
     private $category;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\FamilyTea", inversedBy="tea")
+     * @ORM\ManyToOne(targetEntity="App\Entity\FamilyTea", inversedBy="teas")
      * @ORM\JoinColumn(nullable=false)
      */
     private $familyTea;

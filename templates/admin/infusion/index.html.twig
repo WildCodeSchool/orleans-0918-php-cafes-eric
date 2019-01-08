@@ -6,7 +6,7 @@
     <div class="container">
         <h1>Liste des infusions</h1>
         <div class="mb-5 mt-5">
-            <a class="btn btn-outline-secondary" href="{{ path('infusion_new') }}"><i
+            <a class="btn btn-outline-dark" href="{{ path('infusion_new') }}"><i
                         class="fa fa-plus"></i> Ajouter une nouvelle infusion</a>
         </div>
 
@@ -15,6 +15,7 @@
             <tr>
                 <th>Nom</th>
                 <th>Nouveauté</th>
+                <th>Produit du mois</th>
                 <th>Actions</th>
             </tr>
             </thead>
@@ -24,7 +25,7 @@
                     <td><i class="fas fa-leaf"></i> {{ infusion.name }}</td>
                     {% if infusion.novelty == true %}
                         <td><a type="button" class="btn btn-outline-secondary"
-                               href="{{ path('infusion_novelty', {'id': infusion.id}) }}"><i class="fas fa-star"></i> Ne
+                               href="{{ path('infusion_novelty', {'id': infusion.id}) }}"><i class="far fa-star"></i> Ne
                                 plus
                                 mettre en nouveauté</a></td>
                     {% else %}
@@ -32,17 +33,27 @@
                                href="{{ path('infusion_novelty', {'id': infusion.id}) }}"><i class="fas fa-star"></i>
                                 Mettre en nouveauté</a></td>
                     {% endif %}
+                    {% if infusion.highlighted == true %}
+                        <td><a type="button" class="btn btn-outline-secondary"
+                               href="{{ path('infusion_highlighted', {'id': infusion.id}) }}"><i class="far fa-star"></i> Ne
+                                plus
+                                mettre en produit du mois</a></td>
+                    {% else %}
+                        <td><a type="button" class="btn btn-outline-secondary"
+                               href="{{ path('infusion_highlighted', {'id': infusion.id}) }}"><i class="fas fa-star"></i>
+                                Mettre en produit du mois</a></td>
+                    {% endif %}
                     <td>
-                        <a class="btn btn-outline-secondary"
+                        <a class="btn btn-outline-dark"
                            href="{{ path('infusion_show', {'id': infusion.id}) }}"><i class="far fa-eye"></i> Voir</a>
-                        <a class="btn btn-outline-secondary"
+                        <a class="btn btn-outline-dark"
                            href="{{ path('infusion_edit', {'id': infusion.id}) }}"><i class="fas fa-pencil-alt"></i>
                             Éditer</a>
                     </td>
                 </tr>
             {% else %}
                 <tr>
-                    <td colspan="7">Aucune infusion trouvée</td>
+                    <td colspan="7">Aucune infusion enregistrée</td>
                 </tr>
             {% endfor %}
             </tbody>
