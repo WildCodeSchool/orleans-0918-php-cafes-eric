@@ -10,3 +10,8 @@ body {
 h1 {
   font-size: $sizeH1;
 }
+.product-item{
+  .product-item-img {
+    max-width: 100vh;
+  }
+}
