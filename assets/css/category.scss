@@ -103,6 +103,7 @@
     }
   }
 }
+
 .starli {
   list-style-type:"\A4\ ";
   li::before {
@@ -111,10 +112,7 @@
     width: 1em;
     margin-left: -1em;
   }
-
 }
-
-
 
 hr {
   width: 250px;
@@ -124,3 +122,24 @@ hr {
 .oblic {
   font-style: oblique;
 }
+
+.country{
+  max-width: 300px;
+  max-height: 300px;
+}
+
+.area{
+  text-transform: uppercase;
+  font-weight: 100;
+  font-style: oblique;
+}
+
+.about-heading-content-coffee {
+  @media (min-width: 992px) {
+    position: center;
+    margin-left: 15rem;
+    max-width: 50%;
+  }
+}
+
+

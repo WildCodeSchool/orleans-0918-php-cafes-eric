@@ -14,14 +14,36 @@
             <thead>
             <tr>
                 <th>Nom</th>
+                <th>Nouveauté</th>
+                <th>Produit du mois</th>
                 <th>Actions</th>
             </tr>
             </thead>
             <tbody>
             {% for infusion in infusions %}
                 <tr>
-                    <td class="col-md-9"><i class="fas fa-leaf"></i> {{ infusion.name }}</td>
-                    <td class="col-md-3">
+                    <td><i class="fas fa-leaf"></i> {{ infusion.name }}</td>
+                    {% if infusion.novelty == true %}
+                        <td><a type="button" class="btn btn-outline-secondary"
+                               href="{{ path('infusion_novelty', {'id': infusion.id}) }}"><i class="far fa-star"></i> Ne
+                                plus
+                                mettre en nouveauté</a></td>
+                    {% else %}
+                        <td><a type="button" class="btn btn-outline-secondary"
+                               href="{{ path('infusion_novelty', {'id': infusion.id}) }}"><i class="fas fa-star"></i>
+                                Mettre en nouveauté</a></td>
+                    {% endif %}
+                    {% if infusion.highlighted == true %}
+                        <td><a type="button" class="btn btn-outline-secondary"
+                               href="{{ path('infusion_highlighted', {'id': infusion.id}) }}"><i class="far fa-star"></i> Ne
+                                plus
+                                mettre en produit du mois</a></td>
+                    {% else %}
+                        <td><a type="button" class="btn btn-outline-secondary"
+                               href="{{ path('infusion_highlighted', {'id': infusion.id}) }}"><i class="fas fa-star"></i>
+                                Mettre en produit du mois</a></td>
+                    {% endif %}
+                    <td>
                         <a class="btn btn-outline-dark"
                            href="{{ path('infusion_show', {'id': infusion.id}) }}"><i class="far fa-eye"></i> Voir</a>
                         <a class="btn btn-outline-dark"

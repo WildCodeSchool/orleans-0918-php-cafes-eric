@@ -10,18 +10,39 @@
         </div>
         <table class="table">
             <thead>
-                <tr>
-                    <th>Nom</th>
-                    <th>Actions</th>
-                </tr>
+            <tr>
+                <th>Nom</th>
+                <th>Nouveauté</th>
+                <th>Produit du mois</th>
+                <th>Actions</th>
+            </tr>
             </thead>
             <tbody>
             {% for tea in teas %}
                 <tr>
-                    <td class="col-md-9"><i class="fas fa-leaf"></i> {{ tea.name }}</td>
-                    <td class="col-md-3">
-                        <a type="button" class="btn btn-outline-dark"  href="{{ path('tea_show', {'id': tea.id}) }}"><i class="far fa-eye"></i> Voir</a>
-                        <a type="button" class="btn btn-outline-dark"  href="{{ path('tea_edit', {'id': tea.id}) }}"><i class="fas fa-pencil-alt"></i> Éditer</a>
+                    <td><i class="fas fa-leaf"></i> {{ tea.name }}</td>
+                    {% if tea.novelty == true %}
+                        <td><a type="button" class="btn btn-outline-dark"
+                               href="{{ path('tea_novelty', {'id': tea.id}) }}"><i class="far fa-star"></i> Ne plus
+                                mettre en nouveauté</a></td>
+                    {% else %}
+                        <td><a type="button" class="btn btn-outline-dark"
+                               href="{{ path('tea_novelty', {'id': tea.id}) }}"><i class="fas fa-star"></i> Mettre en nouveauté</a></td>
+                    {% endif %}
+                    {% if tea.highlighted == true %}
+                        <td><a type="button" class="btn btn-outline-dark"
+                               href="{{ path('tea_highlighted', {'id': tea.id}) }}"><i class="far fa-star"></i> Ne plus
+                                mettre en produit du mois</a></td>
+                    {% else %}
+                        <td><a type="button" class="btn btn-outline-dark"
+                               href="{{ path('tea_highlighted', {'id': tea.id}) }}"><i class="fas fa-star"></i> Mettre en produit du mois</a></td>
+                    {% endif %}
+                    <td>
+                        <a type="button" class="btn btn-outline-dark"
+                           href="{{ path('tea_show', {'id': tea.id}) }}"><i class="far fa-eye"></i> Voir</a>
+                        <a type="button" class="btn btn-outline-dark"
+                           href="{{ path('tea_edit', {'id': tea.id}) }}"><i class="fas fa-pencil-alt"></i> Éditer</a>
+                        {{ include('admin/tea/_delete_form.html.twig') }}
                     </td>
                 </tr>
             {% else %}

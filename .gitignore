@@ -23,4 +23,10 @@
 npm-debug.log
 yarn-error.log
 ###< symfony/webpack-encore-bundle ###
-/public/upload/
+/public/upload/*
+!public/upload/.gitkeep
+!/public/upload/coffee/.gitkeep
+!/public/upload/profile/.gitkeep
+
+
+
