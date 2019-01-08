@@ -24,13 +24,15 @@ class CategoryFixtures extends Fixture implements DependentFixtureInterface
     public function load(ObjectManager $manager)
     {
         $faker  =  Faker\Factory::create('fr_FR');
-        for ($n=0; $n<5; $n++) {
-            for ($i = 1; $i <= 6; $i++) {
+        for ($n=0; $n<3; $n++) {
+            for ($i = 0; $i < 5; $i++) {
                 $category = new Category();
                 $category->setTitle(rtrim($faker->sentence(2, true), '.'));
 
                 $manager->persist($category);
-                $category->setShelf($this->getReference('rayon_'. $n));
+                $shelf = $this->getReference('rayon_'. $n);
+                $category->setShelf($shelf);
+                $this->addReference('categ_'.$shelf->getShelfCode().'_'.$i, $category);
             }
         }
         $manager->flush();
