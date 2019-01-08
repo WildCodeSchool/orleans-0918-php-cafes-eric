@@ -21,6 +21,7 @@ class WorkerFixtures extends Fixture
             $faker = Faker\Factory::create('fr_FR');
             $worker = new Worker();
             $worker->setName($faker->firstname);
+            $worker->setUpdatedAt();
             $worker->setDescription($faker->text($maxNbChars = 200));
             $manager->persist($worker);
         }
