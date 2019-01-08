@@ -26,19 +26,19 @@
                 <td>{{ coffee.country|country }}</td>
                 <td>{{ coffee.soil }}</td>
                 {% if coffee.novelty == true %}
-                    <td><a type="button" class="btn btn-outline-dark"
+                    <td><a class="btn btn-outline-dark"
                            href="{{ path('coffee_novelty', {'id': coffee.id}) }}"><i class="far fa-star"></i> Ne plus
                             mettre en nouveauté</a></td>
                 {% else %}
-                    <td><a type="button" class="btn btn-outline-dark"
+                    <td><a class="btn btn-outline-dark"
                            href="{{ path('coffee_novelty', {'id': coffee.id}) }}"><i class="fas fa-star"></i> Mettre en nouveauté</a></td>
                 {% endif %}
                 {% if coffee.highlighted == true %}
-                    <td><a type="button" class="btn btn-outline-dark"
+                    <td><a class="btn btn-outline-dark"
                            href="{{ path('coffee_highlighted', {'id': coffee.id}) }}"><i class="far fa-star"></i> Ne plus
                             mettre en produit du mois</a></td>
                 {% else %}
-                    <td><a type="button" class="btn btn-outline-dark"
+                    <td><a class="btn btn-outline-dark"
                            href="{{ path('coffee_highlighted', {'id': coffee.id}) }}"><i class="fas fa-star"></i> Mettre en produit du mois</a></td>
                 {% endif %}
                 <td>
