@@ -58,7 +58,13 @@ class Infusion
     /**
      * @ORM\Column(type="boolean", nullable=true)
      */
+    private $highlighted;
+  
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
     private $novelty;
+
 
     public function getId(): ?int
     {
@@ -112,7 +118,18 @@ class Infusion
 
         return $this;
     }
+  
+    public function getHighlighted(): ?bool
+    {
+        return $this->highlighted;
+    }
 
+    public function setHighlighted(?bool $highlighted): self
+    {
+        $this->highlighted = $highlighted;
+        return $this;
+    }
+  
     public function getNovelty(): ?bool
     {
         return $this->novelty;

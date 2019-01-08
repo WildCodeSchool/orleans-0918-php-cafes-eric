@@ -1,6 +1,6 @@
 {% extends 'layoutAdmin.html.twig' %}
 
-{% block title %}Détail d'un café.{% endblock %}
+{% block title %}Détail d'un café{% endblock %}
 
 {% block body %}
     <h1>Fiche produit</h1>
@@ -32,13 +32,25 @@
                     <th>Description</th>
                     <td>{{ coffee.description }}</td>
                 </tr>
+                <tr>
+                    <th>Produit du mois</th>
+                    <td>{{ coffee.highlighted ? 'Oui' : 'Non' }}</td>
+                </tr>
+                <tr>
+                    <th>Nouveauté</th>
+                    <td>{{ coffee.novelty ? 'Oui' : 'Non' }}</td>
+                </tr>
+                <tr>
+                    <th class="col-md-2">Image de profil</th>
+                    <td class="col-md-10"><img src="{{ vich_uploader_asset(coffee, 'coffeeImageFile') }}" alt="photo du produit" /></td>
+                </tr>
                 </tbody>
             </table>
-        <a type="button" class="btn btn-outline-secondary" href="{{ path('coffee_edit', {'id': coffee.id}) }}"><i class="fas fa-pencil-alt"></i> Editer</a>
+        <a class="btn btn-outline-dark" href="{{ path('coffee_edit', {'id': coffee.id}) }}"><i class="fas fa-pencil-alt"></i> Éditer</a>
         {{ include('admin/coffee/_delete_form.html.twig') }}
         </div>
         <div class="col-md-12 mb-5">
-            <a href="{{ path('coffee_index') }}"><i class="fas fa-reply"></i> retour</a>
+            <a class="btn btn-outline-dark" href="{{ path('coffee_index') }}"><i class="fas fa-reply"></i> Retour</a>
         </div>
     </div>
 {% endblock %}

@@ -1,38 +1,46 @@
 {% extends 'layoutAdmin.html.twig' %}
 
-{% block title %}Infusion{% endblock %}
+{% block title %}Détail infusion{% endblock %}
 
 {% block body %}
-    <h1>{{ infusion.name }}</h1>
+    <h1>Infusion {{ infusion.name }}</h1>
     <div class="row">
         <div class="col-md-12 mb-5 mt-5">
             <table class="table">
                 <tbody>
-                <tr>
-                    <th>Nom</th>
-                    <td>{{ infusion.name }}</td>
-                </tr>
-                <tr>
-                    <th>Ingrédients</th>
-                    <td>{{ infusion.ingredients }}</td>
-                </tr>
-                <tr>
-                    <th>Particularité</th>
-                    <td>{{ infusion.feature }}</td>
-                </tr>
-                <tr>
-                    <th>Catégorie</th>
-                    <td>{{ infusion.category.title }}</td>
-                </tr>
+                    <tr>
+                        <th>Nom</th>
+                        <td>{{ infusion.name }}</td>
+                    </tr>
+                    <tr>
+                        <th>Ingrédients</th>
+                        <td>{{ infusion.ingredients }}</td>
+                    </tr>
+                    <tr>
+                        <th>Particularité</th>
+                        <td>{{ infusion.feature }}</td>
+                    </tr>
+                    <tr>
+                        <th>Catégorie</th>
+                        <td>{{ infusion.category.title }}</td>
+                    </tr>
+                    <tr>
+                        <th>Produit du mois</th>
+                        <td>{{ infusion.highlighted ? 'Oui' : 'Non' }}</td>
+                    </tr>
+                    <tr>
+                        <th>Nouveauté</th>
+                        <td>{{ infusion.novelty ? 'Oui' : 'Non' }}</td>
+                    </tr>
                 </tbody>
             </table>
 
-            <a type="button" class="btn btn-outline-secondary"
+            <a class="btn btn-outline-dark"
                href="{{ path('infusion_edit', {'id': infusion.id}) }}"><i class="fas fa-pencil-alt"></i> Éditer</a>
             {{ include('admin/infusion/_delete_form.html.twig') }}
         </div>
         <div class="col-md-12 mb-5">
-            <a href="{{ path('infusion_index') }}"><i class="fas fa-reply"></i> Retour</a>
+            <a class="btn btn-outline-dark" href="{{ path('infusion_index') }}"><i class="fas fa-reply"></i> Retour</a>
         </div>
     </div>
 {% endblock %}

@@ -24,6 +24,11 @@ class Shelf
      */
     private $title;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $shelfCode;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -37,6 +42,18 @@ class Shelf
     public function setTitle(string $title): self
     {
         $this->title = $title;
+
+        return $this;
+    }
+
+    public function getShelfCode(): ?string
+    {
+        return $this->shelfCode;
+    }
+
+    public function setShelfCode(string $shelfCode): self
+    {
+        $this->shelfCode = $shelfCode;
 
         return $this;
     }

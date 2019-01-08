@@ -16,13 +16,17 @@
                         <th class="col-md-2">Description</th>
                         <td class="col-md-10">{{ worker.description }}</td>
                     </tr>
+                    <tr>
+                        <th class="col-md-2">Image de profil</th>
+                        <td class="col-md-10"><img src="{{ vich_uploader_asset(worker, 'profileImageFile') }}" alt="profile_image" /></td>
+                    </tr>
                 </tbody>
             </table>
-            <a type="button" class="btn btn-outline-secondary" href="{{ path('worker_edit', {'id': worker.id}) }}"><i class="fas fa-pencil-alt"></i> Éditer</a>
+            <a class="btn btn-outline-dark" href="{{ path('worker_edit', {'id': worker.id}) }}"><i class="fas fa-pencil-alt"></i> Éditer</a>
             {{ include('admin/worker/_delete_form.html.twig') }}
         </div>
         <div class="col-md-12 mb-5">
-            <a href="{{ path('worker_index') }}"><i class="fas fa-reply"></i> Retour</a>
+            <a class="btn btn-outline-dark" href="{{ path('worker_index') }}"><i class="fas fa-reply"></i> Retour</a>
         </div>
     </div>
 {% endblock %}

@@ -3,19 +3,27 @@
 {% block title %}Cafés{% endblock %}
 
 {% block body %}
-
     <section class="page-section clearfix">
         <div class="container">
-            <div class="intro-coffee">
-                <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{{ asset('build/images/coffee_beans.jpg') }}" alt="thé">
-                <div class="intro-text left-0  text-center bg-faded p-11 mt-4 rounded">
+            <div class="about-heading-content">
+                <div class="bg-faded rounded p-2 mb-5">
+                    <h1 class="section-heading">
+                        <span class="section-heading-lower justify-content-center d-flex ">Nos cafés</span>
+                    </h1>
+                    <hr/>
+                </div>
+            </div>
+            <div class="intro-coffee mt-5">
+                <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{{ asset('build/images/coffee_beans.jpg') }}"
+                     alt="café">
+                <div class="intro-text left-0  text-center bg-faded p-11 mt-5 rounded">
                     <h2 class="section-heading-coffee mb-2">
                         <span class="section-heading-lower-coffee mt-5">Les 5 règles d'or pour préparer le café.</span>
                     </h2>
                     <hr/>
                     <ol class="text-left mr-5 ml-5 mb-5 colorli">
-                        <li >Adapter la mouture au type de cafetière :
-                            <ul class= "text-left starli">
+                        <li>Adapter la mouture au type de cafetière :
+                            <ul class="text-left starli">
                                 <li>Extrêmement fine pour le café turc.</li>
                                 <li>Fine pour les machines expresso avec 15 bars de pression.</li>
                                 <li>Moyenne pour les cafetières 'filtre papier'.</li>
@@ -30,5 +38,35 @@
                 </div>
             </div>
         </div>
+    </section>
+    <section >
+        {% for area, coffeeByCountry in coffeeByArea %}
+            <div class="about-heading-content-coffee">
+                <div class="bg-faded rounded p-2 mb-5">
+                    <h2>
+                        <span class="section-heading-lower area d-flex justify-content-center "> {{ area }}</span>
+                    </h2>
+                    <hr/>
+                </div>
+            </div>
+        <div class="row d-flex justify-content-between">
+            {% for country, coffees in coffeeByCountry %}
+                {% for coffee in coffees %}
+                    <article class="page-section about-heading">
+                        <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0 country" src="{{ asset("build/accessoryImages/logo.jpg")}}" alt="photo de café">
+                        <div class="about-heading-content">
+                            <div class="bg-faded rounded p-2">
+                                <h3>
+                                    <span class="oblic d-flex justify-content-center">{{ coffee.soil }}</span>
+                                </h3>
+                                <hr/>
+                                <p class="card-text"><small class="text-muted">{{ country|country }}</small></p>
+                            </div>
+                        </div>
+                    </article>
+                {% endfor %}
+            {% endfor %}
+        </div>
+        {% endfor %}
     </section>
 {% endblock %}
