@@ -39,15 +39,11 @@ class TeaCategoryController extends AbstractController
         FamilyTeaRepository $familyTeaRepository
     ): Response {
         $teas = $teaRepository->findBy(['category' => $category], ['familyTea' => 'ASC']);
-
         $teaByFamilyTea = [];
-
         foreach ($teas as $tea) {
             $familyTea = $tea->getFamilyTea()->getName();
-
             $teaByFamilyTea[$familyTea][] = $tea;
         }
-
         return $this->render('teaCategory/show.html.twig', [
             'teaByFamilyTea' => $teaByFamilyTea,
             'category' => $category,
