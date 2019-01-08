@@ -41,6 +41,23 @@ class InfusionController extends AbstractController
     }
 
     /**
+     * @Route("/{id}/highlighted", name="infusion_highlighted", methods="GET|POST"))
+     */
+    public function updateHighlighted(Infusion $tea, MaxProductChecker $maxProductChecker): Response
+    {
+        if ($maxProductChecker->checkHighlightedNumber() || $tea->getHighlighted()) {
+            $tea->setHighlighted(!$tea->getHighlighted());
+            $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('success', 'Modification enregistrée');
+        } else {
+            $this->addFlash('danger', 'Impossible d\'ajouter plus de ' . MaxProductChecker::MAX . ' produits du mois');
+        }
+
+
+        return $this->redirectToRoute('infusion_index');
+    }
+
+    /**
      * @Route("/new", name="infusion_new", methods="GET|POST")
      */
     public function new(Request $request): Response

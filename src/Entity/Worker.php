@@ -39,7 +39,7 @@ class Worker
     private $description;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      * @var string
      */
     private $profileImage;
@@ -47,7 +47,6 @@ class Worker
     /**
      * @Vich\UploadableField(mapping="profile", fileNameProperty="profileImage")
      * @var File
-     * @Assert\NotBlank
      * @Assert\Image(
      *     maxWidth="300",
      *     maxHeight="300",
@@ -76,7 +75,7 @@ class Worker
         // otherwise the event listeners won't be called and the file is lost
         if (null !== $image) {
             // if 'updatedAt' is not defined in your entity, use another property
-            $this->updatedAt = new \DateTime('now');
+            $this->setUpdatedAt();
         }
     }
 
@@ -117,7 +116,6 @@ class Worker
     public function setProfileImage(string $profileImage): self
     {
         $this->profileImage = $profileImage;
-
         return $this;
     }
 
@@ -126,9 +124,9 @@ class Worker
         return $this->updatedAt;
     }
 
-    public function setUpdatedAt(\DateTimeInterface $updatedAt): self
+    public function setUpdatedAt(): self
     {
-        $this->updatedAt = $updatedAt;
+        $this->updatedAt = new \DateTime();
 
         return $this;
     }

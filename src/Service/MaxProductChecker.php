@@ -40,4 +40,15 @@ class MaxProductChecker
         $infusions = $this->infusionRepository->findByNovelty(true);
         return count($coffees) + count($teas) + count($infusions) < self::MAX;
     }
+
+    /**
+     * @return bool
+     */
+    public function checkHighlightedNumber(): bool
+    {
+        $coffees = $this->coffeeRepository->findByHighlighted(true);
+        $teas = $this->teaRepository->findByHighlighted(true);
+        $infusions = $this->infusionRepository->findByHighlighted(true);
+        return count($coffees) + count($teas) + count($infusions) < self::MAX;
+    }
 }

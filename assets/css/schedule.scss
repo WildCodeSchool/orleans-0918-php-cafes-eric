@@ -1,11 +1,24 @@
 .cta {
   padding-top: 5rem;
   padding-bottom: 5rem;
-  background-color: fade-out($primary, 0.1);
+  background-color: transparent;
   .cta-inner {
     position: relative;
     padding: 1rem;
     margin: 0.5rem;
     background-color: fade-out($white, 0.15);
+  }
+}
+
+.list-hours-item-second {
+  border-bottom: 1px solid fade-out($primary, 0.5);
+  padding-bottom: .25rem;
+  padding-top: .30rem;
+  margin-bottom: 1rem;
+  font-style: italic;
+  &.today {
+    color: $white;
+    text-shadow: 1px 1px $black;
+    font-weight: bolder;
   }
 }

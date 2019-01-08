@@ -1,15 +1,15 @@
 {% extends 'layoutAdmin.html.twig' %}
 
-{% block title %}Edition d'un café{% endblock %}
+{% block title %}Édition d'un café{% endblock %}
 
 {% block body %}
-    <h1>Editer un café</h1>
+    <h1>Éditer un café</h1>
     <div class="row">
         <div class="col-md-12 mb-5 mt-5">
-            {{ include('admin/coffee/_form.html.twig', {'button_label': 'Editer'}) }}
+            {{ include('admin/coffee/_form.html.twig', {'button_label': 'Éditer'}) }}
         </div>
         <div class="col-md-12">
-            <a class="btn btn-outline-secondary" href="{{ path('coffee_index') }}"><i class="fas fa-reply"></i> Retour</a>
+            <a class="btn btn-outline-dark" href="{{ path('coffee_index') }}"><i class="fas fa-reply"></i> Retour</a>
         </div>
     </div>
 {% endblock %}
