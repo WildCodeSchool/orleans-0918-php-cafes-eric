@@ -150,3 +150,14 @@ hr {
 .tastingNote{
   font-style: oblique;
 }
+
+.imgMedium{
+  max-width: 850px;
+  max-height:850px;
+}
+
+@media (max-width: 991px) {
+  .imgMedium{
+    max-width: 100%;
+  }
+}

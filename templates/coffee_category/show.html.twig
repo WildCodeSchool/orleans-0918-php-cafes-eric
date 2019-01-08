@@ -9,47 +9,37 @@
             <div class="about-heading-content">
                 <div class="bg-faded rounded p-2 mb-5">
                     <h1 class="section-heading">
-                        <span class="section-heading-lower justify-content-center d-flex mt-2">{{ coffee.soil }}</span>
+                        <span class="section-heading-lower justify-content-center d-flex mt-2 ">{{ coffee.soil }}</span>
                     </h1>
                     <hr/>
                 </div>
             </div>
             <div class="intro-coffee mt-5">
-                <img class="intro-img img-fluid mb-3 mb-lg-0 rounded"
+                <img class="intro-img img-fluid mb-3 mb-lg-0 rounded imgMedium"
                      src="{{ vich_uploader_asset(coffee, 'coffeeImageFile') }}"
                      alt="café">
                 <div class="intro-text text-center bg-faded p-11 mt-5 rounded">
-                    <h2 class="section-heading-coffee text-center mb-2">
-                        <span class="section-heading-lower justify-content-center mt-3">{{ coffee.country|country }}</span>
+                    <h2 class="section-heading-coffee text-center mb-4 mt-4">
+                        <span class="section-heading-lower justify-content-center mt-2">{{ coffee.country|country }}</span>
                     </h2>
 
                     <div class="row mt-4 text-center">
-                        Terroir: {{ coffee.soil }}
-                        Variété: {{ coffee.variety }}
+                        <div class="offset-1 col-4">
+                            Terroir: {{ coffee.soil }}</div>
+                        <div class="offset-1 col-4">
+                            Variété: {{ coffee.variety }}
+                        </div>
                         <hr/>
+                        <div class="ml-5 mr-5">
+                            <p class="tastingNote mr-5 ml-5">{{ coffee.tastingNote }}</p>
 
-                    <p class="tastingNote">{{ coffee.tastingNote }}</p>
-
-                    <p> {{ coffee.description }}</p>
+                            <p class="description ml-5 mr-5 mb-5 text-left"> {{ coffee.description }}</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
-
     </section>
-
-    {{ coffee.country|country }}
-    <ul class="text-left starli">
-        <li> Région du monde
-            {{ coffee.category.title }}</li>
-        <li>Pays
-            <td>{{ coffee.country|country }}</li>
-        <li>Variété
-            <td>{{ coffee.variety }}</li>
-        <li>Note de dégustation
-            <td>{{ coffee.tastingNote }}</li>
-        <li> Description
-            {{ coffee.description }}</li>
-    </ul>
 
 {% endblock %}
