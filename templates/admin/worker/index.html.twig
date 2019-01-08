@@ -1,12 +1,12 @@
 {% extends 'layoutAdmin.html.twig' %}
 
-{% block title %}Personnel{% endblock %}
+{% block title %}Liste des membres du personnel{% endblock %}
 
 {% block body %}
     <div class="container">
-        <h1>Personnel</h1>
+        <h1>Liste des membres du personnel</h1>
         <div class="mb-5 mt-5">
-            <a class="btn btn-outline-secondary" href="{{ path('worker_new') }}"><i class="fa fa-plus"></i> Ajouter une nouvelle personne</a>
+            <a class="btn btn-outline-dark" href="{{ path('worker_new') }}"><i class="fa fa-plus"></i> Ajouter un nouveau membre du personnel</a>
         </div>
         <table class="table">
             <thead>
@@ -18,16 +18,15 @@
             <tbody>
             {% for worker in workers %}
                 <tr>
-                    <td class="col-8"><i class="fas fa-user-circle"></i> {{ worker.name }}</td>
-                    <td class="col-4">
-                        <a class="btn btn-outline-secondary" href="{{ path('worker_show', {'id': worker.id}) }}"><i class="far fa-eye"></i> Voir</a>
-                        <a class="btn btn-outline-secondary" href="{{ path('worker_edit', {'id': worker.id}) }}"><i class="fas fa-pencil-alt"></i> Éditer</a>
-                        {{ include('admin/worker/_delete_form.html.twig') }}
+                    <td class="col-md-9"><i class="fas fa-user-circle"></i> {{ worker.name }}</td>
+                    <td class="col-md-3">
+                        <a class="btn btn-outline-dark" href="{{ path('worker_show', {'id': worker.id}) }}"><i class="far fa-eye"></i> Voir</a>
+                        <a class="btn btn-outline-dark" href="{{ path('worker_edit', {'id': worker.id}) }}"><i class="fas fa-pencil-alt"></i> Éditer</a>
                     </td>
                 </tr>
             {% else %}
                 <tr>
-                    <td colspan="4">Liste vide</td>
+                    <td colspan="4">Aucun membre du personnel enregistré</td>
                 </tr>
             {% endfor %}
             </tbody>

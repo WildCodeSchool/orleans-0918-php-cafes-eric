@@ -6,7 +6,7 @@
     <div class="container">
     <h1>Liste des cafés</h1>
         <div class="mb-5 mt-5">
-            <a type="button" class="btn btn-outline-secondary" href="{{ path('coffee_new') }}"><i class="fa fa-plus"></i> Ajouter un nouveau café</a>
+            <a type="button" class="btn btn-outline-dark" href="{{ path('coffee_new') }}"><i class="fa fa-plus"></i> Ajouter un nouveau café</a>
         </div>
     <table class="table">
         <thead>
@@ -26,24 +26,24 @@
                 <td>{{ coffee.country|country }}</td>
                 <td>{{ coffee.soil }}</td>
                 {% if coffee.novelty == true %}
-                    <td><a type="button" class="btn btn-outline-secondary"
+                    <td><a type="button" class="btn btn-outline-dark"
                            href="{{ path('coffee_novelty', {'id': coffee.id}) }}"><i class="far fa-star"></i> Ne plus
                             mettre en nouveauté</a></td>
                 {% else %}
-                    <td><a type="button" class="btn btn-outline-secondary"
+                    <td><a type="button" class="btn btn-outline-dark"
                            href="{{ path('coffee_novelty', {'id': coffee.id}) }}"><i class="fas fa-star"></i> Mettre en nouveauté</a></td>
                 {% endif %}
                 {% if coffee.highlighted == true %}
-                    <td><a type="button" class="btn btn-outline-secondary"
+                    <td><a type="button" class="btn btn-outline-dark"
                            href="{{ path('coffee_highlighted', {'id': coffee.id}) }}"><i class="far fa-star"></i> Ne plus
                             mettre en produit du mois</a></td>
                 {% else %}
-                    <td><a type="button" class="btn btn-outline-secondary"
+                    <td><a type="button" class="btn btn-outline-dark"
                            href="{{ path('coffee_highlighted', {'id': coffee.id}) }}"><i class="fas fa-star"></i> Mettre en produit du mois</a></td>
                 {% endif %}
                 <td>
-                    <a class="btn btn-outline-secondary" href="{{ path('coffee_show', {'id': coffee.id}) }}"><i class="far fa-eye"></i> Voir</a>
-                    <a class="btn btn-outline-secondary" href="{{ path('coffee_edit', {'id': coffee.id}) }}"><i class="fas fa-pencil-alt"></i> Éditer</a>
+                    <a class="btn btn-outline-dark" href="{{ path('coffee_show', {'id': coffee.id}) }}"><i class="far fa-eye"></i> Voir</a>
+                    <a class="btn btn-outline-dark" href="{{ path('coffee_edit', {'id': coffee.id}) }}"><i class="fas fa-pencil-alt"></i> Éditer</a>
                 </td>
             </tr>
         {% else %}
