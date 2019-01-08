@@ -24,7 +24,7 @@ class FamilyTea
     private $name;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Tea", mappedBy="family_tea")
+     * @ORM\OneToMany(targetEntity="App\Entity\Tea", mappedBy="familyTea")
      */
     private $teas;
 
