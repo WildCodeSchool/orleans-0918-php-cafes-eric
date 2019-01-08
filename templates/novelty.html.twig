@@ -1,0 +1,59 @@
+{% if noveltySection == true %}
+    <div class="product-item-title d-flex">
+        <div class="bg-faded p-5 d-flex mr-auto rounded">
+            <h2 class="section-heading mb-0">
+                <span class="section-heading-lower">Nouveautés</span>
+                <hr/>
+            </h2>
+        </div>
+    </div>
+    <div class="row justify-content-around">
+        {% for coffee in coffees %}
+            {% if coffee.novelty == true %}
+                <div class="col-md-3">
+                    <div class="card">
+                        <img class="card-img-top" src="{{ asset('build/logo/logo.jpg') }}" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Café</h5>
+                            <p class="card-text text-center">{{ coffee.country|country }}<br/>
+                                {{ coffee.soil }}</p>
+                            <a href="#" class="btn btn-primary">Voir le produit</a>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+
+        {% for tea in teas %}
+            {% if tea.novelty == true %}
+                <div class="col-md-3">
+                    <div class="card">
+                        <img class="card-img-top" src="{{ asset('build/teaImages/the.jpg') }}" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Thé</h5>
+                            <p class="card-text text-center">{{ tea.name }}<br/>
+                            {{ tea.familyTea.name }}</p>
+                            <a href="#" class="btn btn-primary">Voir le produit</a>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+
+        {% for infusion in infusions %}
+            {% if infusion.novelty   == true %}
+                <div class="col-md-3">
+                    <div class="card">
+                        <img class="card-img-top" src="{{ asset('build/infusionImages/infusion.jpg') }}" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Infusion</h5>
+                            <p class="card-text text-center">{{ infusion.name }}<br/>
+                            {{ infusion.feature }}</p>
+                            <a href="#" class="btn btn-primary">Voir le produit</a>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endif %}
