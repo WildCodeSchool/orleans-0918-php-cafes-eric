@@ -1,7 +1,7 @@
 body {
   @include body-font;
-  background-color: $primary;
-  background-image: url("../images/homeImages/padded.png");
+  background-color: darken($primary, 10) ;
+  background-image: url("../images/homeImages/padded-light.png");
   background-attachment: fixed;
   background-position: initial;
   background-size: initial;
