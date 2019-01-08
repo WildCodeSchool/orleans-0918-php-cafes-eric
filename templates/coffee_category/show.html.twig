@@ -1,0 +1,57 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Cafés{% endblock %}
+
+{% block body %}
+
+    <section class="page-section clearfix">
+        <div class="container">
+            <div class="about-heading-content">
+                <div class="bg-faded rounded p-2 mb-5">
+                    <h1 class="section-heading">
+                        <span class="section-heading-lower justify-content-center d-flex mt-2">{{ coffee.soil }}</span>
+                    </h1>
+                    <hr/>
+                </div>
+            </div>
+            <div class="intro-coffee mt-5">
+                <img class="intro-img img-fluid mb-3 mb-lg-0 rounded"
+                     src="{{ vich_uploader_asset(coffee, 'coffeeImageFile') }}"
+                     alt="café">
+                <div class="intro-text text-center bg-faded p-11 mt-5 rounded">
+                    <h2 class="section-heading-coffee text-center mb-2">
+                        <span class="section-heading-lower justify-content-center mt-3">{{ coffee.country|country }}</span>
+                    </h2>
+                    <div class=col-6">
+                        <div class="row mt-3">
+                                <div class="col-6">
+                                    Terroir: {{ coffee.soil }}</div>
+                                Variété: {{ coffee.variety }}
+                            </div>
+                            <hr/>
+                            Note de dégustation :
+                            {{ coffee.tastingNote }}
+                            Description :
+                            {{ coffee.description }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    {{ coffee.country|country }}
+    <ul class="text-left starli">
+        <li> Région du monde
+            {{ coffee.category.title }}</li>
+        <li>Pays
+            <td>{{ coffee.country|country }}</li>
+        <li>Variété
+            <td>{{ coffee.variety }}</li>
+        <li>Note de dégustation
+            <td>{{ coffee.tastingNote }}</li>
+        <li> Description
+            {{ coffee.description }}</li>
+    </ul>
+
+{% endblock %}

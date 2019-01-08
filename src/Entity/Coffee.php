@@ -89,11 +89,6 @@ class Coffee
      * @Vich\UploadableField(mapping="coffee", fileNameProperty="coffeeImage")
      * @var File
      * @Assert\NotBlank
-     * @Assert\Image(
-     *     maxWidth="300",
-     *     maxHeight="300",
-     *     maxWidthMessage="La largeur ne doit pas excéder 300 px",
-     *     maxHeightMessage="La longueur ne doit pas excéder 300 px")
      */
     private $coffeeImageFile;
 
