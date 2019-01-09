@@ -67,6 +67,7 @@ class CoffeeController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $coffee->setUpdatedAt();
             $em->persist($coffee);
             $em->flush();
 

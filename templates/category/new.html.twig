@@ -4,8 +4,12 @@
 
 {% block body %}
     <h1>Ajouter une nouvelle catégorie</h1>
-
-    {{ include('category/_form.html.twig') }}
-
-    <a class="btn btn-outline-dark" href="{{ path('category_index') }}"><i class="fas fa-reply"></i> Retour</a>
+    <div class="row">
+        <div class="col-md-12 mb-5 mt-5">
+            {{ include('category/_form.html.twig') }}
+        </div>
+        <div class="col-md-12 mb-5">
+            <a class="btn btn-outline-dark" href="{{ path('category_index') }}"><i class="fas fa-reply"></i> Retour</a>
+        </div>
+    </div>
 {% endblock %}

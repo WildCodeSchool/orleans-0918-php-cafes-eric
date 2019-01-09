@@ -34,6 +34,10 @@ class AdvertiseController extends AbstractController
             $em->persist($advertise);
             $em->flush();
 
+            $this->addFlash(
+                'success',
+                'Votre annonce à bien été modifié !'
+            );
             return $this->redirectToRoute('advertise_edit');
         }
 
