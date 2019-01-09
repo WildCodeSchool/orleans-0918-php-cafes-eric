@@ -18,21 +18,21 @@
                 <img class="intro-img img-fluid mb-3 mb-lg-0 rounded imgMedium"
                      src="{{ vich_uploader_asset(coffee, 'coffeeImageFile') }}"
                      alt="café">
-                <div class="intro-text text-center bg-faded p-11 mt-5 rounded">
+                <div class="intro-text text-center bg-faded mt-5 rounded">
                     <h2 class="section-heading-coffee text-center mb-4 mt-4">
                         <span class="section-heading-lower justify-content-center mt-2">{{ coffee.country|country }}</span>
                     </h2>
 
                     <div class="row mt-4 text-center">
                         <div class="offset-1 col-4">
-                            Terroir: {{ coffee.soil }}</div>
+                            Terroir : <span class="bold">{{ coffee.soil }}</span></div>
                         <div class="offset-1 col-4">
-                            Variété: {{ coffee.variety }}
+                            Variété : <span class="bold">{{ coffee.variety }}</span>
                         </div>
-                        <hr/>
-                        <div class="ml-5 mr-5">
-                            <p class="tastingNote mr-5 ml-5">{{ coffee.tastingNote }}</p>
 
+                        <div class="ml-5 mr-5">
+                            <p class="tastingNote mt-3 mr-2 ml-2 bold">"{{ coffee.tastingNote }}"</p>
+                            <hr/>
                             <p class="description ml-5 mr-5 mb-5 text-left"> {{ coffee.description }}</p>
                         </div>
                     </div>

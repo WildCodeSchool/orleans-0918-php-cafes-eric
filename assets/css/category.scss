@@ -152,12 +152,16 @@ hr {
 }
 
 .imgMedium{
-  max-width: 850px;
-  max-height:850px;
+  max-width: 800px;
+  max-height:800px;
 }
 
 @media (max-width: 991px) {
   .imgMedium{
     max-width: 100%;
   }
+}
+.bold{
+
+  font-weight: bold;
 }
