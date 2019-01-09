@@ -56,7 +56,6 @@ class TeaCategoryController extends AbstractController
             $familyTea = $tea->getFamilyTea()->getName();
             $teaByFamilyTea[$familyTea][] = $tea;
         }
-        dump($teaByFamilyTea);
         return $this->render('teaCategory/show.html.twig', [
             'teaByFamilyTea' => $teaByFamilyTea,
             'category' => $category,
