@@ -19,6 +19,7 @@ class FamilyTea
     private $id;
 
     /**
+     * Assert notBlank, maxLength 255
      * @ORM\Column(type="string", length=255)
      */
     private $name;
