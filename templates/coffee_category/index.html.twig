@@ -54,9 +54,9 @@
                 {% for coffee in coffees %}
                     <article class="page-section about-heading">
                         {% if coffee.coffeeImage is empty %}
-                            <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0 country" src="{{ asset("build/accessoryImages/logo.jpg")}}" alt="photo de café">
+                            <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0 country" src="{{ asset("build/accessoryImages/logo.jpg")}}" alt="café {{coffee.name}}">
                         {% else %}
-                            <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0 country" src="{{ vich_uploader_asset(coffee, 'coffeeImageFile') }}" alt="photo de café">
+                            <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0 country" src="{{ vich_uploader_asset(coffee, 'coffeeImageFile') }}" alt="café {{coffee.name}}">
                         {% endif %}
                             <div class="about-heading-content">
                             <div class="bg-faded rounded p-2">
