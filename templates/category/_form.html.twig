@@ -1,4 +1,6 @@
-{{ form_start(form) }}
-        {{ form_widget(form) }}
-        <button class="btn"><i class="fas fa-sync-alt"></i> {{ button_label|default('Sauvegarder') }}</button>
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+{{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+    {{ form_widget(form) }}
+        <button class="btn btn-outline-dark"><i class="fas fa-sync-alt"></i> {{ button_label|default('Sauvegarder') }}</button>
 {{ form_end(form) }}

@@ -142,4 +142,26 @@ hr {
   }
 }
 
+.coffee{
+  max-width: 500px;
+  max-height: 500px;
+}
 
+.tastingNote{
+  font-style: oblique;
+}
+
+.imgMedium{
+  max-width: 800px;
+  max-height:800px;
+}
+
+@media (max-width: 991px) {
+  .imgMedium{
+    max-width: 100%;
+  }
+}
+.bold{
+
+  font-weight: bold;
+}

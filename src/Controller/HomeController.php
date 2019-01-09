@@ -6,7 +6,7 @@ use App\Repository\CoffeeRepository;
 use App\Repository\TeaRepository;
 use App\Repository\InfusionRepository;
 use App\Repository\WorkerRepository;
-use App\Service\MaxProductChecker;
+use App\Repository\AdvertiseRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -17,12 +17,14 @@ class HomeController extends AbstractController
      */
     public function index(
         WorkerRepository $workerRepository,
+        AdvertiseRepository $advertiseRepository,
         CoffeeRepository $coffeeRepository,
         TeaRepository $teaRepository,
         InfusionRepository $infusionRepository,
         MaxProductChecker $maxProductChecker
     ) {
         $workers = $workerRepository->findAll();
+        $advertise = $advertiseRepository->findOneBy([]);
         $coffees = $coffeeRepository->findByNovelty(true);
         $teas = $teaRepository->findByNovelty(true);
         $infusions = $infusionRepository->findByNovelty(true);
@@ -34,7 +36,8 @@ class HomeController extends AbstractController
             'coffees' => $coffees,
             'teas' => $teas,
             'infusions' => $infusions,
-            'noveltySection' => $noveltySection
+            'noveltySection' => $noveltySection,
+            'advertise' => $advertise
         ]);
     }
 }

@@ -1,6 +1,6 @@
 {% extends 'layoutAdmin.html.twig' %}
 
-{% block title %}Thé{% endblock %}
+{% block title %}Détail thé{% endblock %}
 
 {% block body %}
     <h1>Thé {{ tea.name }}</h1>
@@ -30,12 +30,12 @@
                     </tr>
                 </tbody>
             </table>
-            <a type="button" class="btn btn-outline-secondary" href="{{ path('tea_edit', {'id': tea.id}) }}">
+            <a class="btn btn-outline-dark" href="{{ path('tea_edit', {'id': tea.id}) }}">
                 <i class="fas fa-pencil-alt"></i> Éditer</a>
             {{ include('admin/tea/_delete_form.html.twig') }}
         </div>
         <div class="col-md-12 mb-5">
-            <a type="button" class="btn btn-outline-secondary" href="{{ path('tea_index') }}"><i class="fas fa-reply"></i> Retour</a>
+            <a class="btn btn-outline-dark" href="{{ path('tea_index') }}"><i class="fas fa-reply"></i> Retour</a>
         </div>
     </div>
 {% endblock %}
