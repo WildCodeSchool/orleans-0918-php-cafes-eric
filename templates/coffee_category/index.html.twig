@@ -53,8 +53,12 @@
             {% for country, coffees in coffeeByCountry %}
                 {% for coffee in coffees %}
                     <article class="page-section about-heading">
-                        <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0 country" src="{{ asset("build/accessoryImages/logo.jpg")}}" alt="photo de café">
-                        <div class="about-heading-content">
+                        {% if coffee.coffeeImage is empty %}
+                            <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0 country" src="{{ asset("build/accessoryImages/logo.jpg")}}" alt="photo de café">
+                        {% else %}
+                            <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0 country" src="{{ vich_uploader_asset(coffee, 'coffeeImageFile') }}" alt="photo de café">
+                        {% endif %}
+                            <div class="about-heading-content">
                             <div class="bg-faded rounded p-2">
                                 <h3>
                                     <span class="oblic d-flex justify-content-center">{{ coffee.soil }}</span>
