@@ -153,7 +153,7 @@ class Coffee
         return $this->variety;
     }
 
-    public function setVariety(string $variety): self
+    public function setVariety(?string $variety): self
     {
         $this->variety = $variety;
 
@@ -165,7 +165,7 @@ class Coffee
         return $this->tastingNote;
     }
 
-    public function setTastingNote(string $tastingNote): self
+    public function setTastingNote(?string $tastingNote): self
     {
         $this->tastingNote = $tastingNote;
 
