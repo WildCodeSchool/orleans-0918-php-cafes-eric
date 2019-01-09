@@ -90,8 +90,8 @@ class Coffee
      * @var File
      * @Assert\NotBlank
      * @Assert\Image(
-     *     maxWidth="300",
-     *     maxHeight="300",
+     *     maxWidth="850",
+     *     maxHeight="850",
      *     maxWidthMessage="La largeur ne doit pas excéder 850 px",
      *     maxHeightMessage="La longueur ne doit pas excéder 850 px")
      */
