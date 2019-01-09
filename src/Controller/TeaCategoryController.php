@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Category;
 use App\Repository\CategoryRepository;
 use App\Repository\FamilyTeaRepository;
+use App\Repository\ShelfRepository;
 use App\Repository\TeaRepository;
 use App\Entity\Tea;
 use App\Entity\FamilyTea;
@@ -17,14 +18,24 @@ class TeaCategoryController extends AbstractController
 {
     /**
      * @Route("/tea/category", name="tea_category")
-     * @param TeaRepository $teaRepository
-     * @param FamilyTeaRepository $familyTeaRepository
+     * @param CategoryRepository $categoryRepository
+     * @param ShelfRepository $shelfRepository
      */
-    public function index(CategoryRepository $categoryRepository): Response
-    {
-        return $this->render('teaCategory/index.html.twig', [
-            'categories' => $categoryRepository->findAll()
-        ]);
+    public function index(
+        CategoryRepository $categoryRepository,
+        ShelfRepository $shelfRepository
+    ) : Response {
+        $shelf = $shelfRepository->findOneBy(['shelfCode' => 'TEA']);
+        $categories = $categoryRepository->findBy(
+            ['shelf' => $shelf]
+        );
+        return $this->render(
+            'teaCategory/index.html.twig',
+            [
+                'controller_name' => 'TeaCategoryController',
+                'categories' => $categories
+            ]
+        );
     }
 
     /**
@@ -34,10 +45,12 @@ class TeaCategoryController extends AbstractController
      */
     public function show(
         Category $category,
-        TeaRepository $teaRepository,
-        FamilyTeaRepository $familyTeaRepository
+        TeaRepository $teaRepository
     ): Response {
-        $teas = $teaRepository->findBy(['category' => $category], ['familyTea' => 'ASC']);
+        $teas = $teaRepository->findBy(
+            ['category' => $category],
+            ['familyTea' => 'ASC']
+        );
         $teaByFamilyTea = [];
         foreach ($teas as $tea) {
             $familyTea = $tea->getFamilyTea()->getName();
