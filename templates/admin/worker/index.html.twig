@@ -11,16 +11,15 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th>Prénom</th>
-                    <th>Actions</th>
+                    <th><i class="fas fa-user-circle"></i> Prénom</th>
+                    <th><i class="fas fa-tools"></i> Action</th>
                 </tr>
             </thead>
             <tbody>
             {% for worker in workers %}
                 <tr>
-                    <td class="col-md-9"><i class="fas fa-user-circle"></i> {{ worker.name }}</td>
-                    <td class="col-md-3">
-                        <a class="btn btn-outline-dark" href="{{ path('worker_show', {'id': worker.id}) }}"><i class="far fa-eye"></i> Voir</a>
+                    <td class="col-md-11">{{ worker.name }}</td>
+                    <td class="col-md-1">
                         <a class="btn btn-outline-dark" href="{{ path('worker_edit', {'id': worker.id}) }}"><i class="fas fa-pencil-alt"></i> Éditer</a>
                     </td>
                 </tr>

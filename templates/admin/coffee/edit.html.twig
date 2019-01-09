@@ -5,10 +5,13 @@
 {% block body %}
     <h1>Éditer un café</h1>
     <div class="row">
-        <div class="col-md-12 mb-5 mt-5">
+        <div class="col-md-12 mt-5 d-inline">
             {{ include('admin/coffee/_form.html.twig', {'button_label': 'Éditer'}) }}
         </div>
-        <div class="col-md-12">
+        <div class="col-md-12 mt-1 mb-3">
+            {{ include('admin/coffee/_delete_form.html.twig') }}
+        </div>
+        <div class="col-md-12 mb-5">
             <a class="btn btn-outline-dark" href="{{ path('coffee_index') }}"><i class="fas fa-reply"></i> Retour</a>
         </div>
     </div>
