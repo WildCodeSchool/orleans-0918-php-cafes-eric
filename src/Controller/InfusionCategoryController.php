@@ -20,13 +20,15 @@ class InfusionCategoryController extends AbstractController
      */
     public function index(
         CategoryRepository $categoryRepository,
-        ShelfRepository $shelfRepository)
-    : Response {
+        ShelfRepository $shelfRepository
+    ) : Response {
         $shelf = $shelfRepository->findOneBy(['shelfCode' => 'INFUSION']);
-        return $this->render('infusion_category/index.html.twig', [
-            'controller_name' => 'InfusionCategoryController',
+        return $this->render(
+            'infusion_category/index.html.twig',
+            ['controller_name' => 'InfusionCategoryController',
             'categories' => $categoryRepository->findBy(
-                ['shelf' => $shelf->getId()])
+                ['shelf' => $shelf->getId()]
+            )
         ]);
     }
     /**
