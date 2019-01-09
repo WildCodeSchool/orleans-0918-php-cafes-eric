@@ -28,8 +28,8 @@ class InfusionCategoryController extends AbstractController
             ['controller_name' => 'InfusionCategoryController',
             'categories' => $categoryRepository->findBy(
                 ['shelf' => $shelf->getId()]
-            )
-        ]);
+            )]
+        );
     }
     /**
      * @Route("/infusion/category/{id}", name="infusion_category_show")

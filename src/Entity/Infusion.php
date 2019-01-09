@@ -207,4 +207,3 @@ class Infusion
         return $this;
     }
 }
-
