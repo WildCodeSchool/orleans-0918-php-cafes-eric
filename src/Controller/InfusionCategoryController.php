@@ -11,8 +11,6 @@ use App\Repository\CategoryRepository;
 use App\Repository\FamilyInfusionRepository;
 use App\Repository\InfusionRepository;
 
-
-
 class InfusionCategoryController extends AbstractController
 {
     /**
@@ -20,15 +18,17 @@ class InfusionCategoryController extends AbstractController
      * @param CategoryRepository $categoryRepository
      * @param ShelfRepository $shelfRepository
      */
-    public function index(CategoryRepository $categoryRepository, ShelfRepository $shelfRepository): Response
-    {
+    public function index(
+        CategoryRepository $categoryRepository,
+        ShelfRepository $shelfRepository)
+    : Response {
         $shelf = $shelfRepository->findOneBy(['shelfCode' => 'INFUSION']);
         return $this->render('infusion_category/index.html.twig', [
             'controller_name' => 'InfusionCategoryController',
-            'categories' => $categoryRepository->findBy(['shelf' => $shelf->getId()]),
+            'categories' => $categoryRepository->findBy(
+                ['shelf' => $shelf->getId()])
         ]);
     }
-
     /**
      * @Route("/infusion/category/{id}", name="infusion_category_show")
      * @param InfusionRepository $infusionRepository
@@ -38,7 +38,10 @@ class InfusionCategoryController extends AbstractController
         Category $category,
         InfusionRepository $infusionRepository
     ): Response {
-        $infusions = $infusionRepository->findBy(['category' => $category], ['FamilyInfusion' => 'ASC']);
+        $infusions = $infusionRepository->findBy(
+            ['category' => $category],
+            ['FamilyInfusion' => 'ASC']
+        );
         $infusionByFamilyInfusion = [];
         foreach ($infusions as $infusion) {
             $familyInfusion = $infusion->getFamilyInfusion()->getName();
