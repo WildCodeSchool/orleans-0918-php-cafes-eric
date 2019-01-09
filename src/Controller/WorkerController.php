@@ -34,6 +34,7 @@ class WorkerController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $worker->setUpdatedAt();
             $em->persist($worker);
             $em->flush();
             $this->addFlash('success', 'Le membre du personnel a bien été créé');

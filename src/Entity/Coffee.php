@@ -80,7 +80,7 @@ class Coffee
     private $category;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      * @var string
      */
     private $coffeeImage;
@@ -88,13 +88,13 @@ class Coffee
     /**
      * @Vich\UploadableField(mapping="coffee", fileNameProperty="coffeeImage")
      * @var File
-     * @Assert\NotBlank
      * @Assert\Image(
-     *     maxWidth="300",
-     *     maxHeight="300",
-     *     maxWidthMessage="La largeur ne doit pas excéder 300 px",
-     *     maxHeightMessage="La longueur ne doit pas excéder 300 px")
+     *     maxWidth="850",
+     *     maxHeight="850",
+     *     maxWidthMessage="La largeur ne doit pas excéder 850 px",
+     *     maxHeightMessage="La longueur ne doit pas excéder 850 px")
      */
+
     private $coffeeImageFile;
 
     /**
@@ -103,11 +103,12 @@ class Coffee
      */
     private $updatedAt;
 
-    public function getCoffeeImageFile() : ?UploadedFile
+    public function getCoffeeImageFile(): ?UploadedFile
     {
         return $this->coffeeImageFile;
     }
-    public function setCoffeeImageFile(File $image = null) : void
+
+    public function setCoffeeImageFile(File $image = null): void
     {
         $this->coffeeImageFile = $image;
 
@@ -116,9 +117,10 @@ class Coffee
         // otherwise the event listeners won't be called and the file is lost
         if (null !== $image) {
             // if 'updatedAt' is not defined in your entity, use another property
-            $this->updatedAt = new \DateTime('now');
+            $this->setUpdatedAt();
         }
     }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -219,12 +221,13 @@ class Coffee
 
         return $this;
     }
+
     public function getCoffeeImage(): ?string
     {
         return $this->coffeeImage;
     }
 
-    public function setCoffeeImage(string $coffeeImage): self
+    public function setCoffeeImage(?string $coffeeImage): self
     {
         $this->coffeeImage = $coffeeImage;
 
@@ -236,9 +239,9 @@ class Coffee
         return $this->updatedAt;
     }
 
-    public function setUpdatedAt(\DateTimeInterface $updatedAt): self
+    public function setUpdatedAt(): self
     {
-        $this->updatedAt = $updatedAt;
+        $this->updatedAt = new \DateTime();
 
         return $this;
     }

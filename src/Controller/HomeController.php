@@ -7,6 +7,7 @@ use App\Repository\TeaRepository;
 use App\Repository\InfusionRepository;
 use App\Repository\WorkerRepository;
 use App\Service\MaxProductChecker;
+use App\Entity\Advertise;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -27,14 +28,17 @@ class HomeController extends AbstractController
         $teas = $teaRepository->findByNovelty(true);
         $infusions = $infusionRepository->findByNovelty(true);
         $noveltySection = $maxProductChecker->countNumbers();
-
+        $advertise = $this->getDoctrine()
+            ->getRepository(Advertise::class)
+            ->findOneBy([]);
 
         return $this->render('home/index.html.twig', [
             'workers' => $workers,
             'coffees' => $coffees,
             'teas' => $teas,
             'infusions' => $infusions,
-            'noveltySection' => $noveltySection
+            'noveltySection' => $noveltySection,
+            'advertise' => $advertise
         ]);
     }
 }

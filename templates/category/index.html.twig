@@ -1,34 +1,35 @@
 {% extends 'layoutAdmin.html.twig' %}
 
-{% block title %}Catégories{% endblock %}
+{% block title %}Liste des catégories{% endblock %}
 
 {% block body %}
-    <h1>Catégories</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Titre</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for category in categories %}
-            <tr>
-                <td class="col-8"> {{ category.title }}</td>
-                <td>
-                    <a type="button" class="btn btn-outline-secondary" href="{{ path('category_show', {'id': category.id}) }}"><i class="far fa-eye"></i> Voir</a>
-                    <a type="button" class="btn btn-outline-secondary" href="{{ path('category_edit', {'id': category.id}) }}"><i class="fas fa-pencil-alt"></i> Éditer</a>
-                    {{ include('category/_delete_form.html.twig') }}
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="3">Liste vide</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a type="button" class="btn btn-outline-secondary" href="{{ path('category_new') }}"><i class="fa fa-plus"></i> Ajouter une nouvelle catégorie</a>
+    <div class="container">
+        <h1>Liste des catégories</h1>
+        <div class="mb-5 mt-5">
+            <a class="btn btn-outline-dark" href="{{ path('category_new') }}"><i class="fa fa-plus"></i> Ajouter une nouvelle catégorie</a>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Titre</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for category in categories %}
+                <tr>
+                    <td class="col-md-9"> {{ category.title }}</td>
+                    <td class="col-md-3">
+                        <a type="button" class="btn btn-outline-dark" href="{{ path('category_show', {'id': category.id}) }}"><i class="far fa-eye"></i> Voir</a>
+                        <a type="button" class="btn btn-outline-dark" href="{{ path('category_edit', {'id': category.id}) }}"><i class="fas fa-pencil-alt"></i> Éditer</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="3">Aucune catégorie enregistrée</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
 {% endblock %}

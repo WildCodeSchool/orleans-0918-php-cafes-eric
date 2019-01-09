@@ -19,12 +19,13 @@ class FamilyTea
     private $id;
 
     /**
+     * Assert notBlank, maxLength 255
      * @ORM\Column(type="string", length=255)
      */
     private $name;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Tea", mappedBy="family_tea")
+     * @ORM\OneToMany(targetEntity="App\Entity\Tea", mappedBy="familyTea")
      */
     private $teas;
 
