@@ -27,9 +27,10 @@ class InfusionCategoryController extends AbstractController
             ['shelf' => $shelf->getId()]
         );
         return $this->render(
-            'infusion_category/index.html.twig', [
-            'controller_name' => 'InfusionCategoryController',
-            'categories' => $categories
+            'infusion_category/index.html.twig',
+            [
+                'controller_name' => 'InfusionCategoryController',
+                'categories' => $categories
             ]
         );
     }
