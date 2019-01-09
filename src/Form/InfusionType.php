@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Category;
+use App\Entity\FamilyInfusion;
 use App\Entity\Infusion;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -29,6 +30,10 @@ class InfusionType extends AbstractType
                 },
                 'choice_label' => 'title',
             ])
+            ->add('family_infusion', EntityType::class, [
+                'class' => FamilyInfusion::class,
+                'choice_label' => 'name',
+                'label' => "Type d'indusion "])
             ->add('name', TextType::class, [
                 'label' => 'Nom',
                 'help' => 'Ce nom doit être unique'])
