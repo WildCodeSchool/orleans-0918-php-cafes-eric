@@ -130,8 +130,9 @@ hr {
 
 .area{
   text-transform: uppercase;
-  font-weight: 100;
+  font-size: 1.5em;
   font-style: oblique;
+  font-weight: bold;
 }
 
 .about-heading-content-coffee {
@@ -162,6 +163,27 @@ hr {
   }
 }
 .bold{
-
   font-weight: bold;
 }
+
+.ctb {
+  background-color: fade-out($primary, 0.1);
+
+  .ctb-inner {
+    position: relative;
+    margin: 0.5rem;
+    background-color: fade-out($white, 0.15);
+
+    &:before {
+      border-radius: 0.5rem;
+      content: '';
+      position: absolute;
+      top: -0.5rem;
+      bottom: -0.5rem;
+      left: -0.5rem;
+      right: -0.5rem;
+      border: 0.25rem solid fade-out($white, 0.15);
+    }
+  }
+}
+
