@@ -52,9 +52,7 @@ class Tea
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\Length(
-     *     min=3,
      *     max=255,
-     *     minMessage="Particularité trop petit",
      *     maxMessage="Trop grand"
      * )
      */
