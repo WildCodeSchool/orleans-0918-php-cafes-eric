@@ -36,7 +36,6 @@ class CoffeeCategoryController extends AbstractController
      */
     public function show(Coffee $coffee): Response
     {
-
         return $this->render('coffee_category/show.html.twig', [
             'coffee' => $coffee
         ]);
