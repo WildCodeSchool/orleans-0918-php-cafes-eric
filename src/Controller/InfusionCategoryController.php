@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Category;
+use App\Entity\FamilyInfusion;
 use App\Repository\ShelfRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -24,7 +25,7 @@ class InfusionCategoryController extends AbstractController
     ) : Response {
         $shelf = $shelfRepository->findOneBy(['shelfCode' => 'INFUSION']);
         $categories = $categoryRepository->findBy(
-            ['shelf' => $shelf->getId()]
+            ['shelf' => $shelf]
         );
         return $this->render(
             'infusion_category/index.html.twig',
@@ -45,7 +46,7 @@ class InfusionCategoryController extends AbstractController
     ): Response {
         $infusions = $infusionRepository->findBy(
             ['category' => $category],
-            ['FamilyInfusion' => 'ASC']
+            ['familyInfusion' => 'ASC']
         );
         $infusionByFamilyInfusion = [];
         foreach ($infusions as $infusion) {
