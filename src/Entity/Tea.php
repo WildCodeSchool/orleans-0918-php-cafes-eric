@@ -94,7 +94,7 @@ class Tea
         return $this->ingredients;
     }
 
-    public function setIngredients(string $ingredients): self
+    public function setIngredients(?string $ingredients): self
     {
         $this->ingredients = $ingredients;
 
