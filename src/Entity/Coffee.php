@@ -80,7 +80,7 @@ class Coffee
     private $category;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      * @var string
      */
     private $coffeeImage;
@@ -88,7 +88,6 @@ class Coffee
     /**
      * @Vich\UploadableField(mapping="coffee", fileNameProperty="coffeeImage")
      * @var File
-     * @Assert\NotBlank
      * @Assert\Image(
      *     maxWidth="850",
      *     maxHeight="850",
@@ -118,7 +117,7 @@ class Coffee
         // otherwise the event listeners won't be called and the file is lost
         if (null !== $image) {
             // if 'updatedAt' is not defined in your entity, use another property
-            $this->updatedAt = new \DateTime('now');
+            $this->setUpdatedAt();
         }
     }
 
@@ -228,7 +227,7 @@ class Coffee
         return $this->coffeeImage;
     }
 
-    public function setCoffeeImage(string $coffeeImage): self
+    public function setCoffeeImage(?string $coffeeImage): self
     {
         $this->coffeeImage = $coffeeImage;
 
@@ -240,9 +239,9 @@ class Coffee
         return $this->updatedAt;
     }
 
-    public function setUpdatedAt(\DateTimeInterface $updatedAt): self
+    public function setUpdatedAt(): self
     {
-        $this->updatedAt = $updatedAt;
+        $this->updatedAt = new \DateTime();
 
         return $this;
     }
