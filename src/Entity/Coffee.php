@@ -90,11 +90,12 @@ class Coffee
      * @var File
      * @Assert\NotBlank
      * @Assert\Image(
-     *     maxWidth="300",
-     *     maxHeight="300",
-     *     maxWidthMessage="La largeur ne doit pas excéder 300 px",
-     *     maxHeightMessage="La longueur ne doit pas excéder 300 px")
+     *     maxWidth="850",
+     *     maxHeight="850",
+     *     maxWidthMessage="La largeur ne doit pas excéder 850 px",
+     *     maxHeightMessage="La longueur ne doit pas excéder 850 px")
      */
+
     private $coffeeImageFile;
 
     /**
@@ -103,11 +104,12 @@ class Coffee
      */
     private $updatedAt;
 
-    public function getCoffeeImageFile() : ?UploadedFile
+    public function getCoffeeImageFile(): ?UploadedFile
     {
         return $this->coffeeImageFile;
     }
-    public function setCoffeeImageFile(File $image = null) : void
+
+    public function setCoffeeImageFile(File $image = null): void
     {
         $this->coffeeImageFile = $image;
 
@@ -119,6 +121,7 @@ class Coffee
             $this->updatedAt = new \DateTime('now');
         }
     }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -219,6 +222,7 @@ class Coffee
 
         return $this;
     }
+
     public function getCoffeeImage(): ?string
     {
         return $this->coffeeImage;
