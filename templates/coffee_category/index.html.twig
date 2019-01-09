@@ -14,7 +14,7 @@
                 </div>
             </div>
             <div class="intro-coffee mt-5">
-                <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{{ asset('build/images/coffee_beans.jpg') }}"
+                <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{{ asset('build/coffeeImages/coffee_beans.jpg') }}"
                      alt="café">
                 <div class="intro-text left-0  text-center bg-faded p-11 mt-5 rounded">
                     <h2 class="section-heading-coffee mb-2">
@@ -53,11 +53,15 @@
             {% for country, coffees in coffeeByCountry %}
                 {% for coffee in coffees %}
                     <article class="page-section about-heading">
-                        <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0 country" src="{{ asset("build/accessoryImages/logo.jpg")}}" alt="photo de café">
-                        <div class="about-heading-content">
+                        {% if coffee.coffeeImage is empty %}
+                            <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0 country" src="{{ asset("build/accessoryImages/logo.jpg")}}" alt="café {{coffee.soil}}">
+                        {% else %}
+                            <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0 country" src="{{ vich_uploader_asset(coffee, 'coffeeImageFile') }}" alt="café {{coffee.soil}}">
+                        {% endif %}
+                            <div class="about-heading-content">
                             <div class="bg-faded rounded p-2">
                                 <h3>
-                                    <span class="oblic d-flex justify-content-center">{{ coffee.soil }}</span>
+                                    <span class="oblic d-flex justify-content-center"><a href="{{ path('coffee_category_show', {'id': coffee.id}) }}">{{ coffee.soil }}</a></span>
                                 </h3>
                                 <hr/>
                                 <p class="card-text"><small class="text-muted">{{ country|country }}</small></p>

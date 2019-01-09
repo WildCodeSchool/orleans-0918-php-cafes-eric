@@ -16,7 +16,10 @@
     {% block header %}{% endblock %}
     {% block banner %}{% endblock %}
 </header>
-<main class="container">
+<section>
+    {% block advertise %}{% endblock %}
+</section>
+<main class="container-fluid">
     <div class="mt-5">
         {% for label, messages in app.flashes %}
             {% for message in messages %}

@@ -24,22 +24,22 @@
                 <tr>
                     <td><i class="fas fa-leaf"></i> {{ infusion.name }}</td>
                     {% if infusion.novelty == true %}
-                        <td><a type="button" class="btn btn-outline-secondary"
+                        <td><a class="btn btn-outline-dark"
                                href="{{ path('infusion_novelty', {'id': infusion.id}) }}"><i class="far fa-star"></i> Ne
                                 plus
                                 mettre en nouveauté</a></td>
                     {% else %}
-                        <td><a type="button" class="btn btn-outline-secondary"
+                        <td><a class="btn btn-outline-dark"
                                href="{{ path('infusion_novelty', {'id': infusion.id}) }}"><i class="fas fa-star"></i>
                                 Mettre en nouveauté</a></td>
                     {% endif %}
                     {% if infusion.highlighted == true %}
-                        <td><a type="button" class="btn btn-outline-secondary"
+                        <td><a class="btn btn-outline-dark"
                                href="{{ path('infusion_highlighted', {'id': infusion.id}) }}"><i class="far fa-star"></i> Ne
                                 plus
                                 mettre en produit du mois</a></td>
                     {% else %}
-                        <td><a type="button" class="btn btn-outline-secondary"
+                        <td><a class="btn btn-outline-dark"
                                href="{{ path('infusion_highlighted', {'id': infusion.id}) }}"><i class="fas fa-star"></i>
                                 Mettre en produit du mois</a></td>
                     {% endif %}

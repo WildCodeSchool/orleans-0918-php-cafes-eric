@@ -18,11 +18,9 @@ class ShelfFixtures extends Fixture
      * @var array
      */
     private $shelf = [
-        'Cafés',
-        'Thés',
-        'Infusions',
-        'Épicerie',
-        'Accessoires'
+        'COFFEE'=>'Cafés',
+        'TEA'=>'Thés',
+        'INFUSION'=>'Infusions',
     ];
 
     /**
@@ -30,12 +28,17 @@ class ShelfFixtures extends Fixture
      */
     public function load(ObjectManager $manager)
     {
-        foreach ($this->shelf as $key => $shelfTitle) {
+        $key = 0;
+
+        foreach ($this->shelf as $shefCode => $shelfTitle) {
             $shelf = new Shelf();
             $shelf->setTitle($shelfTitle);
+            $shelf->setShelfCode($shefCode);
             $manager->persist($shelf);
             $this->addReference('rayon_' . $key, $shelf);
+            $key++;
         }
+
         $manager->flush();
     }
 }

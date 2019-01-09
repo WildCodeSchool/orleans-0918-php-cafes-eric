@@ -1,0 +1,9 @@
+{% block advertise %}
+    <section class="container-fluid">
+        <div class="text-center">
+            {% if advertise.content is not empty %}
+            <h2 class="alert alert-secondary advertise" role="alert">{{ advertise.content }}</h2>
+            {% endif %}
+        </div>
+    </section>
+{% endblock %}

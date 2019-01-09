@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
@@ -64,6 +66,26 @@ class Infusion
      * @ORM\Column(type="boolean", nullable=true)
      */
     private $novelty;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\FamilyTea", inversedBy="infusion")
+     */
+    private $familyTea;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Infusion", inversedBy="infusions")
+     */
+    private $familyInfusion;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Infusion", mappedBy="familyInfusion")
+     */
+    private $infusions;
+
+    public function __construct()
+    {
+        $this->infusions = new ArrayCollection();
+    }
 
 
     public function getId(): ?int
@@ -138,6 +160,49 @@ class Infusion
     public function setNovelty(?bool $novelty): self
     {
         $this->novelty = $novelty;
+
+        return $this;
+    }
+
+    public function getFamilyInfusion(): ?self
+    {
+        return $this->familyInfusion;
+    }
+
+    public function setFamilyInfusion(?self $familyInfusion): self
+    {
+        $this->familyInfusion = $familyInfusion;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|self[]
+     */
+    public function getInfusions(): Collection
+    {
+        return $this->infusions;
+    }
+
+    public function addInfusion(self $infusion): self
+    {
+        if (!$this->infusions->contains($infusion)) {
+            $this->infusions[] = $infusion;
+            $infusion->setFamilyInfusion($this);
+        }
+
+        return $this;
+    }
+
+    public function removeInfusion(self $infusion): self
+    {
+        if ($this->infusions->contains($infusion)) {
+            $this->infusions->removeElement($infusion);
+            // set the owning side to null (unless already changed)
+            if ($infusion->getFamilyInfusion() === $this) {
+                $infusion->setFamilyInfusion(null);
+            }
+        }
 
         return $this;
     }
