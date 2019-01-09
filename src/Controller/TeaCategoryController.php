@@ -62,5 +62,5 @@ class TeaCategoryController extends AbstractController
             'category' => $category,
         ]);
     }
-
 }
+
