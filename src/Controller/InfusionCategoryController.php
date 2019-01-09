@@ -23,12 +23,14 @@ class InfusionCategoryController extends AbstractController
         ShelfRepository $shelfRepository
     ) : Response {
         $shelf = $shelfRepository->findOneBy(['shelfCode' => 'INFUSION']);
+        $categories = $categoryRepository->findBy(
+            ['shelf' => $shelf->getId()]
+        );
         return $this->render(
-            'infusion_category/index.html.twig',
-            ['controller_name' => 'InfusionCategoryController',
-            'categories' => $categoryRepository->findBy(
-                ['shelf' => $shelf->getId()]
-            )]
+            'infusion_category/index.html.twig', [
+            'controller_name' => 'InfusionCategoryController',
+            'categories' => $categories
+            ]
         );
     }
     /**
