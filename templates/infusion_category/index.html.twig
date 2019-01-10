@@ -6,7 +6,7 @@
             <div class="about-heading-content">
                 <div class="bg-faded rounded p-2 mb-5">
                     <h1 class="section-heading">
-                        <span class="section-heading-lower justify-content-center d-flex ">Nos infusion</span></h1>
+                        <span class="section-heading-lower justify-content-center d-flex ">Nos infusions</span></h1>
                     <span class="product section-heading-lower d-flex justify-content-center d-flex "> Une présentation de nos infusions et de nos mélanges choisis avec soin </span>
                 </div>
             </div>
@@ -15,11 +15,11 @@
     <div class="container">
         <div class="row justify-content-center ">
             {% for category in categories %}
-                <div class="col-6  ">
+                <div class="col-6">
                     <div class="bg-faded rounded p-2 mb-5">
-                        <h2>
-                        <span class="linkCoffee section-heading-lower area d-flex justify-content-center "><a
-                                    href="{{ path('tea_category_show', {'id': category.id }) }}">{{ category.title }}</a></span>
+                        <h2 class="section-heading-tea mb-2 text-center">
+                <span class="linkCoffee section-heading-lower-tea"><a
+                            href="{{ path('tea_category_show', {'id': category.id }) }}">{{ category.title }}</a></span>
                         </h2>
                     </div>
                 </div>
@@ -27,5 +27,3 @@
         </div>
     </div>
 {% endblock %}
-
-
