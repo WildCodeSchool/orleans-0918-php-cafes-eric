@@ -20,7 +20,10 @@ class WorkerController extends AbstractController
      */
     public function index(WorkerRepository $workerRepository): Response
     {
-        return $this->render('admin/worker/index.html.twig', ['workers' => $workerRepository->findAll()]);
+        return $this->render(
+            'admin/worker/index.html.twig',
+            ['workers' => $workerRepository->findBy([], ['name'=>'ASC'])]
+        );
     }
 
     /**
