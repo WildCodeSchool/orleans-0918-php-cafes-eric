@@ -6,21 +6,26 @@
             <div class="about-heading-content">
                 <div class="bg-faded rounded p-2 mb-5">
                     <h1 class="section-heading">
-                        <span class="section-heading-lower justify-content-center d-flex ">Nos infusion</span>
-                    </h1>
-                    <hr/>
+                        <span class="section-heading-lower justify-content-center d-flex ">Nos infusion</span></h1>
+                    <span class="product section-heading-lower d-flex justify-content-center d-flex "> Une présentation de nos infusions et de nos mélanges choisis avec soin </span>
                 </div>
             </div>
         </div>
     </section>
-    <div class="row justify-content-center ">
-        {% for category in categories %}
-            <div class="col-6  ">
-                <p class="section-heading left-0  text-center bg-faded  rounded">
-                    <span class="section-heading-lower ">{{ category.title }}</span>
-                    <a href="{{ path('infusion_category_show', {'id': category.id }) }}">voir</a>
-                </p>
-            </div>
-        {% endfor %}
+    <div class="container">
+        <div class="row justify-content-center ">
+            {% for category in categories %}
+                <div class="col-6  ">
+                    <div class="bg-faded rounded p-2 mb-5">
+                        <h2>
+                        <span class="linkCoffee section-heading-lower area d-flex justify-content-center "><a
+                                    href="{{ path('tea_category_show', {'id': category.id }) }}">{{ category.title }}</a></span>
+                        </h2>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
     </div>
 {% endblock %}
+
+

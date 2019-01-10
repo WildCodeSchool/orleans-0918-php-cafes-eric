@@ -5,19 +5,27 @@
         <span class="section-heading-lower">{{ category.title }}</span>
         <hr class="mb-5">
     </h1>
-    <div class="intro-text left-0  text-center bg-faded p-5 ml-5 mt-5 mb-5 rounded">
-        {% for familyInfusion, infusions in infusionByFamilyInfusion %}
-            <h2>
-                <span class="section-heading-upper mt-4">{{ familyInfusion }}</span>
-            </h2>
-            {% for infusion in infusions %}
+    <section class="page-section cta">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-9 mx-auto">
+                <div class="cta-inner text-center rounded">
+                    {% for familyInfusion, infusions in infusionByFamilyInfusion %}
+                        <h2>
+                            <span class="section-heading-upper mt-4">{{ familyInfusion }}</span>
+                        </h2>
+                        {% for infusion in infusions %}
 
-                <p class="text-left ml-5 mt-4">
-                    <span class="oblic font-weight-bold">{{ infusion.name }}</span> : {{ infusion.ingredients }}
-                    <br/> Note : {{ infusion.feature }}
-                </p>
-            {% endfor %}
-        {% endfor %}
-        <a href="{{ path('infusion_category') }}">retour</a>
+                            <p class="text-left ml-5 mt-4">
+                                <span class="oblic font-weight-bold">{{ infusion.name }}</span>
+                                : {{ infusion.ingredients }}
+                                <br/> Note : {{ infusion.feature }}
+                            </p>
+                        {% endfor %}
+                    {% endfor %}
+                    <a href="{{ path('infusion_category') }}">retour</a>
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock %}

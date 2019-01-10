@@ -21,9 +21,8 @@ class CoffeeCategoryController extends AbstractController
         $coffeeByArea = [];
 
         foreach ($coffees as $coffee) {
-            $country = $coffee->getCountry();
             $category = $coffee->getCategory()->getTitle();
-            $coffeeByArea[$category][$country][] = $coffee;
+            $coffeeByArea[$category][] = $coffee;
         }
 
         return $this->render('coffee_category/index.html.twig', [

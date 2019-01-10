@@ -11,35 +11,31 @@
         <table class="table">
             <thead>
             <tr>
-                <th>Nom</th>
-                <th>Nouveauté</th>
-                <th>Produit du mois</th>
-                <th>Actions</th>
+                <th><i class="fas fa-leaf"></i> Nom</th>
+                <th><i class="fas fa-star"></i> Nouveauté</th>
+                <th><i class="fas fa-star"></i> Produit du mois</th>
+                <th><i class="fas fa-tools"></i> Action</th>
             </tr>
             </thead>
             <tbody>
             {% for tea in teas %}
                 <tr>
-                    <td><i class="fas fa-leaf"></i> {{ tea.name }}</td>
+                    <td class="col-md-6">{{ tea.name }}</td>
                     {% if tea.novelty == true %}
-                        <td><a class="btn btn-outline-dark"
-                               href="{{ path('tea_novelty', {'id': tea.id}) }}"><i class="far fa-star"></i> Ne plus
-                                mettre en nouveauté</a></td>
+                        <td class="col-md-2"><a class="btn btn-outline-dark"
+                               href="{{ path('tea_novelty', {'id': tea.id}) }}"><i class="fas fa-toggle-off"></i> Off</a></td>
                     {% else %}
-                        <td><a class="btn btn-outline-dark"
-                               href="{{ path('tea_novelty', {'id': tea.id}) }}"><i class="fas fa-star"></i> Mettre en nouveauté</a></td>
+                        <td class="col-md-2"><a class="btn btn-outline-dark"
+                               href="{{ path('tea_novelty', {'id': tea.id}) }}"><i class="fas fa-toggle-on"></i> On</a></td>
                     {% endif %}
                     {% if tea.highlighted == true %}
-                        <td><a class="btn btn-outline-dark"
-                               href="{{ path('tea_highlighted', {'id': tea.id}) }}"><i class="far fa-star"></i> Ne plus
-                                mettre en produit du mois</a></td>
+                        <td class="col-md-3"><a class="btn btn-outline-dark"
+                               href="{{ path('tea_highlighted', {'id': tea.id}) }}"><i class="fas fa-toggle-off"></i> Off</a></td>
                     {% else %}
-                        <td><a class="btn btn-outline-dark"
-                               href="{{ path('tea_highlighted', {'id': tea.id}) }}"><i class="fas fa-star"></i> Mettre en produit du mois</a></td>
+                        <td class="col-md-3"><a class="btn btn-outline-dark"
+                               href="{{ path('tea_highlighted', {'id': tea.id}) }}"><i class="fas fa-toggle-on"></i> On</a></td>
                     {% endif %}
-                    <td>
-                        <a class="btn btn-outline-dark"
-                           href="{{ path('tea_show', {'id': tea.id}) }}"><i class="far fa-eye"></i> Voir</a>
+                    <td class="col-md-1">
                         <a class="btn btn-outline-dark"
                            href="{{ path('tea_edit', {'id': tea.id}) }}"><i class="fas fa-pencil-alt"></i> Éditer</a>
                     </td>
