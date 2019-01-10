@@ -19,3 +19,8 @@ h1 {
 #mainNav .navbar-nav .nav-item .nav-link:hover {
   color: $touch;
 }
+
+.titles {
+  color: $white;
+  text-shadow: 2px 2px $secondary;
+}
