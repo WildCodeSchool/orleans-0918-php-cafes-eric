@@ -17,7 +17,7 @@
                         <h5 class="card-title text-center">Café<hr/></h5>
                         <p class="card-text text-center">{{ coffee.country|country }}<br/>
                             {{ coffee.soil }}</p>
-                        <a href="#" class="btn btn-primary">Voir le produit</a>
+                        <a href="{{ path('coffee_category_show', {'id': coffee.id}) }}" class="btn btn-primary">Voir le produit</a>
                     </div>
                 </div>
             </div>
@@ -30,7 +30,7 @@
                         <h5 class="card-title text-center">Thé<hr/></h5>
                         <p class="card-text text-center">{{ tea.name }}<br/>
                             {{ tea.familyTea.name }}</p>
-                        <a href="#" class="btn btn-primary">Voir le produit</a>
+                        <a href="{{ path('tea_category_show', {'id': tea.category.id }) }}" class="btn btn-primary">Voir le produit</a>
                     </div>
                 </div>
             </div>
@@ -43,8 +43,8 @@
                     <div class="card-body">
                         <h5 class="card-title text-center">Infusion<hr/></h5>
                         <p class="card-text text-center">{{ infusion.name }}<br/>
-                            {{ infusion.feature }}</p>
-                        <a href="#" class="btn btn-primary">Voir le produit</a>
+                            {{ infusion.familyInfusion.name }}</p>
+                        <a href="{{ path('infusion_category_show', {'id': infusion.category.id }) }}" class="btn btn-primary">Voir le produit</a>
                     </div>
                 </div>
             </div>
