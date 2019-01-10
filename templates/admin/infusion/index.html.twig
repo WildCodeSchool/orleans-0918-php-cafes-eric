@@ -13,18 +13,18 @@
         <table class="table">
             <thead>
             <tr>
-            
+                <th><i class="fas fa-tag"></i> Famille</th>
                 <th><i class="fas fa-scroll"></i> Titre</th>
                 <th><i class="fas fa-leaf"></i> Nom</th>
                 <th><i class="fas fa-star"></i> Nouveauté</th>
-                <th><i class="fas fa-star"></i> Produit du mois</th>
+                <th><i class="fas fa-heart"></i> Produit du mois</th>
                 <th><i class="fas fa-tools"></i> Action</th>
-
             </tr>
             </thead>
             <tbody>
             {% for infusion in infusions %}
                 <tr>
+                    <td class="col-md-2">{{ infusion.familyInfusion.name }}</td>
                     <td class="col-md-2">{{ infusion.category.title }}</td>
                     <td class="col-md-2">{{ infusion.name }}</td>
                     {% if infusion.novelty == true %}
