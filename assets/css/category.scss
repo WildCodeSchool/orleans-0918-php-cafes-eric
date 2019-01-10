@@ -105,9 +105,10 @@
 }
 
 .starli {
-  list-style-type:"\A4\ ";
+  list-style-type: "\A4\ ";
+
   li::before {
-    color:$touch;
+    color: $touch;
     display: inline-block;
     width: 1em;
     margin-left: -1em;
@@ -123,12 +124,12 @@ hr {
   font-style: oblique;
 }
 
-.country{
+.country {
   max-width: 300px;
   max-height: 300px;
 }
 
-.area{
+.area {
   text-transform: uppercase;
   font-size: 1.5em;
   font-style: oblique;
@@ -143,26 +144,27 @@ hr {
   }
 }
 
-.coffee{
+.coffee {
   max-width: 500px;
   max-height: 500px;
 }
 
-.tastingNote{
+.tastingNote {
   font-style: oblique;
 }
 
-.imgMedium{
+.imgMedium {
   max-width: 800px;
-  max-height:800px;
+  max-height: 800px;
 }
 
 @media (max-width: 991px) {
-  .imgMedium{
+  .imgMedium {
     max-width: 100%;
   }
 }
-.bold{
+
+.bold {
   font-weight: bold;
 }
 
@@ -187,3 +189,12 @@ hr {
   }
 }
 
+.linkCoffee {
+  a {
+    color: $black;
+    &:hover {
+      color: $touch;
+      text-decoration: none;
+    }
+  }
+}

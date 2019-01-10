@@ -4,9 +4,9 @@
 
 {% block body %}
     <section class="page-section clearfix">
-        <div class="container">
+        <div class="container mb-5">
             <div class="about-heading-content">
-                <div class="bg-faded rounded p-2 mb-5">
+                <div class="bg-faded rounded p-2">
                     <h1 class="section-heading">
                         <span class="section-heading-lower justify-content-center d-flex ">Nos cafés</span>
                     </h1>
@@ -42,34 +42,37 @@
     <section>
         {% for area, coffeeByCountry in coffeeByArea %}
             <div class="page-section ctb">
-                <div class="ctb-inner bg-faded rounded">
+                <div class="ctb-inner bg-faded rounded mt-5">
                     <h2>
-                        <span class="area d-flex justify-content-center mt-2"> {{ area }}</span>
+                        <span class="area d-flex justify-content-center mt-4"> {{ area }}</span>
                     </h2>
                     <div class="row d-flex justify-content-between">
                         {% for country, coffees in coffeeByCountry %}
                             {% for coffee in coffees %}
                                 <article class="col-4">
+                                    <div class="card ml-3 mr-3 mt-4 mb-4">
                                     {% if coffee.coffeeImage is empty %}
-                                        <img class="img-fluid rounded about-heading-img mb-1 country"
+                                        <img class="card-img-top"
                                              src="{{ asset("build/accessoryImages/logo.jpg") }}"
                                              alt="café {{ coffee.soil }}">
                                     {% else %}
-                                        <img class="img-fluid rounded about-heading-img mb-3 country"
+                                        <img class="card-img-top"
                                              src="{{ vich_uploader_asset(coffee, 'coffeeImageFile') }}"
                                              alt="café {{ coffee.soil }}">
                                     {% endif %}
-                                    <div class="about-heading-content">
-                                        <div class="bg-faded rounded p-2">
+                                    <div class="ard-body">
+                                        <div class="bg-faded rounded p-2 text-center">
                                             <h3>
-                                        <span class="oblic d-flex justify-content-center"><a
+                                        <span class="linkCoffee card-text"><a
                                                     href="{{ path('coffee_category_show', {'id': coffee.id}) }}">{{ coffee.soil }}</a></span>
                                             </h3>
                                             <hr/>
-                                            <p class="card-text">
+                                            <p class="card-text text-center">
                                                 <small class="text-muted">{{ country|country }}</small>
                                             </p>
                                         </div>
+                                    </div>
+
                                     </div>
                                 </article>
                             {% endfor %}
