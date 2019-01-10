@@ -40,17 +40,16 @@
         </div>
     </section>
     <section>
-        {% for area, coffeeByCountry in coffeeByArea %}
+        {% for area, coffees in coffeeByArea %}
             <div class="page-section ctb">
                 <div class="ctb-inner bg-faded rounded mt-5">
                     <h2>
                         <span class="area d-flex justify-content-center mt-4"> {{ area }}</span>
                     </h2>
                     <div class="row d-flex justify-content-between">
-                        {% for country, coffees in coffeeByCountry %}
-                            {% for coffee in coffees %}
-                                <article class="col-4">
-                                    <div class="card ml-3 mr-3 mt-4 mb-4">
+                        {% for coffee in coffees %}
+                            <article class="col-4">
+                                <div class="card ml-3 mr-3 mt-4 mb-4">
                                     {% if coffee.coffeeImage is empty %}
                                         <img class="card-img-top"
                                              src="{{ asset("build/accessoryImages/logo.jpg") }}"
@@ -68,14 +67,13 @@
                                             </h3>
                                             <hr/>
                                             <p class="card-text text-center">
-                                                <small class="text-muted">{{ country|country }}</small>
+                                                <small class="text-muted">{{ coffee.gcountry|country }}</small>
                                             </p>
                                         </div>
                                     </div>
 
-                                    </div>
-                                </article>
-                            {% endfor %}
+                                </div>
+                            </article>
                         {% endfor %}
                     </div>
                 </div>
