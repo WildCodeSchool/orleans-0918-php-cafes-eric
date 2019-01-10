@@ -23,17 +23,17 @@
                     <td class="col-md-6">{{ tea.name }}</td>
                     {% if tea.novelty == true %}
                         <td class="col-md-2"><a class="btn btn-outline-dark"
-                               href="{{ path('tea_novelty', {'id': tea.id}) }}"><i class="fas fa-toggle-off"></i> Off</a></td>
+                               href="{{ path('tea_novelty', {'id': tea.id}) }}"><i class="fas fa-toggle-on"></i> On</a></td>
                     {% else %}
                         <td class="col-md-2"><a class="btn btn-outline-dark"
-                               href="{{ path('tea_novelty', {'id': tea.id}) }}"><i class="fas fa-toggle-on"></i> On</a></td>
+                               href="{{ path('tea_novelty', {'id': tea.id}) }}"><i class="fas fa-toggle-off"></i> Off</a></td>
                     {% endif %}
                     {% if tea.highlighted == true %}
                         <td class="col-md-3"><a class="btn btn-outline-dark"
-                               href="{{ path('tea_highlighted', {'id': tea.id}) }}"><i class="fas fa-toggle-off"></i> Off</a></td>
+                               href="{{ path('tea_highlighted', {'id': tea.id}) }}"><i class="fas fa-toggle-on"></i> On</a></td>
                     {% else %}
                         <td class="col-md-3"><a class="btn btn-outline-dark"
-                               href="{{ path('tea_highlighted', {'id': tea.id}) }}"><i class="fas fa-toggle-on"></i> On</a></td>
+                               href="{{ path('tea_highlighted', {'id': tea.id}) }}"><i class="fas fa-toggle-off"></i> Off</a></td>
                     {% endif %}
                     <td class="col-md-1">
                         <a class="btn btn-outline-dark"
