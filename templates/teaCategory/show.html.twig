@@ -3,25 +3,31 @@
 {% block title %}Thés{% endblock %}
 
 {% block body %}
-
     <h1 class="section-heading mb-4 text-center">
         <span class="section-heading-lower">{{ category.title }}</span>
         <hr class="mb-5">
     </h1>
-    <div class="intro-text left-0  text-center bg-faded p-5 ml-5 mt-5 mb-5 rounded">
-    {% for familyTea, teas in teaByFamilyTea %}
-        {% for tea in teas %}
-            <h2>
-                <span class="section-heading-upper mt-4">{{ familyTea }}</span>
-            </h2>
-            {% for tea in teas %}
-                <p class="text-left ml-5 mt-4">
-                    <span class="oblic font-weight-bold">{{ tea.name }}</span> : {{ tea.ingredients }}
-                    <br/> Note : {{ tea.feature }}
-                </p>
-            {% endfor %}
-        {% endfor %}
-    {% endfor %}
-        <a href="{{ path('tea_category') }}">retour</a>
+    <section class="page-section cta">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-9 mx-auto">
+                <div class="cta-inner text-center rounded">
+                    {% for familyTea, teas in teaByFamilyTea %}
+                        {% for tea in teas %}
+                            <h2>
+                                <span class="section-heading-upper mt-4">{{ familyTea }}</span>
+                            </h2>
+                            {% for tea in teas %}
+                                <p class="text-left ml-5 mt-4">
+                                    <span class="oblic font-weight-bold">{{ tea.name }}</span> : {{ tea.ingredients }}
+                                    <br/> Note : {{ tea.feature }}
+                                </p>
+                            {% endfor %}
+                        {% endfor %}
+                    {% endfor %}
+                    <a href="{{ path('tea_category') }}">retour</a>
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock %}
