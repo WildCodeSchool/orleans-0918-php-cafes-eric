@@ -15,8 +15,18 @@
         color: $white;
         text-shadow: 2px 2px $black;
     }
+    .site-heading{
+        margin-top: 0;
+    }
+    .banner_logo_eric {
+        float: right;
+        padding-top: 7rem;
+        max-width: 60%;
+     }
+    .banner_logo_mtf {
+        float: left;
+        padding-top: 7rem;
+        min-width: 50%;
+    }
 }
 
-.site-heading{
-    margin-top: 0;
-}

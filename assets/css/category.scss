@@ -105,9 +105,10 @@
 }
 
 .starli {
-  list-style-type:"\A4\ ";
+  list-style-type: "\A4\ ";
+
   li::before {
-    color:$touch;
+    color: $touch;
     display: inline-block;
     width: 1em;
     margin-left: -1em;
@@ -123,15 +124,16 @@ hr {
   font-style: oblique;
 }
 
-.country{
+.country {
   max-width: 300px;
   max-height: 300px;
 }
 
-.area{
+.area {
   text-transform: uppercase;
-  font-weight: 100;
+  font-size: 1.5em;
   font-style: oblique;
+  font-weight: bold;
 }
 
 .about-heading-content-coffee {
@@ -142,26 +144,59 @@ hr {
   }
 }
 
-.coffee{
+.coffee {
   max-width: 500px;
   max-height: 500px;
 }
 
-.tastingNote{
+.tastingNote {
   font-style: oblique;
 }
 
-.imgMedium{
+.imgMedium {
   max-width: 800px;
-  max-height:800px;
+  max-height: 800px;
 }
 
 @media (max-width: 991px) {
-  .imgMedium{
+  .imgMedium {
     max-width: 100%;
   }
 }
-.bold{
 
+.bold {
   font-weight: bold;
 }
+
+.ctb {
+  background-color: fade-out($primary, 0.1);
+
+  .ctb-inner {
+    position: relative;
+    margin: 0.5rem;
+    background-color: fade-out($white, 0.15);
+
+    &:before {
+      border-radius: 0.5rem;
+      content: '';
+      position: absolute;
+      top: -0.5rem;
+      bottom: -0.5rem;
+      left: -0.5rem;
+      right: -0.5rem;
+      border: 0.25rem solid fade-out($white, 0.15);
+    }
+  }
+}
+
+.linkCoffee {
+  a {
+    color: $black;
+    &:hover {
+      color: $touch;
+      text-decoration: none;
+    }
+  }
+}
+
+

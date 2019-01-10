@@ -73,7 +73,7 @@ class Infusion
     private $familyTea;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Infusion", inversedBy="infusions")
+     * @ORM\ManyToOne(targetEntity="App\Entity\FamilyInfusion", inversedBy="infusions")
      */
     private $familyInfusion;
 
@@ -164,12 +164,12 @@ class Infusion
         return $this;
     }
 
-    public function getFamilyInfusion(): ?self
+    public function getFamilyInfusion(): ?FamilyInfusion
     {
         return $this->familyInfusion;
     }
 
-    public function setFamilyInfusion(?self $familyInfusion): self
+    public function setFamilyInfusion(?FamilyInfusion $familyInfusion): self
     {
         $this->familyInfusion = $familyInfusion;
 
