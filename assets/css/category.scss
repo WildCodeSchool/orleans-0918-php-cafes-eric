@@ -165,3 +165,10 @@ hr {
 
   font-weight: bold;
 }
+.linkCoffee {
+  a {
+    color: $black; &:hover {
+    color: $touch; text-decoration: none;
+  }
+  }
+}
