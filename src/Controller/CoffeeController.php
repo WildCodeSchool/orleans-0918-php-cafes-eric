@@ -21,7 +21,9 @@ class CoffeeController extends AbstractController
      */
     public function index(CoffeeRepository $coffeeRepository): Response
     {
-        return $this->render('admin/coffee/index.html.twig', ['coffees' => $coffeeRepository->findBy([], ['country'=>'ASC'])]);
+        return $this->render('admin/coffee/index.html.twig',
+            ['coffees' => $coffeeRepository->findBy([], ['country'=>'ASC'])]
+        );
     }
 
     /**
