@@ -82,7 +82,7 @@ class Tea
         return $this->name;
     }
 
-    public function setName(string $name): self
+    public function setName(?string $name): self
     {
         $this->name = $name;
 
@@ -94,7 +94,7 @@ class Tea
         return $this->ingredients;
     }
 
-    public function setIngredients(string $ingredients): self
+    public function setIngredients(?string $ingredients): self
     {
         $this->ingredients = $ingredients;
 

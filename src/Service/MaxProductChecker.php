@@ -35,10 +35,19 @@ class MaxProductChecker
      */
     public function checkNoveltyNumber(): bool
     {
+        return $this->countNumbers() < self::MAX;
+    }
+
+    /**
+     * @return int
+     */
+    public function countNumbers(): int
+    {
         $coffees = $this->coffeeRepository->findByNovelty(true);
         $teas = $this->teaRepository->findByNovelty(true);
         $infusions = $this->infusionRepository->findByNovelty(true);
-        return count($coffees) + count($teas) + count($infusions) < self::MAX;
+
+        return count($coffees) + count($teas) + count($infusions) ?? 0;
     }
 
     /**

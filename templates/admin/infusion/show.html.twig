@@ -8,30 +8,34 @@
         <div class="col-md-12 mb-5 mt-5">
             <table class="table">
                 <tbody>
-                    <tr>
-                        <th>Nom</th>
-                        <td>{{ infusion.name }}</td>
-                    </tr>
-                    <tr>
-                        <th>Ingrédients</th>
-                        <td>{{ infusion.ingredients }}</td>
-                    </tr>
-                    <tr>
-                        <th>Particularité</th>
-                        <td>{{ infusion.feature }}</td>
-                    </tr>
-                    <tr>
-                        <th>Catégorie</th>
-                        <td>{{ infusion.category.title }}</td>
-                    </tr>
-                    <tr>
-                        <th>Produit du mois</th>
-                        <td>{{ infusion.highlighted ? 'Oui' : 'Non' }}</td>
-                    </tr>
-                    <tr>
-                        <th>Nouveauté</th>
-                        <td>{{ infusion.novelty ? 'Oui' : 'Non' }}</td>
-                    </tr>
+                <tr>
+                    <th>Catégorie ou marque d'infusion</th>
+                    <td>{{ infusion.category.title }}</td>
+                </tr>
+                <tr>
+                    <th>Nom</th>
+                    <td>{{ infusion.name }}</td>
+                </tr>
+                <tr>
+                    <th>Ingrédients</th>
+                    <td>{{ infusion.ingredients }}</td>
+                </tr>
+                <tr>
+                    <th>Particularité</th>
+                    <td>{{ infusion.feature }}</td>
+                </tr>
+                <tr>
+                    <th>Catégorie</th>
+                    <td>{{ infusion.category.title }}</td>
+                </tr>
+                <tr>
+                    <th>Produit du mois</th>
+                    <td>{{ infusion.highlighted ? 'Oui' : 'Non' }}</td>
+                </tr>
+                <tr>
+                    <th>Nouveauté</th>
+                    <td>{{ infusion.novelty ? 'Oui' : 'Non' }}</td>
+                </tr>
                 </tbody>
             </table>
 
