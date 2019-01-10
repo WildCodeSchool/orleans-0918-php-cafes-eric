@@ -53,7 +53,7 @@ class InfusionCategoryController extends AbstractController
             $familyInfusion = $infusion->getFamilyInfusion()->getName();
             $infusionByFamilyInfusion[$familyInfusion][] = $infusion;
         }
-        dump($infusionByFamilyInfusion);
+
         return $this->render('infusion_category/show.html.twig', [
             'infusionByFamilyInfusion' => $infusionByFamilyInfusion,
             'category' => $category,
