@@ -4,7 +4,7 @@
 
 {% block body %}
     <div class="container">
-        <h1>Liste des infusions</h1>
+        <h1 class="admin-title">Liste des infusions</h1>
         <div class="mb-5 mt-5">
             <a class="btn btn-outline-dark" href="{{ path('infusion_new') }}"><i
                         class="fa fa-plus"></i> Ajouter une nouvelle infusion</a>
@@ -13,6 +13,7 @@
         <table class="table">
             <thead>
             <tr>
+                <th><i class="fas fa-globe-americas"></i> Catégories</th>
                 <th>Nom</th>
                 <th>Nouveauté</th>
                 <th>Produit du mois</th>
@@ -22,6 +23,7 @@
             <tbody>
             {% for infusion in infusions %}
                 <tr>
+                    <td>{{ infusion.category.title }}</td>
                     <td><i class="fas fa-leaf"></i> {{ infusion.name }}</td>
                     {% if infusion.novelty == true %}
                         <td><a class="btn btn-outline-dark"

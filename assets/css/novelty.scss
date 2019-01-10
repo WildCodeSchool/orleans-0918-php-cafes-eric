@@ -1,0 +1,30 @@
+.product-item-title {
+  margin-bottom: 2rem;
+}
+
+.card {
+  background-color: rgba(lighten($primary, 100%), 0.8);
+  @include heading-font;
+  color: fade-out($secondary, 0.1);
+  border: none;
+  .card-img-top {
+
+    object-fit: cover;
+  }
+  .card-title {
+    hr {
+      max-width: 10rem;
+    }
+  }
+  .btn-primary {
+    display: block;
+    text-align: center;
+    background-color: lighten($secondary, 10);
+    color: $white;
+    border: none;
+  }
+  .btn-primary:hover {
+    background-color: darken($secondary, 0.5);
+    color: fade-out($touch, 0.1);
+  }
+}
