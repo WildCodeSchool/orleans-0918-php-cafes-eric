@@ -132,8 +132,9 @@ hr {
 .area {
   text-transform: uppercase;
   font-size: 1.5em;
-  font-style: oblique;
   font-weight: bold;
+  padding-top: 20px;
+  font-family: Lora;
 }
 
 .about-heading-content-coffee {
@@ -175,6 +176,7 @@ hr {
     position: relative;
     margin: 0.5rem;
     background-color: fade-out($white, 0.15);
+    padding-bottom: 20px;
 
     &:before {
       border-radius: 0.5rem;
@@ -230,4 +232,7 @@ button:disabled {
   padding-top: 1rem;
   padding-bottom: 1rem;
   background-color: transparent;
+  .bg-faded {
+    box-shadow: 2px 2px 5px -1px rgba(0,0,0,0.75);
+  }
 }
