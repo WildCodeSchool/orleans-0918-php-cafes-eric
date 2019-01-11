@@ -33,7 +33,7 @@ class InfusionType extends AbstractType
             ->add('family_infusion', EntityType::class, [
                 'class' => FamilyInfusion::class,
                 'choice_label' => 'name',
-                'label' => "Type d'indusion "])
+                'label' => "Type d'infusion "])
             ->add('name', TextType::class, [
                 'label' => 'Nom',
                 'help' => 'Ce nom doit être unique'])
