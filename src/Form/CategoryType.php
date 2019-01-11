@@ -16,7 +16,8 @@ class CategoryType extends AbstractType
     {
         $builder
             ->add('title', TextType::class, [
-                'label' => 'Titre'
+                'label' => 'Titre',
+                'help' => 'Ce nom doit être unique'
             ])
             ->add('shelf', EntityType::class, [
                 'class' => Shelf::class,
