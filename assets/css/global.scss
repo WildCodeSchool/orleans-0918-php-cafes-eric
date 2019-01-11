@@ -28,3 +28,15 @@ h1 {
 .card {
   box-shadow: 2px 2px 5px -1px rgba(0,0,0,0.75);
 }
+
+@media (max-width: 992px) {
+  .bg-faded {
+    width: 100%;
+  }
+  .section-heading .section-heading-lower {
+    font-size: 32px;
+  }
+  .product-item-img {
+    width: 100%;
+  }
+}

@@ -22,7 +22,7 @@
         float: right;
         padding-top: 7rem;
         max-width: 60%;
-     }
+    }
     .banner_logo_mtf {
         float: left;
         padding-top: 7rem;
@@ -30,3 +30,15 @@
     }
 }
 
+@media (max-width: 992px) {
+    .banner_logo_eric {
+        display: none;
+    }
+    .banner_logo_mtf {
+        position: absolute;
+        padding-left: 100px;
+    }
+    .site-heading-upper {
+        position: absolute;
+    }
+}
