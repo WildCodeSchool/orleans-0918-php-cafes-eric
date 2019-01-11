@@ -14,13 +14,9 @@
     <div class="container">
         <div class="intro-coffee mt-5">
             {% if coffee.coffeeImage is empty %}
-                <img class="card-img-top"
-                     src="{{ asset("build/coffeeImages/coffees.jpg") }}"
-                     alt="café {{ coffee.soil }}">
+                <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{{ asset("build/coffeeImages/coffees.jpg") }}" alt="café {{ coffee.soil }}">
             {% else %}
-                <img class="card-img-top"
-                     src="{{ vich_uploader_asset(coffee, 'coffeeImageFile') }}"
-                     alt="café {{ coffee.soil }}">
+                <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{{ vich_uploader_asset(coffee, 'coffeeImageFile') }}" alt="café {{ coffee.soil }}">
             {% endif %}
             <div class="intro-text text-center bg-faded mt-5 rounded">
                 <h2 class="section-heading-coffee text-center mb-4 mt-4">
