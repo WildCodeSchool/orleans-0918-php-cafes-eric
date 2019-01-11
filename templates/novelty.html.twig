@@ -11,8 +11,15 @@
         {% for coffee in coffees %}
             <div class="col-md-3">
                 <div class="card">
-                    <img class="card-img-top" src="{{ vich_uploader_asset(coffee, 'coffeeImageFile') }}"
-                         alt="Card image cap">
+                    {% if coffee.coffeeImage is empty %}
+                        <img class="card-img-top"
+                             src="{{ asset("build/coffeeImages/coffees.jpg") }}"
+                             alt="café {{ coffee.soil }}">
+                    {% else %}
+                        <img class="card-img-top"
+                             src="{{ vich_uploader_asset(coffee, 'coffeeImageFile') }}"
+                             alt="café {{ coffee.soil }}">
+                    {% endif %}
                     <div class="card-body">
                         <h5 class="card-title text-center">Café<hr/></h5>
                         <p class="card-text text-center">{{ coffee.country|country }}<br/>
