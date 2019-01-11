@@ -50,14 +50,14 @@
                                 <div class="card ml-3 mr-3 mt-4 mb-4">
                                     {% if coffee.coffeeImage is empty %}
                                         <img class="card-img-top"
-                                             src="{{ asset("build/accessoryImages/logo.jpg") }}"
+                                             src="{{ asset("build/coffeeImages/coffees.jpg") }}"
                                              alt="café {{ coffee.soil }}">
                                     {% else %}
                                         <img class="card-img-top"
                                              src="{{ vich_uploader_asset(coffee, 'coffeeImageFile') }}"
                                              alt="café {{ coffee.soil }}">
                                     {% endif %}
-                                    <div class="ard-body">
+                                    <div class="card-body">
                                         <div class="bg-faded rounded p-2 text-center">
                                             <h3>
                                         <span class="linkCoffee card-text"><a
