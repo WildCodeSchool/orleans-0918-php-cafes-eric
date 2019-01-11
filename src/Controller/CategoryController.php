@@ -20,7 +20,10 @@ class CategoryController extends AbstractController
      */
     public function index(CategoryRepository $categoryRepository): Response
     {
-        return $this->render('category/index.html.twig', ['categories' => $categoryRepository->findAll()]);
+        return $this->render(
+            'category/index.html.twig',
+            ['categories' => $categoryRepository->findBy([], ['title'=>'ASC'])]
+        );
     }
 
     /**
@@ -81,8 +84,14 @@ class CategoryController extends AbstractController
     {
         if ($this->isCsrfTokenValid('delete'.$category->getId(), $request->request->get('_token'))) {
             $em = $this->getDoctrine()->getManager();
-            $em->remove($category);
-            $em->flush();
+
+            if ($category->getCoffees()->isEmpty() && $category->getTeas()->isEmpty() && $category->getInfusions()) {
+                $em->remove($category);
+                $em->flush();
+            } else {
+                $this->addFlash('danger', 'Impossible de supprimer une catégorie associée à des produits');
+                return $this->redirectToRoute('category_edit', ['id' => $category->getId() ]);
+            }
         }
 
         return $this->redirectToRoute('category_index');

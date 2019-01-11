@@ -1,5 +1,19 @@
-.product-item-title {
-  margin-bottom: 2rem;
+.novelty-card {
+  margin-top: -1em;
+}
+
+.novelty-name {
+  margin-left: 1em;
+  margin-top: 3em;
+  z-index: 5;
+  padding: 0.5em 3em;
+}
+
+.card1 {
+  margin-left: 1em;
+  hr{
+    width:auto;
+  }
 }
 
 .card {
@@ -7,15 +21,17 @@
   @include heading-font;
   color: fade-out($secondary, 0.1);
   border: none;
+  box-shadow: 2px 2px 5px -1px rgba(0,0,0,0.75);
+  margin-bottom: 2rem;
   .card-img-top {
 
     object-fit: cover;
   }
-  .card-title {
-    hr {
-      max-width: 10rem;
-    }
+
+  hr{
+    width: auto;
   }
+
   .btn-primary {
     display: block;
     text-align: center;
