@@ -35,19 +35,22 @@
             </div>
         </div>
     </section>
+
     <section class="tourCoffee">
+
         {% for area, coffees in coffeeByArea %}
             <div class="page-section ctb">
                 <div class="ctb-inner bg-faded rounded mt-5">
                     <h2>
-                        <span class="area d-flex justify-content-center mt-4"> {{ area }}</span>
+                        <span class="area d-flex justify-content-center mt-5"> {{ area }}</span>
                     </h2>
-                    <div class="row d-flex justify-content-between">
+                    <div class="row d-flex justify-content-center">
                         {% for coffee in coffees %}
-                            <article class="col-4">
+                            <article class="col-sm-4">
                                 <div class="card ml-3 mr-3 mt-4 mb-4">
                                     {% if coffee.coffeeImage is empty %}
                                         <img class="card-img-top" src="{{ asset("build/accessoryImages/logo.jpg") }}" alt="café {{ coffee.soil }}">
+
                                     {% else %}
                                         <img class="card-img-top" src="{{ vich_uploader_asset(coffee, 'coffeeImageFile') }}" alt="café {{ coffee.soil }}">
                                     {% endif %}
