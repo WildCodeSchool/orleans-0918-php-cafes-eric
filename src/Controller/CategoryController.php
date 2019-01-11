@@ -85,7 +85,7 @@ class CategoryController extends AbstractController
         if ($this->isCsrfTokenValid('delete'.$category->getId(), $request->request->get('_token'))) {
             $em = $this->getDoctrine()->getManager();
 
-            if($category->getCoffees()->isEmpty() && $category->getTeas()->isEmpty() && $category->getInfusions()) {
+            if ($category->getCoffees()->isEmpty() && $category->getTeas()->isEmpty() && $category->getInfusions()) {
                 $em->remove($category);
                 $em->flush();
             } else {
