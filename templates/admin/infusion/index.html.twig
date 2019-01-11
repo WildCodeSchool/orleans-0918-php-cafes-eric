@@ -29,17 +29,17 @@
                     <td class="col-md-2">{{ infusion.name }}</td>
                     {% if infusion.novelty == true %}
                         <td class="col-md-2"><a class="btn btn-outline-dark"
-                               href="{{ path('infusion_novelty', {'id': infusion.id}) }}"><i class="fas fa-toggle-off"></i> Off</a></td>
+                               href="{{ path('infusion_novelty', {'id': infusion.id}) }}"><i class="fas fa-toggle-on"></i> On</a></td>
                     {% else %}
                         <td class="col-md-2"><a class="btn btn-outline-dark"
-                               href="{{ path('infusion_novelty', {'id': infusion.id}) }}"><i class="fas fa-toggle-on"></i> On</a></td>
+                               href="{{ path('infusion_novelty', {'id': infusion.id}) }}"><i class="fas fa-toggle-off"></i> Off</a></td>
                     {% endif %}
                     {% if infusion.highlighted == true %}
                         <td class="col-md-3"><a class="btn btn-outline-dark"
-                               href="{{ path('infusion_highlighted', {'id': infusion.id}) }}"><i class="fas fa-toggle-off"></i> Off</td>
+                               href="{{ path('infusion_highlighted', {'id': infusion.id}) }}"><i class="fas fa-toggle-on"></i> On</td>
                     {% else %}
                         <td class="col-md-3"><a class="btn btn-outline-dark"
-                               href="{{ path('infusion_highlighted', {'id': infusion.id}) }}"><i class="fas fa-toggle-on"></i> On</a></td>
+                               href="{{ path('infusion_highlighted', {'id': infusion.id}) }}"><i class="fas fa-toggle-off"></i> Off</a></td>
                     {% endif %}
                     <td class="col-md-1">
                         <a class="btn btn-outline-dark"
