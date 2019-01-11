@@ -1,31 +1,33 @@
 {% extends 'layout.html.twig' %}
 {% block title %}Nos infusions{% endblock %}
 {% block body %}
-    <section class="page-section clearfix">
-        <div class="container">
-            <div class="about-heading-content">
-                <div class="bg-faded rounded p-2 mb-5">
-                    <h1 class="section-heading">
-                        <span class="section-heading-lower justify-content-center d-flex ">Nos infusion</span></h1>
-                    <span class="product section-heading-lower d-flex justify-content-center d-flex "> Une présentation de nos infusions et de nos mélanges choisis avec soin </span>
-                </div>
-            </div>
-        </div>
-    </section>
+<section class="page-section clearfix">
     <div class="container">
-        <div class="row justify-content-center ">
+        <div class="about-heading-content">
+            <h1 class="titles">
+                <span class="section-heading-lower text-uppercase font-weight-bold justify-content-center d-flex ">Infusions</span>
+            </h1>
+        </div>
+    </div>
+  <div class="container">
+      <div class="intro-infusion">
+          <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{{ asset('build/infusionImages/infusionbg.jpg') }}" alt="thé">
+      </div>
+  </div>
+</section>
+<section class="page-section ct-tea">
+    <div class="container">
+        <div class="row">
             {% for category in categories %}
-                <div class="col-6  ">
-                    <div class="bg-faded rounded p-2 mb-5">
-                        <h2>
-                        <span class="linkCoffee section-heading-lower area d-flex justify-content-center "><a
-                                    href="{{ path('tea_category_show', {'id': category.id }) }}">{{ category.title }}</a></span>
+                <div class="col-md-4 mt-5 mb-5">
+                    <div class="bg-faded rounded p-2">
+                        <h2 class="linkCoffee section-heading-lower area d-flex justify-content-center mt-5 mb-5">
+                            <a href="{{ path('infusion_category_show', {'id': category.id }) }}">{{ category.title }}</a>
                         </h2>
                     </div>
                 </div>
             {% endfor %}
         </div>
     </div>
+</section>
 {% endblock %}
-
-
