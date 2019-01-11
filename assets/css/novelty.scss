@@ -11,6 +11,9 @@
 
 .card1 {
   margin-left: 1em;
+  hr{
+    width:auto;
+  }
 }
 
 .card {
@@ -24,11 +27,11 @@
 
     object-fit: cover;
   }
-  .card-title {
-    hr {
-      max-width: 10rem;
-    }
+
+  hr{
+    width: auto;
   }
+
   .btn-primary {
     display: block;
     text-align: center;

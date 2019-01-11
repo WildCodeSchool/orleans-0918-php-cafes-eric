@@ -9,7 +9,9 @@
             {{ include('category/_form.html.twig', {'button_label': 'Éditer'}) }}
         </div>
         <div class="col-md-12 mb-3 mt-1">
+            {% set numberCategory =  category.teas|length + category.coffees|length + category.infusions|length%}
             {{ include('category/_delete_form.html.twig') }}
+            {{  numberCategory }}  produits associés
         </div>
         <div class="col-md-12 mb-5">
             <a class="btn btn-outline-dark" href="{{ path('category_index') }}"><i class="fas fa-reply"></i> Retour</a>
