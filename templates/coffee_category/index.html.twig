@@ -11,9 +11,7 @@
                     </h1>
             </div>
             <div class="intro-coffee mt-5">
-                <img class="intro-img img-fluid mb-3 mb-lg-0 rounded"
-                     src="{{ asset('build/coffeeImages/coffee_beans.jpg') }}"
-                     alt="café">
+                <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{{ asset('build/coffeeImages/coffee_beans.jpg') }}" alt="café">
                 <div class="intro-text left-0  text-center bg-faded p-11 mt-5 mb-3 rounded">
                     <h2 class="section-heading-coffee mb-2">
                         <span class="section-heading-lower-coffee mt-5">Les 5 règles d'or pour préparer le café.</span>
@@ -37,7 +35,7 @@
             </div>
         </div>
     </section>
-    <section>
+    <section class="tourCoffee">
         {% for area, coffees in coffeeByArea %}
             <div class="page-section ctb">
                 <div class="ctb-inner bg-faded rounded mt-5">
@@ -49,19 +47,14 @@
                             <article class="col-4">
                                 <div class="card ml-3 mr-3 mt-4 mb-4">
                                     {% if coffee.coffeeImage is empty %}
-                                        <img class="card-img-top"
-                                             src="{{ asset("build/accessoryImages/logo.jpg") }}"
-                                             alt="café {{ coffee.soil }}">
+                                        <img class="card-img-top" src="{{ asset("build/accessoryImages/logo.jpg") }}" alt="café {{ coffee.soil }}">
                                     {% else %}
-                                        <img class="card-img-top"
-                                             src="{{ vich_uploader_asset(coffee, 'coffeeImageFile') }}"
-                                             alt="café {{ coffee.soil }}">
+                                        <img class="card-img-top" src="{{ vich_uploader_asset(coffee, 'coffeeImageFile') }}" alt="café {{ coffee.soil }}">
                                     {% endif %}
-                                    <div class="ard-body">
+                                    <div class="card-body">
                                         <div class="bg-faded rounded p-2 text-center">
                                             <h3>
-                                        <span class="linkCoffee card-text"><a
-                                                    href="{{ path('coffee_category_show', {'id': coffee.id}) }}">{{ coffee.soil }}</a></span>
+                                        <span class="linkCoffee card-text"><a href="{{ path('coffee_category_show', {'id': coffee.id}) }}">{{ coffee.soil }}</a></span>
                                             </h3>
                                             <hr/>
                                             <p class="card-text text-center">
@@ -69,7 +62,6 @@
                                             </p>
                                         </div>
                                     </div>
-
                                 </div>
                             </article>
                         {% endfor %}
