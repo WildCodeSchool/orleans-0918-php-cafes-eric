@@ -3,37 +3,40 @@
 {% block title %}Thés{% endblock %}
 
 {% block body %}
-
-<h1 class="section-heading mb-4 text-center">
-    <span class="section-heading-lower">{{ category.title }}</span>
-    <hr/>
-</h1>
-<section class="page-section cta">
-<div class="container">
-    <div class="row">
-        <div class="col-md-12 mx-auto">
-            {% for familyTea, teas in teaByFamilyTea %}
-                <div class="cta-inner text-center rounded mt-5">
-                    <h2>
-                        <span class="section-heading-upper mt-4">{{ familyTea }}</span>
-                    </h2>
-                    {% for tea in teas %}
-                        <p class="text-left ml-5 mt-4">
-                            <span class="oblic font-weight-bold">{{ tea.name }}</span> : {{ tea.ingredients }}<br/>
-                            Particularité : {{ tea.feature }}
-                        </p>
-                    {% endfor %}
-
-                </div>
-            {% endfor %}
-            <div class="mt-5 mb-5">
-                <a  class="btn btn-outline-dark" href="{{ path('tea_category') }}"><i class="fas fa-reply"></i> Retour</a>
-            </div>
-        </div>
-        <div class="text-center m-4">
-            <span class="linkCoffee"><a href="{{ path('tea_category') }}">Retour</a></span>
+<section class="page-section clearfix">
+    <div class="container">
+        <div class="about-heading-content">
+            <h1 class="titles">
+                <span class="section-heading-lower text-uppercase font-weight-bold justify-content-center d-flex ">{{ category.title }}</span>
+            </h1>
         </div>
     </div>
-</div>
+</section>
+<section class="page-section cta">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 mx-auto">
+                {% for familyTea, teas in teaByFamilyTea %}
+                    <div class="cta-inner text-center rounded mt-5">
+                        <h2>
+                            <span class="area section-heading-upper mt-4">{{ familyTea }}</span>
+                        </h2>
+                        {% for tea in teas %}
+                            <p class="text-left ml-5 mt-4">
+                                <span class="oblic font-weight-bold">{{ tea.name }}</span> : {{ tea.ingredients }}<br/>
+                                Particularité : {{ tea.feature }}
+                            </p>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+                <div class="mt-5 mb-5">
+                    <a  class="btn btn-outline-dark" href="{{ path('tea_category') }}"><i class="fas fa-reply"></i> Retour</a>
+                </div>
+            </div>
+            <div class="text-center m-4">
+                <span class="linkCoffee"><a href="{{ path('tea_category') }}">Retour</a></span>
+            </div>
+        </div>
+    </div>
 </section>
 {% endblock %}
