@@ -41,23 +41,29 @@
                             </ul>
                         </div>
                     </div>
+                    <ul class="starli">
+                        <li class="mt-3">Les thés blancs : infusion 8 minutes à 80°.</li>
+                        <li>Les Wu Long : infusion 7 minutes à 95°.</li>
+                        <li>Les thés verts : infusion 2 à 3 minutes à 70°.</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<div class="container">
-    <div class="row justify-content-center ">
-        {% for category in categories %}
-            <div class="col-6  ">
-                <div class="bg-faded rounded p-2 mb-5">
-                    <h2>
-                    <span class="linkCoffee section-heading-lower area d-flex justify-content-center "><a
-                                href="{{ path('tea_category_show', {'id': category.id }) }}">{{ category.title }}</a></span>
-                    </h2>
+<section class="page-section ct-tea">
+    <div class="container">
+        <div class="row">
+            {% for category in categories %}
+                <div class="col-md-4 mt-5 mb-5">
+                    <div class="bg-faded rounded p-2">
+                        <h2 class="linkCoffee section-heading-lower area d-flex justify-content-center mt-5 mb-5">
+                            <a href="{{ path('tea_category_show', {'id': category.id }) }}">{{ category.title }}</a>
+                        </h2>
+                    </div>
                 </div>
-            </div>
-        {% endfor %}
+            {% endfor %}
+        </div>
     </div>
-</div>
+</section>
 {% endblock %}
