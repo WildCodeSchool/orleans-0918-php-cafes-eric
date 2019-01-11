@@ -13,11 +13,11 @@
     <div class="container">
         <div class="row justify-content-center ">
             {% for category in categories %}
-                <div class="col-6  ">
+                <div class="col-6">
                     <div class="bg-faded rounded p-2 mb-5">
-                        <h2>
-                        <span class="linkCoffee section-heading-lower area d-flex justify-content-center "><a
-                                    href="{{ path('tea_category_show', {'id': category.id }) }}">{{ category.title }}</a></span>
+                        <h2 class="section-heading-tea mb-2 text-center">
+                <span class="linkCoffee section-heading-lower-tea"><a
+                            href="{{ path('tea_category_show', {'id': category.id }) }}">{{ category.title }}</a></span>
                         </h2>
                     </div>
                 </div>
@@ -25,5 +25,3 @@
         </div>
     </div>
 {% endblock %}
-
-
