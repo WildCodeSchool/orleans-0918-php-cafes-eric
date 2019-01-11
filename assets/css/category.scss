@@ -199,4 +199,27 @@ hr {
   }
 }
 
+.intro-infusion {
+  position: relative;
+  @media (min-width: 992px) {
+    .intro-img {
+      width: 100%;
+    }
+    .intro-text {
+      left: 600px;
+      width: 100%;
+      position: absolute;
+    }
+  }
+  @media (min-width: 1200px) {
+    .intro-text {
+      width: 55%;
+    }
+  }
+}
 
+.ct-tea {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background-color: transparent;
+}

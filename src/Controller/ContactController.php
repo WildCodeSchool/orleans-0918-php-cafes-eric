@@ -29,7 +29,7 @@ class ContactController extends AbstractController
                     'Message venant de :  ' .
                         ucwords($contactFormData->getName()) .' ' .
                         ucwords($contactFormData->getFirstname()) . ' : ' .
-                        'joingnable au téléphone : ' .
+                        'joignable au : ' .
                         ($contactFormData->getPhone()) .
                         ' message :'.
                     $contactFormData->getMessage(),
@@ -40,7 +40,7 @@ class ContactController extends AbstractController
 
             $this->addFlash(
                 'success',
-                'Votre mail a été envoyé!'
+                'Votre mail a bien été envoyé!'
             );
             return $this->redirectToRoute('contact');
         }
