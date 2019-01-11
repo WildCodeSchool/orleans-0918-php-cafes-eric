@@ -19,7 +19,8 @@
                                         class="oblic font-weight-bold">{{ infusion.name }}</span>
                                 : {{ infusion.ingredients }}</p>
                             {% if infusion.feature is not empty %}
-                            <p><br/> Note : {{ infusion.feature }}</p>
+                                <p><br/> Note : {{ infusion.feature }}</p>
+                            {% endif %}
                         {% endfor %}
                     {% endfor %}
                 </div>
