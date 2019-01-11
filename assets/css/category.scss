@@ -222,6 +222,10 @@ hr {
   }
 }
 
+button:disabled {
+  cursor: not-allowed;
+}
+
 .ct-tea {
   padding-top: 1rem;
   padding-bottom: 1rem;
