@@ -17,13 +17,13 @@
         </div>
     </div>
 </section>
-<section>
+<section class="page-section ct-tea">
     <div class="container">
-        <div class="row justify-content-center ">
+        <div class="row">
             {% for category in categories %}
-                <div class="col-md-12">
-                    <div class="bg-faded rounded p-2 mb-5">
-                        <h2 class="linkCoffee section-heading-lower area d-flex justify-content-center ">
+                <div class="col-md-4 mt-5 mb-5">
+                    <div class="bg-faded rounded p-2">
+                        <h2 class="linkCoffee section-heading-lower area d-flex justify-content-center mt-5 mb-5">
                             <a href="{{ path('infusion_category_show', {'id': category.id }) }}">{{ category.title }}</a>
                         </h2>
                     </div>
