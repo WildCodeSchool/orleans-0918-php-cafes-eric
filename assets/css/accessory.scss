@@ -1,30 +1,54 @@
-.accessoryli{
+.accessoryli {
   list-style-type: none;
 }
+
 //les fiches produits
 .about-heading {
-    .about-heading-img {
-      position: relative;
-      background-size: cover;
-      width: 25rem;
-      height: 25rem;
-      z-index: 0;
-    }
-    .about-heading-content {
-      margin-top: -5rem;
-      position: relative;
-      margin-left: 5rem;
-      margin-right: -5rem;
-      z-index: 1;
-    }
+  .about-heading-img {
+    position: relative;
+    background-size: cover;
+    width: 25rem;
+    height: 25rem;
+    z-index: 0;
   }
+
+  .about-heading-content {
+    margin-top: -5rem;
+    position: relative;
+    margin-left: 5rem;
+    margin-right: -5rem;
+    z-index: 1;
+  }
+}
 
 .product {
   color: $touch;
 }
+
 .col-sm-5 {
   margin-top: -60px;
 }
+
+
+.col-sm-5 {
+  .img-fluid {
+    @media (max-width: 600px) {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.col-sm-5 {
+  .bg-faded {
+    @media (max-width: 600px) {
+      margin-top: 7rem;
+      margin-left: -7rem;
+    }
+  }
+}
+
+
 
 .card-accessory {
   min-height: 300px;
@@ -33,3 +57,4 @@
 .card-grocery {
   min-height: 350px;
 }
+
