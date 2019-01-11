@@ -21,10 +21,8 @@ class TeaCategoryController extends AbstractController
      * @param CategoryRepository $categoryRepository
      * @param ShelfRepository $shelfRepository
      */
-    public function index(
-        CategoryRepository $categoryRepository,
-        ShelfRepository $shelfRepository
-    ) : Response {
+    public function index(CategoryRepository $categoryRepository, ShelfRepository $shelfRepository) : Response
+    {
         $shelf = $shelfRepository->findOneBy(['shelfCode' => 'TEA']);
         $categories = $categoryRepository->findBy(
             ['shelf' => $shelf]
@@ -43,10 +41,8 @@ class TeaCategoryController extends AbstractController
      * @param TeaRepository $teaRepository
      * @param FamilyTeaRepository $familyTeaRepository
      */
-    public function show(
-        Category $category,
-        TeaRepository $teaRepository
-    ): Response {
+    public function show(Category $category, TeaRepository $teaRepository): Response
+    {
         $teas = $teaRepository->findBy(
             ['category' => $category],
             ['familyTea' => 'ASC']

@@ -21,7 +21,10 @@ class InfusionController extends AbstractController
      */
     public function index(InfusionRepository $infusionRepository): Response
     {
-        return $this->render('admin/infusion/index.html.twig', ['infusions' => $infusionRepository->findAll()]);
+        return $this->render(
+            'admin/infusion/index.html.twig',
+            ['infusions' => $infusionRepository->findBy([], ['category'=>'ASC'])]
+        );
     }
 
     /**

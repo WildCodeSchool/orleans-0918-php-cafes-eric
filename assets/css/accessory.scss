@@ -29,6 +29,7 @@
   margin-top: -60px;
 }
 
+
 .col-sm-5 {
   .img-fluid {
     @media (max-width: 600px) {
@@ -47,4 +48,13 @@
   }
 }
 
+
+
+.card-accessory {
+  min-height: 300px;
+}
+
+.card-grocery {
+  min-height: 350px;
+}
 

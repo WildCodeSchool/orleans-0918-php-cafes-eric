@@ -68,11 +68,6 @@ class Infusion
     private $novelty;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\FamilyTea", inversedBy="infusion")
-     */
-    private $familyTea;
-
-    /**
      * @ORM\ManyToOne(targetEntity="App\Entity\FamilyInfusion", inversedBy="infusions")
      */
     private $familyInfusion;
