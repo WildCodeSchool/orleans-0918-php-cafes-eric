@@ -20,10 +20,12 @@
                              alt="café {{ coffee.soil }}">
                     {% endif %}
                     <div class="card-body">
-                        <h5 class="card-title text-center">Café<hr/></h5>
+                        <h5 class="card-title text-center">Café</h5>
+                        <hr/>
                         <p class="card-text text-center">{{ coffee.country|country }}<br/>
                             {{ coffee.soil }}</p>
-                        <a href="{{ path('coffee_category_show', {'id': coffee.id}) }}" class="btn btn-primary">Voir le produit</a>
+                        <a href="{{ path('coffee_category_show', {'id': coffee.id}) }}" class="btn btn-primary">Voir le
+                            produit</a>
                     </div>
                 </div>
             </div>
@@ -33,10 +35,12 @@
                 <div class="card">
                     <img class="card-img-top" src="{{ asset('build/teaImages/the.jpg') }}" alt="Card image cap">
                     <div class="card-body">
-                        <h5 class="card-title text-center">Thé<hr/></h5>
+                        <h5 class="card-title text-center novelty">Thé</h5>
+                        <hr/>
                         <p class="card-text text-center">{{ tea.name }}<br/>
                             {{ tea.familyTea.name }}</p>
-                        <a href="{{ path('tea_category_show', {'id': tea.category.id }) }}" class="btn btn-primary">Voir le produit</a>
+                        <a href="{{ path('tea_category_show', {'id': tea.category.id }) }}" class="btn btn-primary">Voir
+                            le produit</a>
                     </div>
                 </div>
             </div>
@@ -47,10 +51,12 @@
                     <img class="card-img-top" src="{{ asset('build/infusionImages/infusion.jpg') }}"
                          alt="Card image cap">
                     <div class="card-body">
-                        <h5 class="card-title text-center">Infusion<hr/></h5>
+                        <h5 class="card-title text-center novelty">Infusion</h5>
+                        <hr/>
                         <p class="card-text text-center">{{ infusion.name }}<br/>
                             {{ infusion.familyInfusion.name }}</p>
-                        <a href="{{ path('infusion_category_show', {'id': infusion.category.id }) }}" class="btn btn-primary">Voir le produit</a>
+                        <a href="{{ path('infusion_category_show', {'id': infusion.category.id }) }}"
+                           class="btn btn-primary">Voir le produit</a>
                     </div>
                 </div>
             </div>
