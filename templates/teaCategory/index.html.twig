@@ -3,29 +3,25 @@
 {% block title %}Thés{% endblock %}
 
 {% block body %}
-    <section class="page-section clearfix">
+<section class="page-section clearfix">
+    <div class="container">
+        <div class="about-heading-content">
+            <h1 class="titles">
+                <span class="section-heading-lower text-uppercase font-weight-bold justify-content-center d-flex ">Thés</span>
+            </h1>
+        </div>
         <div class="container">
-            <div class="about-heading-content">
-                <div class="bg-faded rounded p-2 mb-5">
-                    <h1 class="section-heading">
-                        <span class="section-heading-lower justify-content-center d-flex ">Nos thés</span>
-                    </h1>
-                    <span class="product section-heading-lower d-flex justify-content-center d-flex "> Une présentation de nos thés et de nos mélanges choisis avec soin </span>
-                </div>
-            </div>
-            <div class="container">
-                <div class="intro-tea">
-                    <img class="intro-img img-fluid mb-3 mb-lg-0 rounded"
-                         src="{{ asset('build/teaImages/presentation_tea.jpg') }}" alt="thé">
-                    <div class="intro-text left-0  text-center bg-faded p-11 ml-5 mt-4 rounded">
-                        <h2 class="section-heading-tea mb-2">
-                            <span class="section-heading-lower-tea mt-5 mr-5 ml-5">Les 5 règles d'or pour préparer le thé.</span>
-                        </h2>
-                        <hr/>
-                        <p class="mb-2">(Thés noirs, sombres et parfumés)</p>
-                        <div class="mb-5 text-left mt-3 mb-3 mr-5 ml-5">
-                            <ol class="colorli">
-
+            <div class="intro-tea mt-5">
+                <img class="intro-img img-fluid mb-3 mb-lg-0 rounded"
+                     src="{{ asset('build/teaImages/presentation_tea.jpg') }}" alt="thé">
+                <div class="intro-text left-0  text-center bg-faded p-11 ml-5 mt-4 rounded">
+                    <h2 class="section-heading-tea mb-2">
+                        <span class="section-heading-lower-tea mt-5 mr-5 ml-5">Les 5 règles d'or pour préparer le thé.</span>
+                    </h2>
+                    <hr/>
+                    <p class="mb-2">(Thés noirs, sombres et parfumés)</p>
+                    <div class="mb-5 text-left mt-3 mb-3 mr-5 ml-5">
+                        <ol class="colorli">
                                 <li>Bien chauffer la théière en la rinçant à l'eau bouillante.</li>
                                 <li>Mettre dans la théière 2.5g de thé (1 cuillère à café) par tasse.</li>
                                 <li>Faire bouillir de l'eau fraîche dans un récipient uniquement destiné à cet usage.
@@ -48,30 +44,21 @@
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+<section class="page-section ct-tea">
     <div class="container">
-        <div class="about-heading-content">
-            <div class="bg-faded rounded p-2 mb-5">
-                <h2 class="section-heading">
-                    <span class="section-heading-lower justify-content-center d-flex ">notre sélection</span>
-                </h2>
-                <hr/>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row justify-content-center ">
-                {% for category in categories %}
-                    <div class="col-6">
-                        <div class="bg-faded rounded p-2 mb-5">
-                            <h2 class="section-heading-tea mb-2 text-center">
-                        <span class="linkCoffee section-heading-lower-tea"><a
-                                    href="{{ path('tea_category_show', {'id': category.id }) }}">{{ category.title }}</a></span>
-                            </h2>
-                        </div>
+        <div class="row">
+            {% for category in categories %}
+                <div class="col-md-4 mt-5 mb-5">
+                    <div class="bg-faded rounded p-2">
+                        <h2 class="linkCoffee section-heading-lower area d-flex justify-content-center mt-5 mb-5">
+                            <a href="{{ path('tea_category_show', {'id': category.id }) }}">{{ category.title }}</a>
+                        </h2>
                     </div>
-                {% endfor %}
-            </div>
+                </div>
+            {% endfor %}
         </div>
     </div>
+</section>
 {% endblock %}
-
