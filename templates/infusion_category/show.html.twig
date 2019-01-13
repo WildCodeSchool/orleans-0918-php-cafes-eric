@@ -25,7 +25,9 @@
                     <p class="text-left ml-5 mt-4">
                         <span class="oblic font-weight-bold">{{ infusion.name }}</span>
                         : {{ infusion.ingredients }}
-                        <br/> Note : {{ infusion.feature }}
+                        {% if infusion.feature is not empty %}
+                             <br/> Note : {{ infusion.feature }}
+                        {% endif %}
                     </p>
                 {% endfor %}
             </div>

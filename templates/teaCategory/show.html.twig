@@ -24,7 +24,9 @@
                         {% for tea in teas %}
                             <p class="text-left ml-5 mt-4">
                                 <span class="oblic font-weight-bold">{{ tea.name }}</span> : {{ tea.ingredients }}<br/>
+                                {% if tea.feature is not empty %}
                                 Particularité : {{ tea.feature }}
+                                {% endif %}
                             </p>
                         {% endfor %}
                     </div>
