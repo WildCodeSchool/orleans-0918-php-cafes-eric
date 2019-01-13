@@ -3,11 +3,15 @@
 {% block title %}Thés{% endblock %}
 
 {% block body %}
-
-<h1 class="section-heading mb-4 text-center">
-    <span class="section-heading-lower">{{ category.title }}</span>
-    <hr/>
-</h1>
+<section class="page-section clearfix">
+    <div class="container">
+        <div class="about-heading-content">
+            <h1 class="titles">
+                <span class="section-heading-lower text-uppercase font-weight-bold justify-content-center d-flex ">{{ category.title }}</span>
+            </h1>
+        </div>
+    </div>
+</section>
 <section class="page-section cta">
 <div class="container">
     <div class="row">
@@ -23,13 +27,10 @@
                             <p class="showCat text-left ml-5 small mb-4">Note : {{ tea.feature }}</p>
                         {% endif %}
                     {% endfor %}
+
                 </div>
-            {% endfor %}
-            <div class="mt-5 mb-5">
-                <a  class="btn btn-outline-dark" href="{{ path('tea_category') }}"><i class="fas fa-reply"></i> Retour</a>
             </div>
         </div>
     </div>
-</div>
 </section>
 {% endblock %}
