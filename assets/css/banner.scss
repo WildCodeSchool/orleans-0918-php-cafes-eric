@@ -1,4 +1,4 @@
-.banner{
+.banner {
     background-image: url("images/banner/bg.jpg");
     background-position: top center;
     background-repeat: no-repeat;
@@ -6,6 +6,7 @@
     width: 100%;
     height: 50vh;
     position: relative;
+
     h1{
         text-shadow: 2px 2px $black;
         padding-top: 7rem;
@@ -19,14 +20,13 @@
         margin-top: 0;
     }
     .banner_logo_eric {
-        float: right;
+        width:50%;
         padding-top: 7rem;
         max-width: 60%;
     }
     .banner_logo_mtf {
-        float: left;
+        width:50%;
         padding-top: 7rem;
-        min-width: 50%;
     }
 }
 

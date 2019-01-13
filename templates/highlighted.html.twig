@@ -1,9 +1,8 @@
 {% if highlightedSection > 0 %}
     <div class="product-item-title d-flex">
-        <div class="bg-faded d-flex ml-auto novelty-name rounded">
+        <div class="bg-faded d-flex mr-auto novelty-name rounded">
             <h2 class="section-heading mb-0">
                 <span class="section-heading-lower">Produits du mois</span>
-                <hr/>
             </h2>
         </div>
     </div>
@@ -11,12 +10,19 @@
         {% for coffee in coffeesMonth %}
             <div class="col-md-3">
                 <div class="card">
-                    <img class="card-img-top" src="{{ vich_uploader_asset(coffee, 'coffeeImageFile') }}"
-                         alt="Card image cap">
+                    {% if coffee.coffeeImage is empty %}
+                        <img class="card-img-top"
+                             src="{{ asset("build/coffeeImages/coffees.jpg") }}"
+                             alt="café {{ coffee.soil }}">
+                    {% else %}
+                        <img class="card-img-top"
+                             src="{{ vich_uploader_asset(coffee, 'coffeeImageFile') }}"
+                             alt="café {{ coffee.soil }}">
+                    {% endif %}
                     <div class="card-body">
-                        <h5 class="card-title text-center">Café
-                            <hr/>
+                        <h5 class="card-title text-center novelty">Café
                         </h5>
+                        <hr/>
                         <p class="card-text text-center">{{ coffee.country|country }}<br/>
                             {{ coffee.soil }}</p>
                         <a href="{{ path('coffee_category_show', {'id': coffee.id}) }}" class="btn btn-primary">Voir le
@@ -30,12 +36,13 @@
                 <div class="card">
                     <img class="card-img-top" src="{{ asset('build/teaImages/the.jpg') }}" alt="Card image cap">
                     <div class="card-body">
-                        <h5 class="card-title text-center">Thé
-                            <hr/>
+                        <h5 class="card-title text-center novelty">Thé
                         </h5>
+                        <hr/>
                         <p class="card-text text-center">{{ tea.name }}<br/>
                             {{ tea.familyTea.name }}</p>
-                        <a href="{{ path('tea_category_show', {'id': tea.category.id }) }}" class="btn btn-primary">Voir le
+                        <a href="{{ path('tea_category_show', {'id': tea.category.id }) }}" class="btn btn-primary">Voir
+                            le
                             produit</a>
                     </div>
                 </div>
@@ -47,12 +54,13 @@
                     <img class="card-img-top" src="{{ asset('build/infusionImages/infusion.jpg') }}"
                          alt="Card image cap">
                     <div class="card-body">
-                        <h5 class="card-title text-center">Infusion
-                            <hr/>
+                        <h5 class="card-title text-center novelty">Infusion
                         </h5>
+                        <hr/>
                         <p class="card-text text-center">{{ infusion.name }}<br/>
                             {{ infusion.familyInfusion.name }}</p>
-                        <a href="{{ path('infusion_category_show', {'id': infusion.category.id }) }}" class="btn btn-primary">Voir le produit</a>
+                        <a href="{{ path('infusion_category_show', {'id': infusion.category.id }) }}"
+                           class="btn btn-primary">Voir le produit</a>
                     </div>
                 </div>
             </div>
