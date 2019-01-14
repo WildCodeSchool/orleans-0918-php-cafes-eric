@@ -234,5 +234,10 @@ button:disabled {
   background-color: transparent;
   .bg-faded {
     box-shadow: 2px 2px 5px -1px rgba(0,0,0,0.75);
+    min-height: 200px;
   }
+}
+
+.linkCoffee a {
+  text-align: center;
 }
