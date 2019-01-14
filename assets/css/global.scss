@@ -10,3 +10,33 @@ body {
 h1 {
   font-size: $sizeH1;
 }
+.product-item{
+  .product-item-img {
+    max-width: 100vh;
+  }
+}
+
+#mainNav .navbar-nav .nav-item .nav-link:hover {
+  color: $touch;
+}
+
+.titles {
+  color: $white;
+  text-shadow: 2px 2px $secondary;
+}
+
+.card {
+  box-shadow: 2px 2px 5px -1px rgba(0,0,0,0.75);
+}
+
+@media (max-width: 992px) {
+  .bg-faded {
+    width: 100%;
+  }
+  .section-heading .section-heading-lower {
+    font-size: 32px;
+  }
+  .product-item-img {
+    width: 100%;
+  }
+}

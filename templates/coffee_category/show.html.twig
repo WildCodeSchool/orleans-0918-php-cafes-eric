@@ -1,0 +1,42 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Cafés{% endblock %}
+
+{% block body %}
+<section class="page-section clearfix">
+    <div class="container">
+        <div class="about-heading-content">
+            <h1 class="titles">
+                <span class="section-heading-lower text-uppercase font-weight-bold justify-content-center d-flex ">{{ coffee.soil }}</span>
+            </h1>
+        </div>
+    </div>
+    <div class="container">
+        <div class="intro-coffee mt-5">
+            {% if coffee.coffeeImage is empty %}
+                <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{{ asset("build/coffeeImages/coffees.jpg") }}" alt="café {{ coffee.soil }}">
+            {% else %}
+                <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{{ vich_uploader_asset(coffee, 'coffeeImageFile') }}" alt="café {{ coffee.soil }}">
+            {% endif %}
+            <div class="intro-text text-center bg-faded mt-5 rounded">
+                <h2 class="section-heading-coffee text-center mb-4 mt-4">
+                    <span class="section-heading-lower justify-content-center mt-2">{{ coffee.country|country }}</span>
+                </h2>
+                <div class="row mt-4 text-center">
+                    <div class="offset-1 col-4">
+                        Terroir : <span class="bold">{{ coffee.soil }}</span>
+                    </div>
+                    <div class="offset-1 col-4">
+                        Variété : <span class="bold">{{ coffee.variety }}</span>
+                    </div>
+                    <div class="ml-5 mr-5">
+                        <p class="tastingNote mt-3 mr-2 ml-2 bold">"{{ coffee.tastingNote }}"</p>
+                        <hr/>
+                        <p class="description ml-5 mr-5 mb-5 text-left"> {{ coffee.description }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

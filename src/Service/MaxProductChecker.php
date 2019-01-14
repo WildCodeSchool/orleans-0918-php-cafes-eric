@@ -35,10 +35,7 @@ class MaxProductChecker
      */
     public function checkNoveltyNumber(): bool
     {
-        $coffees = $this->coffeeRepository->findByNovelty(true);
-        $teas = $this->teaRepository->findByNovelty(true);
-        $infusions = $this->infusionRepository->findByNovelty(true);
-        return count($coffees) + count($teas) + count($infusions) < self::MAX;
+        return $this->countNoveltyNumbers() < self::MAX;
     }
 
     /**
@@ -46,9 +43,30 @@ class MaxProductChecker
      */
     public function checkHighlightedNumber(): bool
     {
+        return$this->countHighlightedNumbers() < self::MAX;
+    }
+
+    /**
+     * @return int
+     */
+    public function countNoveltyNumbers(): int
+    {
+        $coffees = $this->coffeeRepository->findByNovelty(true);
+        $teas = $this->teaRepository->findByNovelty(true);
+        $infusions = $this->infusionRepository->findByNovelty(true);
+
+        return count($coffees) + count($teas) + count($infusions) ?? 0;
+    }
+
+    /**
+     * @return int
+     */
+    public function countHighlightedNumbers(): int
+    {
         $coffees = $this->coffeeRepository->findByHighlighted(true);
         $teas = $this->teaRepository->findByHighlighted(true);
         $infusions = $this->infusionRepository->findByHighlighted(true);
-        return count($coffees) + count($teas) + count($infusions) < self::MAX;
+
+        return count($coffees) + count($teas) + count($infusions) ?? 0;
     }
 }

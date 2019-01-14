@@ -2,8 +2,10 @@
 
 namespace App\Controller;
 
+use App\Entity\Coffee;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Response;
 use App\Repository\CoffeeRepository;
 
 class CoffeeCategoryController extends AbstractController
@@ -19,13 +21,22 @@ class CoffeeCategoryController extends AbstractController
         $coffeeByArea = [];
 
         foreach ($coffees as $coffee) {
-            $country = $coffee->getCountry();
             $category = $coffee->getCategory()->getTitle();
-            $coffeeByArea[$category][$country][] = $coffee;
+            $coffeeByArea[$category][] = $coffee;
         }
 
         return $this->render('coffee_category/index.html.twig', [
             'coffeeByArea'=>$coffeeByArea,
+        ]);
+    }
+
+    /**
+     * @Route("/coffee/{id}", name="coffee_category_show", methods="GET")
+     */
+    public function show(Coffee $coffee): Response
+    {
+        return $this->render('coffee_category/show.html.twig', [
+            'coffee' => $coffee
         ]);
     }
 }

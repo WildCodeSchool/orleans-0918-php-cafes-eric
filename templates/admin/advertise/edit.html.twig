@@ -3,11 +3,11 @@
 {% block title %}Édition d'une annonce{% endblock %}
 
 {% block body %}
-    <h1>Éditer une annonce</h1>
+    <h1 class="admin-title">Éditer une annonce</h1>
     <div class="row">
-        <div class="col-md-12 mb-1">
+        <div class="col-md-12 mb-5 mt-5">
             <p>Laisser le champ vide si pas d'annonce.</p>
-            {{ include('admin/advertise/_form.html.twig', {'button_label': 'Editer'}) }}
+            {{ include('admin/advertise/_form.html.twig', {'button_label': 'Éditer'}) }}
         </div>
     </div>
 {% endblock %}

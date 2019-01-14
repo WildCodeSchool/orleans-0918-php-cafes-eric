@@ -1,0 +1,14 @@
+.advertise{
+  font-size: 3rem;
+}
+.alert-secondary {
+  background-color: rgba(255,255,255,0.8);
+  border-color: $touch;
+  box-shadow: 2px 2px 5px -1px rgba(0,0,0,0.75);
+}
+
+@media (max-width: 992px) {
+  .advertise {
+    font-size: 30px;
+  }
+}

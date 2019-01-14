@@ -4,23 +4,22 @@
 
 {% block body %}
     <div class="container">
-        <h1>Liste des membres du personnel</h1>
+        <h1 class="admin-title">Liste des membres du personnel</h1>
         <div class="mb-5 mt-5">
             <a class="btn btn-outline-dark" href="{{ path('worker_new') }}"><i class="fa fa-plus"></i> Ajouter un nouveau membre du personnel</a>
         </div>
         <table class="table">
             <thead>
                 <tr>
-                    <th>Prénom</th>
-                    <th>Actions</th>
+                    <th><i class="fas fa-user-circle"></i> Prénom</th>
+                    <th><i class="fas fa-tools"></i> Action</th>
                 </tr>
             </thead>
             <tbody>
             {% for worker in workers %}
                 <tr>
-                    <td class="col-md-9"><i class="fas fa-user-circle"></i> {{ worker.name }}</td>
-                    <td class="col-md-3">
-                        <a class="btn btn-outline-dark" href="{{ path('worker_show', {'id': worker.id}) }}"><i class="far fa-eye"></i> Voir</a>
+                    <td class="col-md-11">{{ worker.name }}</td>
+                    <td class="col-md-1">
                         <a class="btn btn-outline-dark" href="{{ path('worker_edit', {'id': worker.id}) }}"><i class="fas fa-pencil-alt"></i> Éditer</a>
                     </td>
                 </tr>

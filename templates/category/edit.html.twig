@@ -3,12 +3,17 @@
 {% block title %}Éditer une catégorie{% endblock %}
 
 {% block body %}
-    <h1>Éditer une catégorie</h1>
+    <h1 class="admin-title">Éditer une catégorie</h1>
     <div class="row">
-        <div class="col-md-12 mb-5 mt-5">
+        <div class="col-md-12 mt-5">
             {{ include('category/_form.html.twig', {'button_label': 'Éditer'}) }}
         </div>
-        <div class="col-md-12">
+        <div class="col-md-12 mb-3 mt-1">
+            {% set numberCategory =  category.teas|length + category.coffees|length + category.infusions|length%}
+            {{ include('category/_delete_form.html.twig') }}
+            {{  numberCategory }}  produits associés
+        </div>
+        <div class="col-md-12 mb-5">
             <a class="btn btn-outline-dark" href="{{ path('category_index') }}"><i class="fas fa-reply"></i> Retour</a>
         </div>
     </div>

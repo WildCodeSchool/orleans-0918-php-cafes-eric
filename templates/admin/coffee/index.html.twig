@@ -4,9 +4,9 @@
 
 {% block body %}
     <div class="container">
-    <h1>Liste des cafés</h1>
+    <h1 class="admin-title">Liste des cafés</h1>
         <div class="mb-5 mt-5">
-            <a type="button" class="btn btn-outline-dark" href="{{ path('coffee_new') }}"><i class="fa fa-plus"></i> Ajouter un nouveau café</a>
+            <a class="btn btn-outline-dark" href="{{ path('coffee_new') }}"><i class="fa fa-plus"></i> Ajouter un nouveau café</a>
         </div>
     <table class="table">
         <thead>
@@ -14,35 +14,32 @@
                 <th><i class="fas fa-globe-americas"></i> Région du monde</th>
                 <th><i class="fas fa-flag"></i> Pays</th>
                 <th><i class="fas fa-spa"></i> Terroir</th>
-                <th>Nouveauté</th>
-                <th>Produit du mois</th>
-                <th>Action</th>
+                <th><i class="fas fa-star"></i> Nouveauté</th>
+                <th><i class="fas fa-heart"></i> Produit du mois</th>
+                <th><i class="fas fa-tools"></i> Action</th>
             </tr>
         </thead>
         <tbody>
         {% for coffee in coffees %}
             <tr>
-                <td>{{ coffee.category.title }}</td>
-                <td>{{ coffee.country|country }}</td>
-                <td>{{ coffee.soil }}</td>
+                <td class="col-md-3">{{ coffee.category.title }}</td>
+                <td class="col-md-1">{{ coffee.country|country }}</td>
+                <td class="col-md-2">{{ coffee.soil }}</td>
                 {% if coffee.novelty == true %}
-                    <td><a type="button" class="btn btn-outline-dark"
-                           href="{{ path('coffee_novelty', {'id': coffee.id}) }}"><i class="far fa-star"></i> Ne plus
-                            mettre en nouveauté</a></td>
+                    <td class="col-md-2"><a class="btn btn-outline-dark"
+                           href="{{ path('coffee_novelty', {'id': coffee.id}) }}"><i class="fas fa-toggle-on"></i> On</a></td>
                 {% else %}
-                    <td><a type="button" class="btn btn-outline-dark"
-                           href="{{ path('coffee_novelty', {'id': coffee.id}) }}"><i class="fas fa-star"></i> Mettre en nouveauté</a></td>
+                    <td class="col-md-2"><a class="btn btn-outline-dark"
+                           href="{{ path('coffee_novelty', {'id': coffee.id}) }}"><i class="fas fa-toggle-off"></i> Off</a></td>
                 {% endif %}
                 {% if coffee.highlighted == true %}
-                    <td><a type="button" class="btn btn-outline-dark"
-                           href="{{ path('coffee_highlighted', {'id': coffee.id}) }}"><i class="far fa-star"></i> Ne plus
-                            mettre en produit du mois</a></td>
+                    <td class="col-md-3"><a class="btn btn-outline-dark"
+                           href="{{ path('coffee_highlighted', {'id': coffee.id}) }}"><i class="fas fa-toggle-on"></i> On</a></td>
                 {% else %}
-                    <td><a type="button" class="btn btn-outline-dark"
-                           href="{{ path('coffee_highlighted', {'id': coffee.id}) }}"><i class="fas fa-star"></i> Mettre en produit du mois</a></td>
+                    <td class="col-md-3"><a class="btn btn-outline-dark"
+                           href="{{ path('coffee_highlighted', {'id': coffee.id}) }}"><i class="fas fa-toggle-off"></i> Off</a></td>
                 {% endif %}
-                <td>
-                    <a class="btn btn-outline-dark" href="{{ path('coffee_show', {'id': coffee.id}) }}"><i class="far fa-eye"></i> Voir</a>
+                <td class="col-md-1">
                     <a class="btn btn-outline-dark" href="{{ path('coffee_edit', {'id': coffee.id}) }}"><i class="fas fa-pencil-alt"></i> Éditer</a>
                 </td>
             </tr>

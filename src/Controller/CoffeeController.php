@@ -21,7 +21,10 @@ class CoffeeController extends AbstractController
      */
     public function index(CoffeeRepository $coffeeRepository): Response
     {
-        return $this->render('admin/coffee/index.html.twig', ['coffees' => $coffeeRepository->findAll()]);
+        return $this->render(
+            'admin/coffee/index.html.twig',
+            ['coffees' => $coffeeRepository->findBy([], ['country'=>'ASC'])]
+        );
     }
 
     /**
@@ -67,6 +70,7 @@ class CoffeeController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $coffee->setUpdatedAt();
             $em->persist($coffee);
             $em->flush();
 

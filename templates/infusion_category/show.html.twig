@@ -1,0 +1,40 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}infusion détail{% endblock %}
+
+{% block body %}
+<section class="page-section clearfix">
+    <div class="container">
+        <div class="about-heading-content">
+            <h1 class="titles">
+                <span class="section-heading-lower text-uppercase font-weight-bold justify-content-center d-flex ">{{ category.title }}</span>
+            </h1>
+        </div>
+    </div>
+</section>
+<section class="page-section cta">
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 mx-auto">
+            {% for familyInfusion, infusions in infusionByFamilyInfusion %}
+            <div class="cta-inner text-center rounded mt-5">
+                <h2>
+                    <span class="section-heading-upper area mt-4">{{ familyInfusion }}</span>
+                </h2>
+                {% for infusion in infusions %}
+                    <p class="text-left ml-5 mt-4"><span class="oblic font-weight-bold">{{ infusion.name }}</span>: {{ infusion.ingredients }}</p>
+                    {% if infusion.feature is not empty %}
+                        <p class="showCat text-left ml-5 small mb-4">Note : {{ infusion.feature }}</p>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            {% endfor %}
+            <div class="mt-5 mb-5">
+                <a class="btn btn-outline-dark" href="{{ path('infusion_category') }}"><i class="fas fa-reply"></i> Retour</a>
+
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+{% endblock %}

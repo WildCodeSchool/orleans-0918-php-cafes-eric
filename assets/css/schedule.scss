@@ -1,6 +1,6 @@
 .cta {
-  padding-top: 5rem;
-  padding-bottom: 5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   background-color: transparent;
   .cta-inner {
     position: relative;
@@ -10,15 +10,8 @@
   }
 }
 
-.list-hours-item-second {
-  border-bottom: 1px solid fade-out($primary, 0.5);
-  padding-bottom: .25rem;
-  padding-top: .30rem;
-  margin-bottom: 1rem;
-  font-style: italic;
-  &.today {
-    color: $white;
-    text-shadow: 1px 1px $black;
-    font-weight: bolder;
-  }
+.list-hours .list-hours-item.today {
+  color: $touch;
+  font-weight: bolder;
 }
+
