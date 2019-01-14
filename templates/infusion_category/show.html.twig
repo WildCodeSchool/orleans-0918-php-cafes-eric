@@ -22,11 +22,10 @@
                     <span class="section-heading-upper area mt-4">{{ familyInfusion }}</span>
                 </h2>
                 {% for infusion in infusions %}
-                    <p class="text-left ml-5 mt-4">
-                        <span class="oblic font-weight-bold">{{ infusion.name }}</span>
-                        : {{ infusion.ingredients }}
-                        <br/> Note : {{ infusion.feature }}
-                    </p>
+                    <p class="text-left ml-5 mt-4"><span class="oblic font-weight-bold">{{ infusion.name }}</span>: {{ infusion.ingredients }}</p>
+                    {% if infusion.feature is not empty %}
+                        <p class="showCat text-left ml-5 small mb-4">Note : {{ infusion.feature }}</p>
+                    {% endif %}
                 {% endfor %}
             </div>
             {% endfor %}
