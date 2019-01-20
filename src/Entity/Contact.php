@@ -11,7 +11,7 @@ class Contact
      * @Assert\NotBlank
      * @Assert\Length(max="50")
      * @Assert\Regex(
-     * pattern     = "/^[a-z]+$/i"
+     * pattern = "/^[a-z]+$/i"
      * )
      */
 
@@ -22,7 +22,7 @@ class Contact
      * @Assert\NotBlank
      * @Assert\Length(max="50")
      * @Assert\Regex(
-     * pattern     = "/^[a-z]+$/i")
+     * pattern = "/^[a-z]+$/i")
      */
 
     private $name;
