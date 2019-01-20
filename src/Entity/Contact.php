@@ -10,22 +10,30 @@ class Contact
      * @var string|null
      * @Assert\NotBlank
      * @Assert\Length(max="50")
+     * @Assert\Regex(
+     * pattern     = "/^[a-z]+$/i"
+     * )
      */
+
     private $firstname;
 
     /**
      * @var string|null
      * @Assert\NotBlank
      * @Assert\Length(max="50")
+     * @Assert\Regex(
+     * pattern     = "/^[a-z]+$/i")
      */
+
     private $name;
     /**
      * @var string|null
      * @Assert\NotBlank
      * @Assert\Regex(
-     *     pattern="/[0-9]{10}/"
+     * pattern="/[0-9]{10}/"
      * )
      */
+
     private $phone;
 
     /**
