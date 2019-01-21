@@ -1,10 +1,11 @@
  .map {
-    border: 1px solid black;
+    border: 1px solid #f9f0e4;
     width: 425px;
     height: 365px;
   }
   .link-map {
     font-size: 12px;
+    color: $touch;
   }
  @media (max-width: 991px) {
    .global-map  {
