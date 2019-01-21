@@ -2,7 +2,7 @@ Les cafés d'éric
 
 Bonjour, voici comment installer le projet Les cafés d'éric :
 
-Cloner Wastity sur votre serveur : https://github.com/WildCodeSchool/orleans-0918-php-cafes-eric
+Cloner Les cafés d'éric sur votre serveur : https://github.com/WildCodeSchool/orleans-0918-php-cafes-eric
 
 Installer Composer, avec la commande :
 
