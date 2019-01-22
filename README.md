@@ -17,9 +17,9 @@ Installer Composer, avec la commande :
 
 `composer install`
 
-Initialiser et installer yarn, avec la commande :
+Initialiser et installer yarn en suivant ce lien :
 
-`sudo apt-get update && sudo apt-get install yarn`
+https://yarnpkg.com/lang/en/docs/install/#debian-stable
 
 Créer une base de données, avec la commande :
 
