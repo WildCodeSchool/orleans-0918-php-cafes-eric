@@ -9,6 +9,9 @@ body {
 }
 h1 {
   font-size: $sizeH1;
+  @media (max-width: 992px) {
+    font-size: $sizeH1/2;
+  }
 }
 .product-item{
   .product-item-img {

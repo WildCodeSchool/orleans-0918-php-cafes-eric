@@ -40,8 +40,8 @@
 .col-sm-5 {
   .bg-faded {
     @media (max-width: 600px) {
-      margin-top: 7rem;
-      margin-left: -7rem;
+      margin-top: 5rem;
+      margin-left: -5rem;
     }
   }
 }
@@ -55,4 +55,10 @@
 }
 .showCat{
   margin-top: -1em;
+}
+.content-media{
+  @media (max-width: 992px){
+    margin-top: 0rem !important;
+    margin-left: 0rem !important;
+  }
 }
